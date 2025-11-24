@@ -186,10 +186,16 @@ class Simulator:
             
             # BlockDFL Selection
             if attack_active:
-                # Attack: Select WORST update
-                blockdfl_idx = np.argmin(blockdfl_qualities)
-                blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-                blockdfl_selection_type = "WORST"
+                # Attack: Select WORST update with probability defined in config
+                if np.random.random() < self.config.get('attack_probability', 0.05):
+                    blockdfl_idx = np.argmin(blockdfl_qualities)
+                    blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
+                    blockdfl_selection_type = "WORST (ATTACK)"
+                else:
+                    # Even if attack is active, 95% chance to behave normally
+                    blockdfl_idx = np.argmax(blockdfl_qualities)
+                    blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
+                    blockdfl_selection_type = "BEST (ATTACK FAILED)"
             else:
                 # Normal: Select BEST update
                 blockdfl_idx = np.argmax(blockdfl_qualities)

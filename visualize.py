@@ -17,7 +17,7 @@ def plot_convergence(results_file, output_file):
     ours_acc = [r['ours_accuracy'] for r in results]
     
     plt.figure(figsize=(10, 6), dpi=300)
-    plt.plot(rounds, blockdfl_acc, 'r--', label='BlockDFL', linewidth=2)
+    plt.plot(rounds, blockdfl_acc, 'r-', label='BlockDFL', linewidth=2)
     plt.plot(rounds, ours_acc, 'b-', label='Ours', linewidth=2)
     
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)

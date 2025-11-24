@@ -1,7 +1,7 @@
 mnist:
   dataset: MNIST
-  total_rounds: 300
-  attack_start_round: 150
+  total_rounds: 200
+  attack_start_round: 50
   local_training_epochs: 1
   batch_size: 32
   learning_rate: 0.01
@@ -9,11 +9,12 @@ mnist:
   lr_decay: 0.99
   num_candidates: 4
   alpha: 0.5
+  attack_probability: 0.0962
 
 cifar10:
   dataset: CIFAR10
-  total_rounds: 300
-  attack_start_round: 150
+  total_rounds: 5
+  attack_start_round: 2
   local_training_epochs: 1
   batch_size: 32
   learning_rate: 0.01
@@ -21,3 +22,4 @@ cifar10:
   lr_decay: 0.99
   num_candidates: 4
   alpha: 0.5
+  attack_probability: 0.0962

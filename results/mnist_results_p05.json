@@ -1,0 +1,5007 @@
+{
+  "dataset": "MNIST",
+  "total_rounds": 200,
+  "attack_start_round": 100,
+  "results": [
+    {
+      "round": 1,
+      "blockdfl_accuracy": 0.8712,
+      "ours_accuracy": 0.8656,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.8712,
+        "all_qualities": [
+          0.6316,
+          0.8712,
+          0.5227,
+          0.7214
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.8656,
+        "all_qualities": [
+          0.6551,
+          0.8656,
+          0.5543,
+          0.7354
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "blockdfl_accuracy": 0.9047,
+      "ours_accuracy": 0.8884,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9047,
+        "all_qualities": [
+          0.804,
+          0.8733,
+          0.9047,
+          0.8066
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.8884,
+        "all_qualities": [
+          0.8024,
+          0.8731,
+          0.8884,
+          0.7648
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "blockdfl_accuracy": 0.9073,
+      "ours_accuracy": 0.8804,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9073,
+        "all_qualities": [
+          0.814,
+          0.8783,
+          0.9073,
+          0.8166
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.8804,
+        "all_qualities": [
+          0.8046,
+          0.8804,
+          0.8702,
+          0.8355
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "blockdfl_accuracy": 0.9171,
+      "ours_accuracy": 0.926,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9171,
+        "all_qualities": [
+          0.7817,
+          0.8801,
+          0.9171,
+          0.8388
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.926,
+        "all_qualities": [
+          0.8253,
+          0.8775,
+          0.926,
+          0.8418
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "blockdfl_accuracy": 0.8869,
+      "ours_accuracy": 0.9364,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.8869,
+        "all_qualities": [
+          0.7834,
+          0.8859,
+          0.8869,
+          0.8206
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9364,
+        "all_qualities": [
+          0.8171,
+          0.8952,
+          0.9364,
+          0.8501
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "blockdfl_accuracy": 0.9209,
+      "ours_accuracy": 0.9405,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9209,
+        "all_qualities": [
+          0.8151,
+          0.8796,
+          0.9209,
+          0.8165
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9405,
+        "all_qualities": [
+          0.8148,
+          0.8808,
+          0.9405,
+          0.8903
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "blockdfl_accuracy": 0.9154,
+      "ours_accuracy": 0.9303,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9154,
+        "all_qualities": [
+          0.8394,
+          0.9154,
+          0.8873,
+          0.8633
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9303,
+        "all_qualities": [
+          0.8349,
+          0.8966,
+          0.9303,
+          0.8965
+        ]
+      }
+    },
+    {
+      "round": 8,
+      "blockdfl_accuracy": 0.9551,
+      "ours_accuracy": 0.9193,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9551,
+        "all_qualities": [
+          0.8247,
+          0.8859,
+          0.9551,
+          0.8624
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9193,
+        "all_qualities": [
+          0.8364,
+          0.9075,
+          0.9193,
+          0.8597
+        ]
+      }
+    },
+    {
+      "round": 9,
+      "blockdfl_accuracy": 0.9537,
+      "ours_accuracy": 0.9311,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9537,
+        "all_qualities": [
+          0.8376,
+          0.9247,
+          0.9537,
+          0.8633
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9311,
+        "all_qualities": [
+          0.804,
+          0.9132,
+          0.9311,
+          0.876
+        ]
+      }
+    },
+    {
+      "round": 10,
+      "blockdfl_accuracy": 0.9335,
+      "ours_accuracy": 0.9397,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9335,
+        "all_qualities": [
+          0.8306,
+          0.9091,
+          0.9335,
+          0.8987
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9397,
+        "all_qualities": [
+          0.832,
+          0.925,
+          0.9397,
+          0.8743
+        ]
+      }
+    },
+    {
+      "round": 11,
+      "blockdfl_accuracy": 0.9422,
+      "ours_accuracy": 0.9286,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9422,
+        "all_qualities": [
+          0.8533,
+          0.9422,
+          0.9341,
+          0.8782
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9286,
+        "all_qualities": [
+          0.7986,
+          0.9065,
+          0.9286,
+          0.8486
+        ]
+      }
+    },
+    {
+      "round": 12,
+      "blockdfl_accuracy": 0.9524,
+      "ours_accuracy": 0.9493,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9524,
+        "all_qualities": [
+          0.8641,
+          0.9158,
+          0.9524,
+          0.8881
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9493,
+        "all_qualities": [
+          0.8314,
+          0.9241,
+          0.9493,
+          0.8749
+        ]
+      }
+    },
+    {
+      "round": 13,
+      "blockdfl_accuracy": 0.955,
+      "ours_accuracy": 0.9344,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.955,
+        "all_qualities": [
+          0.8766,
+          0.9294,
+          0.955,
+          0.89
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9344,
+        "all_qualities": [
+          0.808,
+          0.9089,
+          0.9344,
+          0.8815
+        ]
+      }
+    },
+    {
+      "round": 14,
+      "blockdfl_accuracy": 0.9359,
+      "ours_accuracy": 0.9363,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9359,
+        "all_qualities": [
+          0.8476,
+          0.9334,
+          0.9359,
+          0.8284
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9363,
+        "all_qualities": [
+          0.8213,
+          0.9302,
+          0.9363,
+          0.8815
+        ]
+      }
+    },
+    {
+      "round": 15,
+      "blockdfl_accuracy": 0.9429,
+      "ours_accuracy": 0.9422,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9429,
+        "all_qualities": [
+          0.832,
+          0.9429,
+          0.9399,
+          0.8979
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9422,
+        "all_qualities": [
+          0.8136,
+          0.9422,
+          0.9199,
+          0.8968
+        ]
+      }
+    },
+    {
+      "round": 16,
+      "blockdfl_accuracy": 0.9515,
+      "ours_accuracy": 0.9569,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9515,
+        "all_qualities": [
+          0.8461,
+          0.9325,
+          0.9515,
+          0.9182
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9569,
+        "all_qualities": [
+          0.822,
+          0.9099,
+          0.9569,
+          0.8911
+        ]
+      }
+    },
+    {
+      "round": 17,
+      "blockdfl_accuracy": 0.9557,
+      "ours_accuracy": 0.9555,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9557,
+        "all_qualities": [
+          0.8649,
+          0.9185,
+          0.9557,
+          0.8934
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9555,
+        "all_qualities": [
+          0.8325,
+          0.9547,
+          0.9555,
+          0.9133
+        ]
+      }
+    },
+    {
+      "round": 18,
+      "blockdfl_accuracy": 0.9606,
+      "ours_accuracy": 0.9543,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9606,
+        "all_qualities": [
+          0.8593,
+          0.944,
+          0.9606,
+          0.892
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9543,
+        "all_qualities": [
+          0.8574,
+          0.9382,
+          0.9543,
+          0.8967
+        ]
+      }
+    },
+    {
+      "round": 19,
+      "blockdfl_accuracy": 0.9562,
+      "ours_accuracy": 0.9539,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9562,
+        "all_qualities": [
+          0.864,
+          0.955,
+          0.9562,
+          0.9006
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9539,
+        "all_qualities": [
+          0.8632,
+          0.9525,
+          0.9539,
+          0.8848
+        ]
+      }
+    },
+    {
+      "round": 20,
+      "blockdfl_accuracy": 0.9621,
+      "ours_accuracy": 0.9447,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9621,
+        "all_qualities": [
+          0.8816,
+          0.9521,
+          0.9621,
+          0.8933
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9447,
+        "all_qualities": [
+          0.8317,
+          0.9417,
+          0.9447,
+          0.9102
+        ]
+      }
+    },
+    {
+      "round": 21,
+      "blockdfl_accuracy": 0.9402,
+      "ours_accuracy": 0.9428,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9402,
+        "all_qualities": [
+          0.8876,
+          0.9402,
+          0.913,
+          0.8708
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9428,
+        "all_qualities": [
+          0.8527,
+          0.9428,
+          0.9404,
+          0.9069
+        ]
+      }
+    },
+    {
+      "round": 22,
+      "blockdfl_accuracy": 0.9622,
+      "ours_accuracy": 0.9629,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9622,
+        "all_qualities": [
+          0.8576,
+          0.9384,
+          0.9622,
+          0.8983
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9629,
+        "all_qualities": [
+          0.8558,
+          0.9263,
+          0.9629,
+          0.8975
+        ]
+      }
+    },
+    {
+      "round": 23,
+      "blockdfl_accuracy": 0.9566,
+      "ours_accuracy": 0.9583,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9566,
+        "all_qualities": [
+          0.9036,
+          0.9457,
+          0.9566,
+          0.9103
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9583,
+        "all_qualities": [
+          0.8433,
+          0.941,
+          0.9583,
+          0.9118
+        ]
+      }
+    },
+    {
+      "round": 24,
+      "blockdfl_accuracy": 0.964,
+      "ours_accuracy": 0.9537,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.964,
+        "all_qualities": [
+          0.8413,
+          0.9478,
+          0.964,
+          0.8755
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9537,
+        "all_qualities": [
+          0.8512,
+          0.9333,
+          0.9537,
+          0.9026
+        ]
+      }
+    },
+    {
+      "round": 25,
+      "blockdfl_accuracy": 0.9603,
+      "ours_accuracy": 0.9632,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9603,
+        "all_qualities": [
+          0.8652,
+          0.9469,
+          0.9603,
+          0.8803
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9632,
+        "all_qualities": [
+          0.8853,
+          0.9632,
+          0.9547,
+          0.8965
+        ]
+      }
+    },
+    {
+      "round": 26,
+      "blockdfl_accuracy": 0.9586,
+      "ours_accuracy": 0.9686,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9586,
+        "all_qualities": [
+          0.8431,
+          0.9442,
+          0.9586,
+          0.8872
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9686,
+        "all_qualities": [
+          0.8717,
+          0.9459,
+          0.9686,
+          0.9161
+        ]
+      }
+    },
+    {
+      "round": 27,
+      "blockdfl_accuracy": 0.9601,
+      "ours_accuracy": 0.9684,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9601,
+        "all_qualities": [
+          0.8942,
+          0.953,
+          0.9601,
+          0.9024
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9684,
+        "all_qualities": [
+          0.9232,
+          0.9537,
+          0.9684,
+          0.9176
+        ]
+      }
+    },
+    {
+      "round": 28,
+      "blockdfl_accuracy": 0.9653,
+      "ours_accuracy": 0.962,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9653,
+        "all_qualities": [
+          0.8949,
+          0.9491,
+          0.9653,
+          0.9348
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.962,
+        "all_qualities": [
+          0.8491,
+          0.9558,
+          0.962,
+          0.9385
+        ]
+      }
+    },
+    {
+      "round": 29,
+      "blockdfl_accuracy": 0.9581,
+      "ours_accuracy": 0.9659,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9581,
+        "all_qualities": [
+          0.8947,
+          0.9581,
+          0.9574,
+          0.9047
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9659,
+        "all_qualities": [
+          0.8529,
+          0.9539,
+          0.9659,
+          0.9196
+        ]
+      }
+    },
+    {
+      "round": 30,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.967,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.976,
+        "all_qualities": [
+          0.8849,
+          0.9546,
+          0.976,
+          0.8961
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.967,
+        "all_qualities": [
+          0.8578,
+          0.9515,
+          0.967,
+          0.9052
+        ]
+      }
+    },
+    {
+      "round": 31,
+      "blockdfl_accuracy": 0.968,
+      "ours_accuracy": 0.9651,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.968,
+        "all_qualities": [
+          0.8453,
+          0.968,
+          0.9641,
+          0.9216
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9651,
+        "all_qualities": [
+          0.8815,
+          0.9504,
+          0.9651,
+          0.9188
+        ]
+      }
+    },
+    {
+      "round": 32,
+      "blockdfl_accuracy": 0.9722,
+      "ours_accuracy": 0.9641,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9722,
+        "all_qualities": [
+          0.8609,
+          0.9449,
+          0.9722,
+          0.9111
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9641,
+        "all_qualities": [
+          0.8949,
+          0.9591,
+          0.9641,
+          0.9083
+        ]
+      }
+    },
+    {
+      "round": 33,
+      "blockdfl_accuracy": 0.9752,
+      "ours_accuracy": 0.965,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9752,
+        "all_qualities": [
+          0.8472,
+          0.9652,
+          0.9752,
+          0.9185
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.965,
+        "all_qualities": [
+          0.8683,
+          0.965,
+          0.9637,
+          0.8953
+        ]
+      }
+    },
+    {
+      "round": 34,
+      "blockdfl_accuracy": 0.9641,
+      "ours_accuracy": 0.9736,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9641,
+        "all_qualities": [
+          0.8698,
+          0.9598,
+          0.9641,
+          0.9039
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9736,
+        "all_qualities": [
+          0.8862,
+          0.9494,
+          0.9736,
+          0.909
+        ]
+      }
+    },
+    {
+      "round": 35,
+      "blockdfl_accuracy": 0.9614,
+      "ours_accuracy": 0.9733,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9614,
+        "all_qualities": [
+          0.8819,
+          0.9598,
+          0.9614,
+          0.9097
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9733,
+        "all_qualities": [
+          0.8503,
+          0.9515,
+          0.9733,
+          0.9196
+        ]
+      }
+    },
+    {
+      "round": 36,
+      "blockdfl_accuracy": 0.966,
+      "ours_accuracy": 0.9681,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.966,
+        "all_qualities": [
+          0.8645,
+          0.9589,
+          0.966,
+          0.9022
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9681,
+        "all_qualities": [
+          0.9251,
+          0.9654,
+          0.9681,
+          0.9363
+        ]
+      }
+    },
+    {
+      "round": 37,
+      "blockdfl_accuracy": 0.9647,
+      "ours_accuracy": 0.9735,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9647,
+        "all_qualities": [
+          0.8685,
+          0.9609,
+          0.9647,
+          0.8986
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9735,
+        "all_qualities": [
+          0.8652,
+          0.9542,
+          0.9735,
+          0.908
+        ]
+      }
+    },
+    {
+      "round": 38,
+      "blockdfl_accuracy": 0.9638,
+      "ours_accuracy": 0.9692,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9638,
+        "all_qualities": [
+          0.8942,
+          0.9592,
+          0.9638,
+          0.8934
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9692,
+        "all_qualities": [
+          0.895,
+          0.9692,
+          0.9674,
+          0.9355
+        ]
+      }
+    },
+    {
+      "round": 39,
+      "blockdfl_accuracy": 0.969,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.969,
+        "all_qualities": [
+          0.8548,
+          0.969,
+          0.9605,
+          0.8932
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.8746,
+          0.9549,
+          0.9775,
+          0.9335
+        ]
+      }
+    },
+    {
+      "round": 40,
+      "blockdfl_accuracy": 0.971,
+      "ours_accuracy": 0.9716,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.971,
+        "all_qualities": [
+          0.896,
+          0.965,
+          0.971,
+          0.9317
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9716,
+        "all_qualities": [
+          0.8761,
+          0.9564,
+          0.9716,
+          0.93
+        ]
+      }
+    },
+    {
+      "round": 41,
+      "blockdfl_accuracy": 0.9704,
+      "ours_accuracy": 0.9679,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9704,
+        "all_qualities": [
+          0.902,
+          0.9673,
+          0.9704,
+          0.8783
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9679,
+        "all_qualities": [
+          0.8726,
+          0.9679,
+          0.9646,
+          0.9233
+        ]
+      }
+    },
+    {
+      "round": 42,
+      "blockdfl_accuracy": 0.968,
+      "ours_accuracy": 0.9625,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.968,
+        "all_qualities": [
+          0.9164,
+          0.968,
+          0.9644,
+          0.9368
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9625,
+        "all_qualities": [
+          0.8542,
+          0.9581,
+          0.9625,
+          0.9377
+        ]
+      }
+    },
+    {
+      "round": 43,
+      "blockdfl_accuracy": 0.9728,
+      "ours_accuracy": 0.9642,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9728,
+        "all_qualities": [
+          0.8827,
+          0.9699,
+          0.9728,
+          0.9032
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9642,
+        "all_qualities": [
+          0.8903,
+          0.9591,
+          0.9642,
+          0.9183
+        ]
+      }
+    },
+    {
+      "round": 44,
+      "blockdfl_accuracy": 0.9686,
+      "ours_accuracy": 0.9635,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9686,
+        "all_qualities": [
+          0.8766,
+          0.9663,
+          0.9686,
+          0.9216
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9635,
+        "all_qualities": [
+          0.8595,
+          0.9519,
+          0.9635,
+          0.9354
+        ]
+      }
+    },
+    {
+      "round": 45,
+      "blockdfl_accuracy": 0.9674,
+      "ours_accuracy": 0.967,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9674,
+        "all_qualities": [
+          0.8841,
+          0.9665,
+          0.9674,
+          0.9327
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.967,
+        "all_qualities": [
+          0.8989,
+          0.9593,
+          0.967,
+          0.931
+        ]
+      }
+    },
+    {
+      "round": 46,
+      "blockdfl_accuracy": 0.9727,
+      "ours_accuracy": 0.9707,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9727,
+        "all_qualities": [
+          0.8673,
+          0.969,
+          0.9727,
+          0.9496
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9707,
+        "all_qualities": [
+          0.872,
+          0.9638,
+          0.9707,
+          0.9217
+        ]
+      }
+    },
+    {
+      "round": 47,
+      "blockdfl_accuracy": 0.9689,
+      "ours_accuracy": 0.9716,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9689,
+        "all_qualities": [
+          0.8745,
+          0.9595,
+          0.9689,
+          0.9059
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9716,
+        "all_qualities": [
+          0.8594,
+          0.9716,
+          0.9542,
+          0.9086
+        ]
+      }
+    },
+    {
+      "round": 48,
+      "blockdfl_accuracy": 0.9736,
+      "ours_accuracy": 0.9807,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9736,
+        "all_qualities": [
+          0.9109,
+          0.9617,
+          0.9736,
+          0.923
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9807,
+        "all_qualities": [
+          0.8786,
+          0.9653,
+          0.9807,
+          0.9159
+        ]
+      }
+    },
+    {
+      "round": 49,
+      "blockdfl_accuracy": 0.9716,
+      "ours_accuracy": 0.9746,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9716,
+        "all_qualities": [
+          0.8651,
+          0.9676,
+          0.9716,
+          0.9032
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9746,
+        "all_qualities": [
+          0.8654,
+          0.9703,
+          0.9746,
+          0.9247
+        ]
+      }
+    },
+    {
+      "round": 50,
+      "blockdfl_accuracy": 0.9719,
+      "ours_accuracy": 0.9714,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9719,
+        "all_qualities": [
+          0.907,
+          0.9719,
+          0.9713,
+          0.9188
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9714,
+        "all_qualities": [
+          0.906,
+          0.9548,
+          0.9714,
+          0.9135
+        ]
+      }
+    },
+    {
+      "round": 51,
+      "blockdfl_accuracy": 0.9743,
+      "ours_accuracy": 0.9757,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9743,
+        "all_qualities": [
+          0.8981,
+          0.9576,
+          0.9743,
+          0.9271
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9757,
+        "all_qualities": [
+          0.8596,
+          0.9679,
+          0.9757,
+          0.9324
+        ]
+      }
+    },
+    {
+      "round": 52,
+      "blockdfl_accuracy": 0.9739,
+      "ours_accuracy": 0.9672,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9739,
+        "all_qualities": [
+          0.8768,
+          0.9695,
+          0.9739,
+          0.8781
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9672,
+        "all_qualities": [
+          0.8421,
+          0.9672,
+          0.967,
+          0.9167
+        ]
+      }
+    },
+    {
+      "round": 53,
+      "blockdfl_accuracy": 0.9741,
+      "ours_accuracy": 0.9753,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9741,
+        "all_qualities": [
+          0.8964,
+          0.9665,
+          0.9741,
+          0.9145
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9753,
+        "all_qualities": [
+          0.906,
+          0.9609,
+          0.9753,
+          0.938
+        ]
+      }
+    },
+    {
+      "round": 54,
+      "blockdfl_accuracy": 0.9739,
+      "ours_accuracy": 0.9732,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9739,
+        "all_qualities": [
+          0.9178,
+          0.9704,
+          0.9739,
+          0.9512
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9732,
+        "all_qualities": [
+          0.9004,
+          0.9636,
+          0.9732,
+          0.9263
+        ]
+      }
+    },
+    {
+      "round": 55,
+      "blockdfl_accuracy": 0.9735,
+      "ours_accuracy": 0.9757,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9735,
+        "all_qualities": [
+          0.9284,
+          0.9721,
+          0.9735,
+          0.9236
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9757,
+        "all_qualities": [
+          0.8934,
+          0.9757,
+          0.9708,
+          0.9198
+        ]
+      }
+    },
+    {
+      "round": 56,
+      "blockdfl_accuracy": 0.9752,
+      "ours_accuracy": 0.9707,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9752,
+        "all_qualities": [
+          0.9046,
+          0.9625,
+          0.9752,
+          0.925
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9707,
+        "all_qualities": [
+          0.8875,
+          0.9613,
+          0.9707,
+          0.895
+        ]
+      }
+    },
+    {
+      "round": 57,
+      "blockdfl_accuracy": 0.9724,
+      "ours_accuracy": 0.9739,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9724,
+        "all_qualities": [
+          0.8898,
+          0.9672,
+          0.9724,
+          0.9122
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9739,
+        "all_qualities": [
+          0.8958,
+          0.9603,
+          0.9739,
+          0.9567
+        ]
+      }
+    },
+    {
+      "round": 58,
+      "blockdfl_accuracy": 0.9725,
+      "ours_accuracy": 0.9764,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9725,
+        "all_qualities": [
+          0.9082,
+          0.9699,
+          0.9725,
+          0.9172
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9764,
+        "all_qualities": [
+          0.9031,
+          0.9642,
+          0.9764,
+          0.9361
+        ]
+      }
+    },
+    {
+      "round": 59,
+      "blockdfl_accuracy": 0.9749,
+      "ours_accuracy": 0.9675,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9749,
+        "all_qualities": [
+          0.9055,
+          0.9749,
+          0.9719,
+          0.9309
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9675,
+        "all_qualities": [
+          0.8633,
+          0.961,
+          0.9675,
+          0.9204
+        ]
+      }
+    },
+    {
+      "round": 60,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.9745,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.976,
+        "all_qualities": [
+          0.9142,
+          0.9691,
+          0.976,
+          0.8854
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9745,
+        "all_qualities": [
+          0.9086,
+          0.9631,
+          0.9745,
+          0.917
+        ]
+      }
+    },
+    {
+      "round": 61,
+      "blockdfl_accuracy": 0.9738,
+      "ours_accuracy": 0.9757,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9738,
+        "all_qualities": [
+          0.9446,
+          0.9672,
+          0.9738,
+          0.9296
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9757,
+        "all_qualities": [
+          0.8847,
+          0.9672,
+          0.9757,
+          0.93
+        ]
+      }
+    },
+    {
+      "round": 62,
+      "blockdfl_accuracy": 0.9716,
+      "ours_accuracy": 0.9783,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9716,
+        "all_qualities": [
+          0.9225,
+          0.9664,
+          0.9716,
+          0.9387
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9783,
+        "all_qualities": [
+          0.8609,
+          0.9664,
+          0.9783,
+          0.9328
+        ]
+      }
+    },
+    {
+      "round": 63,
+      "blockdfl_accuracy": 0.9714,
+      "ours_accuracy": 0.9734,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9714,
+        "all_qualities": [
+          0.9126,
+          0.9685,
+          0.9714,
+          0.8979
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9734,
+        "all_qualities": [
+          0.9074,
+          0.9684,
+          0.9734,
+          0.9242
+        ]
+      }
+    },
+    {
+      "round": 64,
+      "blockdfl_accuracy": 0.9754,
+      "ours_accuracy": 0.9767,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9754,
+        "all_qualities": [
+          0.9388,
+          0.9609,
+          0.9754,
+          0.9117
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9767,
+        "all_qualities": [
+          0.8668,
+          0.9714,
+          0.9767,
+          0.9057
+        ]
+      }
+    },
+    {
+      "round": 65,
+      "blockdfl_accuracy": 0.9731,
+      "ours_accuracy": 0.9756,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9731,
+        "all_qualities": [
+          0.9133,
+          0.9666,
+          0.9731,
+          0.932
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9756,
+        "all_qualities": [
+          0.8814,
+          0.9672,
+          0.9756,
+          0.9062
+        ]
+      }
+    },
+    {
+      "round": 66,
+      "blockdfl_accuracy": 0.9735,
+      "ours_accuracy": 0.9716,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9735,
+        "all_qualities": [
+          0.8692,
+          0.9659,
+          0.9735,
+          0.8775
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9716,
+        "all_qualities": [
+          0.9088,
+          0.9595,
+          0.9716,
+          0.9244
+        ]
+      }
+    },
+    {
+      "round": 67,
+      "blockdfl_accuracy": 0.9725,
+      "ours_accuracy": 0.9731,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9725,
+        "all_qualities": [
+          0.8951,
+          0.9674,
+          0.9725,
+          0.9221
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9731,
+        "all_qualities": [
+          0.8848,
+          0.9709,
+          0.9731,
+          0.925
+        ]
+      }
+    },
+    {
+      "round": 68,
+      "blockdfl_accuracy": 0.9725,
+      "ours_accuracy": 0.9693,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9725,
+        "all_qualities": [
+          0.9071,
+          0.9725,
+          0.9699,
+          0.9299
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9693,
+        "all_qualities": [
+          0.8868,
+          0.9636,
+          0.9693,
+          0.9162
+        ]
+      }
+    },
+    {
+      "round": 69,
+      "blockdfl_accuracy": 0.9771,
+      "ours_accuracy": 0.9732,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9771,
+        "all_qualities": [
+          0.9058,
+          0.9761,
+          0.9771,
+          0.9231
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9732,
+        "all_qualities": [
+          0.9064,
+          0.9732,
+          0.9718,
+          0.9309
+        ]
+      }
+    },
+    {
+      "round": 70,
+      "blockdfl_accuracy": 0.9706,
+      "ours_accuracy": 0.9773,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9706,
+        "all_qualities": [
+          0.8927,
+          0.9691,
+          0.9706,
+          0.9145
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9773,
+        "all_qualities": [
+          0.9169,
+          0.9638,
+          0.9773,
+          0.9366
+        ]
+      }
+    },
+    {
+      "round": 71,
+      "blockdfl_accuracy": 0.9719,
+      "ours_accuracy": 0.9791,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9719,
+        "all_qualities": [
+          0.8645,
+          0.9719,
+          0.9681,
+          0.9036
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9791,
+        "all_qualities": [
+          0.8963,
+          0.9697,
+          0.9791,
+          0.9325
+        ]
+      }
+    },
+    {
+      "round": 72,
+      "blockdfl_accuracy": 0.9746,
+      "ours_accuracy": 0.975,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9746,
+        "all_qualities": [
+          0.8645,
+          0.9544,
+          0.9746,
+          0.9191
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.975,
+        "all_qualities": [
+          0.8556,
+          0.975,
+          0.9736,
+          0.9248
+        ]
+      }
+    },
+    {
+      "round": 73,
+      "blockdfl_accuracy": 0.9699,
+      "ours_accuracy": 0.9797,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9699,
+        "all_qualities": [
+          0.8893,
+          0.9699,
+          0.9693,
+          0.9339
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9797,
+        "all_qualities": [
+          0.9073,
+          0.9627,
+          0.9797,
+          0.9119
+        ]
+      }
+    },
+    {
+      "round": 74,
+      "blockdfl_accuracy": 0.9753,
+      "ours_accuracy": 0.9785,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9753,
+        "all_qualities": [
+          0.9174,
+          0.9687,
+          0.9753,
+          0.9512
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9785,
+        "all_qualities": [
+          0.9028,
+          0.9685,
+          0.9785,
+          0.9375
+        ]
+      }
+    },
+    {
+      "round": 75,
+      "blockdfl_accuracy": 0.9742,
+      "ours_accuracy": 0.978,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9742,
+        "all_qualities": [
+          0.8955,
+          0.9742,
+          0.9718,
+          0.9215
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.978,
+        "all_qualities": [
+          0.8939,
+          0.9715,
+          0.978,
+          0.8955
+        ]
+      }
+    },
+    {
+      "round": 76,
+      "blockdfl_accuracy": 0.9763,
+      "ours_accuracy": 0.9803,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9763,
+        "all_qualities": [
+          0.8884,
+          0.9603,
+          0.9763,
+          0.9268
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9803,
+        "all_qualities": [
+          0.9089,
+          0.9803,
+          0.9775,
+          0.937
+        ]
+      }
+    },
+    {
+      "round": 77,
+      "blockdfl_accuracy": 0.9754,
+      "ours_accuracy": 0.9806,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9754,
+        "all_qualities": [
+          0.913,
+          0.9656,
+          0.9754,
+          0.9271
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9806,
+        "all_qualities": [
+          0.88,
+          0.9588,
+          0.9806,
+          0.9253
+        ]
+      }
+    },
+    {
+      "round": 78,
+      "blockdfl_accuracy": 0.9753,
+      "ours_accuracy": 0.98,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9753,
+        "all_qualities": [
+          0.931,
+          0.9735,
+          0.9753,
+          0.8905
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.98,
+        "all_qualities": [
+          0.9202,
+          0.9772,
+          0.98,
+          0.9415
+        ]
+      }
+    },
+    {
+      "round": 79,
+      "blockdfl_accuracy": 0.9759,
+      "ours_accuracy": 0.9718,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9759,
+        "all_qualities": [
+          0.9245,
+          0.9679,
+          0.9759,
+          0.9134
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9718,
+        "all_qualities": [
+          0.9081,
+          0.9655,
+          0.9718,
+          0.9288
+        ]
+      }
+    },
+    {
+      "round": 80,
+      "blockdfl_accuracy": 0.9782,
+      "ours_accuracy": 0.9777,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9782,
+        "all_qualities": [
+          0.9225,
+          0.9718,
+          0.9782,
+          0.9253
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9777,
+        "all_qualities": [
+          0.8732,
+          0.9671,
+          0.9777,
+          0.9619
+        ]
+      }
+    },
+    {
+      "round": 81,
+      "blockdfl_accuracy": 0.9771,
+      "ours_accuracy": 0.9749,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9771,
+        "all_qualities": [
+          0.9396,
+          0.9726,
+          0.9771,
+          0.9018
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9749,
+        "all_qualities": [
+          0.8775,
+          0.9651,
+          0.9749,
+          0.9275
+        ]
+      }
+    },
+    {
+      "round": 82,
+      "blockdfl_accuracy": 0.9737,
+      "ours_accuracy": 0.9767,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9737,
+        "all_qualities": [
+          0.9307,
+          0.9737,
+          0.9696,
+          0.8983
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9767,
+        "all_qualities": [
+          0.9131,
+          0.9767,
+          0.9743,
+          0.9332
+        ]
+      }
+    },
+    {
+      "round": 83,
+      "blockdfl_accuracy": 0.9786,
+      "ours_accuracy": 0.9751,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9786,
+        "all_qualities": [
+          0.9271,
+          0.9713,
+          0.9786,
+          0.9387
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9751,
+        "all_qualities": [
+          0.8949,
+          0.9613,
+          0.9751,
+          0.9222
+        ]
+      }
+    },
+    {
+      "round": 84,
+      "blockdfl_accuracy": 0.9766,
+      "ours_accuracy": 0.9742,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9766,
+        "all_qualities": [
+          0.9226,
+          0.9715,
+          0.9766,
+          0.9069
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9742,
+        "all_qualities": [
+          0.9125,
+          0.9696,
+          0.9742,
+          0.9248
+        ]
+      }
+    },
+    {
+      "round": 85,
+      "blockdfl_accuracy": 0.9725,
+      "ours_accuracy": 0.9756,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9725,
+        "all_qualities": [
+          0.9218,
+          0.9677,
+          0.9725,
+          0.9238
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9756,
+        "all_qualities": [
+          0.9108,
+          0.9649,
+          0.9756,
+          0.9501
+        ]
+      }
+    },
+    {
+      "round": 86,
+      "blockdfl_accuracy": 0.9761,
+      "ours_accuracy": 0.977,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9761,
+        "all_qualities": [
+          0.9369,
+          0.9742,
+          0.9761,
+          0.9123
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.977,
+        "all_qualities": [
+          0.8983,
+          0.9723,
+          0.977,
+          0.9403
+        ]
+      }
+    },
+    {
+      "round": 87,
+      "blockdfl_accuracy": 0.9757,
+      "ours_accuracy": 0.9779,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9757,
+        "all_qualities": [
+          0.9183,
+          0.9724,
+          0.9757,
+          0.9393
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9779,
+        "all_qualities": [
+          0.9089,
+          0.9642,
+          0.9779,
+          0.9075
+        ]
+      }
+    },
+    {
+      "round": 88,
+      "blockdfl_accuracy": 0.974,
+      "ours_accuracy": 0.9755,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.974,
+        "all_qualities": [
+          0.9431,
+          0.9642,
+          0.974,
+          0.9228
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9755,
+        "all_qualities": [
+          0.9304,
+          0.9738,
+          0.9755,
+          0.9333
+        ]
+      }
+    },
+    {
+      "round": 89,
+      "blockdfl_accuracy": 0.9772,
+      "ours_accuracy": 0.9743,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9772,
+        "all_qualities": [
+          0.9116,
+          0.9772,
+          0.9772,
+          0.931
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9743,
+        "all_qualities": [
+          0.9289,
+          0.9743,
+          0.973,
+          0.9386
+        ]
+      }
+    },
+    {
+      "round": 90,
+      "blockdfl_accuracy": 0.9779,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9779,
+        "all_qualities": [
+          0.8988,
+          0.9669,
+          0.9779,
+          0.9326
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.8834,
+          0.9726,
+          0.9775,
+          0.9372
+        ]
+      }
+    },
+    {
+      "round": 91,
+      "blockdfl_accuracy": 0.9773,
+      "ours_accuracy": 0.9723,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9773,
+        "all_qualities": [
+          0.9334,
+          0.9695,
+          0.9773,
+          0.9302
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9723,
+        "all_qualities": [
+          0.8719,
+          0.9683,
+          0.9723,
+          0.9263
+        ]
+      }
+    },
+    {
+      "round": 92,
+      "blockdfl_accuracy": 0.9753,
+      "ours_accuracy": 0.9763,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9753,
+        "all_qualities": [
+          0.9097,
+          0.9753,
+          0.9748,
+          0.9171
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9763,
+        "all_qualities": [
+          0.92,
+          0.9681,
+          0.9763,
+          0.9291
+        ]
+      }
+    },
+    {
+      "round": 93,
+      "blockdfl_accuracy": 0.9785,
+      "ours_accuracy": 0.9766,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9785,
+        "all_qualities": [
+          0.9352,
+          0.9667,
+          0.9785,
+          0.9106
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9766,
+        "all_qualities": [
+          0.915,
+          0.9727,
+          0.9766,
+          0.9007
+        ]
+      }
+    },
+    {
+      "round": 94,
+      "blockdfl_accuracy": 0.9793,
+      "ours_accuracy": 0.9739,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9793,
+        "all_qualities": [
+          0.9378,
+          0.9766,
+          0.9793,
+          0.9009
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9739,
+        "all_qualities": [
+          0.8846,
+          0.9715,
+          0.9739,
+          0.9207
+        ]
+      }
+    },
+    {
+      "round": 95,
+      "blockdfl_accuracy": 0.9772,
+      "ours_accuracy": 0.9762,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9772,
+        "all_qualities": [
+          0.9403,
+          0.9743,
+          0.9772,
+          0.9105
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9762,
+        "all_qualities": [
+          0.916,
+          0.9743,
+          0.9762,
+          0.935
+        ]
+      }
+    },
+    {
+      "round": 96,
+      "blockdfl_accuracy": 0.9755,
+      "ours_accuracy": 0.9771,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9755,
+        "all_qualities": [
+          0.9195,
+          0.9755,
+          0.9751,
+          0.9463
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9771,
+        "all_qualities": [
+          0.8906,
+          0.9758,
+          0.9771,
+          0.9093
+        ]
+      }
+    },
+    {
+      "round": 97,
+      "blockdfl_accuracy": 0.9802,
+      "ours_accuracy": 0.9766,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9802,
+        "all_qualities": [
+          0.9269,
+          0.9616,
+          0.9802,
+          0.9183
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9766,
+        "all_qualities": [
+          0.878,
+          0.9763,
+          0.9766,
+          0.9561
+        ]
+      }
+    },
+    {
+      "round": 98,
+      "blockdfl_accuracy": 0.9799,
+      "ours_accuracy": 0.9755,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9799,
+        "all_qualities": [
+          0.9291,
+          0.967,
+          0.9799,
+          0.9431
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9755,
+        "all_qualities": [
+          0.9142,
+          0.9695,
+          0.9755,
+          0.9392
+        ]
+      }
+    },
+    {
+      "round": 99,
+      "blockdfl_accuracy": 0.9802,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST",
+        "quality": 0.9802,
+        "all_qualities": [
+          0.9152,
+          0.9738,
+          0.9802,
+          0.913
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.9168,
+          0.9775,
+          0.972,
+          0.9386
+        ]
+      }
+    },
+    {
+      "round": 100,
+      "blockdfl_accuracy": 0.9795,
+      "ours_accuracy": 0.9782,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.9349,
+          0.9774,
+          0.9795,
+          0.9221
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9782,
+        "all_qualities": [
+          0.9203,
+          0.9718,
+          0.9782,
+          0.9375
+        ]
+      }
+    },
+    {
+      "round": 101,
+      "blockdfl_accuracy": 0.9787,
+      "ours_accuracy": 0.9746,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9787,
+        "all_qualities": [
+          0.8813,
+          0.971,
+          0.9787,
+          0.9301
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9746,
+        "all_qualities": [
+          0.8941,
+          0.9737,
+          0.9746,
+          0.9255
+        ]
+      }
+    },
+    {
+      "round": 102,
+      "blockdfl_accuracy": 0.9772,
+      "ours_accuracy": 0.9761,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9772,
+        "all_qualities": [
+          0.9096,
+          0.9727,
+          0.9772,
+          0.9146
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9761,
+        "all_qualities": [
+          0.8944,
+          0.9691,
+          0.9761,
+          0.9197
+        ]
+      }
+    },
+    {
+      "round": 103,
+      "blockdfl_accuracy": 0.975,
+      "ours_accuracy": 0.9772,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.975,
+        "all_qualities": [
+          0.9522,
+          0.9607,
+          0.975,
+          0.9149
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9772,
+        "all_qualities": [
+          0.898,
+          0.969,
+          0.9772,
+          0.9419
+        ]
+      }
+    },
+    {
+      "round": 104,
+      "blockdfl_accuracy": 0.9742,
+      "ours_accuracy": 0.9782,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9742,
+        "all_qualities": [
+          0.9163,
+          0.9741,
+          0.9742,
+          0.9068
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9782,
+        "all_qualities": [
+          0.9349,
+          0.9708,
+          0.9782,
+          0.9129
+        ]
+      }
+    },
+    {
+      "round": 105,
+      "blockdfl_accuracy": 0.9762,
+      "ours_accuracy": 0.9788,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9762,
+        "all_qualities": [
+          0.9272,
+          0.9698,
+          0.9762,
+          0.9362
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9788,
+        "all_qualities": [
+          0.9099,
+          0.972,
+          0.9788,
+          0.9556
+        ]
+      }
+    },
+    {
+      "round": 106,
+      "blockdfl_accuracy": 0.9742,
+      "ours_accuracy": 0.9794,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9742,
+        "all_qualities": [
+          0.9332,
+          0.9741,
+          0.9742,
+          0.9075
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9794,
+        "all_qualities": [
+          0.889,
+          0.9751,
+          0.9794,
+          0.9284
+        ]
+      }
+    },
+    {
+      "round": 107,
+      "blockdfl_accuracy": 0.9786,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9786,
+        "all_qualities": [
+          0.9185,
+          0.966,
+          0.9786,
+          0.9415
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.9004,
+          0.9672,
+          0.9775,
+          0.9447
+        ]
+      }
+    },
+    {
+      "round": 108,
+      "blockdfl_accuracy": 0.9752,
+      "ours_accuracy": 0.9769,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9752,
+        "all_qualities": [
+          0.9451,
+          0.9704,
+          0.9752,
+          0.9357
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9769,
+        "all_qualities": [
+          0.8857,
+          0.9728,
+          0.9769,
+          0.9411
+        ]
+      }
+    },
+    {
+      "round": 109,
+      "blockdfl_accuracy": 0.9781,
+      "ours_accuracy": 0.9766,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9781,
+        "all_qualities": [
+          0.9294,
+          0.974,
+          0.9781,
+          0.9116
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9766,
+        "all_qualities": [
+          0.8976,
+          0.9766,
+          0.9731,
+          0.9357
+        ]
+      }
+    },
+    {
+      "round": 110,
+      "blockdfl_accuracy": 0.975,
+      "ours_accuracy": 0.9808,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.975,
+        "all_qualities": [
+          0.9297,
+          0.9734,
+          0.975,
+          0.929
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9808,
+        "all_qualities": [
+          0.9085,
+          0.9687,
+          0.9808,
+          0.9405
+        ]
+      }
+    },
+    {
+      "round": 111,
+      "blockdfl_accuracy": 0.975,
+      "ours_accuracy": 0.9781,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.975,
+        "all_qualities": [
+          0.9191,
+          0.9746,
+          0.975,
+          0.9251
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9781,
+        "all_qualities": [
+          0.9089,
+          0.973,
+          0.9781,
+          0.9565
+        ]
+      }
+    },
+    {
+      "round": 112,
+      "blockdfl_accuracy": 0.9769,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9769,
+        "all_qualities": [
+          0.9216,
+          0.9718,
+          0.9769,
+          0.923
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.8807,
+          0.9683,
+          0.9775,
+          0.9475
+        ]
+      }
+    },
+    {
+      "round": 113,
+      "blockdfl_accuracy": 0.9754,
+      "ours_accuracy": 0.9805,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9754,
+        "all_qualities": [
+          0.9318,
+          0.9744,
+          0.9754,
+          0.9431
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9805,
+        "all_qualities": [
+          0.9099,
+          0.9762,
+          0.9805,
+          0.9485
+        ]
+      }
+    },
+    {
+      "round": 114,
+      "blockdfl_accuracy": 0.9743,
+      "ours_accuracy": 0.9775,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9743,
+        "all_qualities": [
+          0.9172,
+          0.9743,
+          0.971,
+          0.8917
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9775,
+        "all_qualities": [
+          0.9455,
+          0.9691,
+          0.9775,
+          0.9473
+        ]
+      }
+    },
+    {
+      "round": 115,
+      "blockdfl_accuracy": 0.9795,
+      "ours_accuracy": 0.9804,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.9319,
+          0.9746,
+          0.9795,
+          0.9328
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9804,
+        "all_qualities": [
+          0.9262,
+          0.9739,
+          0.9804,
+          0.9096
+        ]
+      }
+    },
+    {
+      "round": 116,
+      "blockdfl_accuracy": 0.9805,
+      "ours_accuracy": 0.9794,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9805,
+        "all_qualities": [
+          0.9107,
+          0.9782,
+          0.9805,
+          0.9296
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9794,
+        "all_qualities": [
+          0.8908,
+          0.9696,
+          0.9794,
+          0.9254
+        ]
+      }
+    },
+    {
+      "round": 117,
+      "blockdfl_accuracy": 0.9825,
+      "ours_accuracy": 0.9755,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9825,
+        "all_qualities": [
+          0.9426,
+          0.9761,
+          0.9825,
+          0.9042
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9755,
+        "all_qualities": [
+          0.9037,
+          0.9755,
+          0.9734,
+          0.9375
+        ]
+      }
+    },
+    {
+      "round": 118,
+      "blockdfl_accuracy": 0.9798,
+      "ours_accuracy": 0.9811,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.9289,
+          0.9779,
+          0.9798,
+          0.9199
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9811,
+        "all_qualities": [
+          0.9008,
+          0.959,
+          0.9811,
+          0.9168
+        ]
+      }
+    },
+    {
+      "round": 119,
+      "blockdfl_accuracy": 0.977,
+      "ours_accuracy": 0.9744,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.977,
+        "all_qualities": [
+          0.9471,
+          0.9713,
+          0.977,
+          0.9088
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9744,
+        "all_qualities": [
+          0.9075,
+          0.973,
+          0.9744,
+          0.9183
+        ]
+      }
+    },
+    {
+      "round": 120,
+      "blockdfl_accuracy": 0.9798,
+      "ours_accuracy": 0.9791,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.9195,
+          0.9768,
+          0.9798,
+          0.9142
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9791,
+        "all_qualities": [
+          0.8844,
+          0.9701,
+          0.9791,
+          0.9271
+        ]
+      }
+    },
+    {
+      "round": 121,
+      "blockdfl_accuracy": 0.9754,
+      "ours_accuracy": 0.9828,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9754,
+        "all_qualities": [
+          0.9444,
+          0.9754,
+          0.9754,
+          0.9462
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.9213,
+          0.9741,
+          0.9828,
+          0.9413
+        ]
+      }
+    },
+    {
+      "round": 122,
+      "blockdfl_accuracy": 0.9787,
+      "ours_accuracy": 0.9737,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9787,
+        "all_qualities": [
+          0.9286,
+          0.9745,
+          0.9787,
+          0.9267
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9737,
+        "all_qualities": [
+          0.9111,
+          0.9736,
+          0.9737,
+          0.9349
+        ]
+      }
+    },
+    {
+      "round": 123,
+      "blockdfl_accuracy": 0.9821,
+      "ours_accuracy": 0.9747,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9821,
+        "all_qualities": [
+          0.918,
+          0.9755,
+          0.9821,
+          0.9214
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9747,
+        "all_qualities": [
+          0.9011,
+          0.9746,
+          0.9747,
+          0.9351
+        ]
+      }
+    },
+    {
+      "round": 124,
+      "blockdfl_accuracy": 0.9794,
+      "ours_accuracy": 0.9758,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9794,
+        "all_qualities": [
+          0.8796,
+          0.9726,
+          0.9794,
+          0.9264
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9758,
+        "all_qualities": [
+          0.8982,
+          0.9666,
+          0.9758,
+          0.9335
+        ]
+      }
+    },
+    {
+      "round": 125,
+      "blockdfl_accuracy": 0.9772,
+      "ours_accuracy": 0.9781,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9772,
+        "all_qualities": [
+          0.8967,
+          0.9717,
+          0.9772,
+          0.9221
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9781,
+        "all_qualities": [
+          0.9109,
+          0.9781,
+          0.973,
+          0.9415
+        ]
+      }
+    },
+    {
+      "round": 126,
+      "blockdfl_accuracy": 0.9805,
+      "ours_accuracy": 0.9832,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9805,
+        "all_qualities": [
+          0.9178,
+          0.9733,
+          0.9805,
+          0.9308
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9832,
+        "all_qualities": [
+          0.9007,
+          0.9729,
+          0.9832,
+          0.9279
+        ]
+      }
+    },
+    {
+      "round": 127,
+      "blockdfl_accuracy": 0.9783,
+      "ours_accuracy": 0.9781,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9783,
+        "all_qualities": [
+          0.9024,
+          0.9749,
+          0.9783,
+          0.9434
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9781,
+        "all_qualities": [
+          0.9207,
+          0.9756,
+          0.9781,
+          0.9369
+        ]
+      }
+    },
+    {
+      "round": 128,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.9795,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.976,
+        "all_qualities": [
+          0.9073,
+          0.975,
+          0.976,
+          0.9294
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.9503,
+          0.973,
+          0.9795,
+          0.9282
+        ]
+      }
+    },
+    {
+      "round": 129,
+      "blockdfl_accuracy": 0.9193,
+      "ours_accuracy": 0.9798,
+      "blockdfl_selection": {
+        "type": "WORST (ATTACK)",
+        "quality": 0.9193,
+        "all_qualities": [
+          0.9193,
+          0.9781,
+          0.978,
+          0.929
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.8753,
+          0.9775,
+          0.9798,
+          0.9453
+        ]
+      }
+    },
+    {
+      "round": 130,
+      "blockdfl_accuracy": 0.8955,
+      "ours_accuracy": 0.9802,
+      "blockdfl_selection": {
+        "type": "WORST (ATTACK)",
+        "quality": 0.8955,
+        "all_qualities": [
+          0.8955,
+          0.9616,
+          0.9791,
+          0.9268
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9802,
+        "all_qualities": [
+          0.9163,
+          0.9706,
+          0.9802,
+          0.9437
+        ]
+      }
+    },
+    {
+      "round": 131,
+      "blockdfl_accuracy": 0.9803,
+      "ours_accuracy": 0.98,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9803,
+        "all_qualities": [
+          0.904,
+          0.9663,
+          0.9803,
+          0.9243
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.98,
+        "all_qualities": [
+          0.9002,
+          0.9761,
+          0.98,
+          0.9381
+        ]
+      }
+    },
+    {
+      "round": 132,
+      "blockdfl_accuracy": 0.9783,
+      "ours_accuracy": 0.9761,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9783,
+        "all_qualities": [
+          0.9312,
+          0.9722,
+          0.9783,
+          0.9441
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9761,
+        "all_qualities": [
+          0.9076,
+          0.9744,
+          0.9761,
+          0.9418
+        ]
+      }
+    },
+    {
+      "round": 133,
+      "blockdfl_accuracy": 0.9805,
+      "ours_accuracy": 0.977,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9805,
+        "all_qualities": [
+          0.9178,
+          0.9774,
+          0.9805,
+          0.9447
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.977,
+        "all_qualities": [
+          0.9163,
+          0.9768,
+          0.977,
+          0.9388
+        ]
+      }
+    },
+    {
+      "round": 134,
+      "blockdfl_accuracy": 0.981,
+      "ours_accuracy": 0.9766,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.981,
+        "all_qualities": [
+          0.9253,
+          0.9734,
+          0.981,
+          0.9575
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9766,
+        "all_qualities": [
+          0.9513,
+          0.9761,
+          0.9766,
+          0.9424
+        ]
+      }
+    },
+    {
+      "round": 135,
+      "blockdfl_accuracy": 0.9811,
+      "ours_accuracy": 0.9745,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9811,
+        "all_qualities": [
+          0.951,
+          0.9784,
+          0.9811,
+          0.9281
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9745,
+        "all_qualities": [
+          0.9032,
+          0.9745,
+          0.9738,
+          0.9265
+        ]
+      }
+    },
+    {
+      "round": 136,
+      "blockdfl_accuracy": 0.9806,
+      "ours_accuracy": 0.9758,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9806,
+        "all_qualities": [
+          0.9329,
+          0.9806,
+          0.9778,
+          0.9481
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9758,
+        "all_qualities": [
+          0.9195,
+          0.9702,
+          0.9758,
+          0.943
+        ]
+      }
+    },
+    {
+      "round": 137,
+      "blockdfl_accuracy": 0.9801,
+      "ours_accuracy": 0.9785,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9801,
+        "all_qualities": [
+          0.9432,
+          0.9718,
+          0.9801,
+          0.9396
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9785,
+        "all_qualities": [
+          0.9139,
+          0.9672,
+          0.9785,
+          0.9166
+        ]
+      }
+    },
+    {
+      "round": 138,
+      "blockdfl_accuracy": 0.9803,
+      "ours_accuracy": 0.9749,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9803,
+        "all_qualities": [
+          0.9506,
+          0.9725,
+          0.9803,
+          0.9352
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9749,
+        "all_qualities": [
+          0.9325,
+          0.9749,
+          0.9748,
+          0.939
+        ]
+      }
+    },
+    {
+      "round": 139,
+      "blockdfl_accuracy": 0.9763,
+      "ours_accuracy": 0.9795,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9763,
+        "all_qualities": [
+          0.932,
+          0.9763,
+          0.9757,
+          0.9601
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.9066,
+          0.9734,
+          0.9795,
+          0.918
+        ]
+      }
+    },
+    {
+      "round": 140,
+      "blockdfl_accuracy": 0.9806,
+      "ours_accuracy": 0.9808,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9806,
+        "all_qualities": [
+          0.9148,
+          0.9757,
+          0.9806,
+          0.9301
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9808,
+        "all_qualities": [
+          0.9109,
+          0.9777,
+          0.9808,
+          0.9313
+        ]
+      }
+    },
+    {
+      "round": 141,
+      "blockdfl_accuracy": 0.9799,
+      "ours_accuracy": 0.9798,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9799,
+        "all_qualities": [
+          0.94,
+          0.9707,
+          0.9799,
+          0.9349
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.9125,
+          0.9764,
+          0.9798,
+          0.9407
+        ]
+      }
+    },
+    {
+      "round": 142,
+      "blockdfl_accuracy": 0.9822,
+      "ours_accuracy": 0.9798,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9822,
+        "all_qualities": [
+          0.9299,
+          0.9774,
+          0.9822,
+          0.9213
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.9218,
+          0.9782,
+          0.9798,
+          0.9483
+        ]
+      }
+    },
+    {
+      "round": 143,
+      "blockdfl_accuracy": 0.9824,
+      "ours_accuracy": 0.9806,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9824,
+        "all_qualities": [
+          0.9264,
+          0.9738,
+          0.9824,
+          0.9549
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9806,
+        "all_qualities": [
+          0.951,
+          0.9715,
+          0.9806,
+          0.9346
+        ]
+      }
+    },
+    {
+      "round": 144,
+      "blockdfl_accuracy": 0.9797,
+      "ours_accuracy": 0.9754,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9797,
+        "all_qualities": [
+          0.9472,
+          0.978,
+          0.9797,
+          0.9294
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9754,
+        "all_qualities": [
+          0.9179,
+          0.9754,
+          0.9745,
+          0.9181
+        ]
+      }
+    },
+    {
+      "round": 145,
+      "blockdfl_accuracy": 0.9825,
+      "ours_accuracy": 0.9813,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9825,
+        "all_qualities": [
+          0.9527,
+          0.9788,
+          0.9825,
+          0.9383
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9813,
+        "all_qualities": [
+          0.9202,
+          0.9723,
+          0.9813,
+          0.9255
+        ]
+      }
+    },
+    {
+      "round": 146,
+      "blockdfl_accuracy": 0.9823,
+      "ours_accuracy": 0.9806,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9823,
+        "all_qualities": [
+          0.9457,
+          0.9759,
+          0.9823,
+          0.9523
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9806,
+        "all_qualities": [
+          0.9133,
+          0.9769,
+          0.9806,
+          0.9597
+        ]
+      }
+    },
+    {
+      "round": 147,
+      "blockdfl_accuracy": 0.981,
+      "ours_accuracy": 0.9783,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.981,
+        "all_qualities": [
+          0.9352,
+          0.981,
+          0.9796,
+          0.9257
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9783,
+        "all_qualities": [
+          0.9415,
+          0.9779,
+          0.9783,
+          0.9417
+        ]
+      }
+    },
+    {
+      "round": 148,
+      "blockdfl_accuracy": 0.9849,
+      "ours_accuracy": 0.9761,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9849,
+        "all_qualities": [
+          0.9388,
+          0.9714,
+          0.9849,
+          0.9537
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9761,
+        "all_qualities": [
+          0.9067,
+          0.9741,
+          0.9761,
+          0.93
+        ]
+      }
+    },
+    {
+      "round": 149,
+      "blockdfl_accuracy": 0.9825,
+      "ours_accuracy": 0.9782,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9825,
+        "all_qualities": [
+          0.9329,
+          0.9782,
+          0.9825,
+          0.9313
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9782,
+        "all_qualities": [
+          0.8986,
+          0.9774,
+          0.9782,
+          0.9164
+        ]
+      }
+    },
+    {
+      "round": 150,
+      "blockdfl_accuracy": 0.9826,
+      "ours_accuracy": 0.9767,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9826,
+        "all_qualities": [
+          0.9335,
+          0.9766,
+          0.9826,
+          0.9234
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9767,
+        "all_qualities": [
+          0.9232,
+          0.9699,
+          0.9767,
+          0.9179
+        ]
+      }
+    },
+    {
+      "round": 151,
+      "blockdfl_accuracy": 0.9814,
+      "ours_accuracy": 0.9779,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9814,
+        "all_qualities": [
+          0.9577,
+          0.9749,
+          0.9814,
+          0.9281
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9779,
+        "all_qualities": [
+          0.9295,
+          0.9779,
+          0.9763,
+          0.9321
+        ]
+      }
+    },
+    {
+      "round": 152,
+      "blockdfl_accuracy": 0.9797,
+      "ours_accuracy": 0.9841,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9797,
+        "all_qualities": [
+          0.9486,
+          0.9795,
+          0.9797,
+          0.9633
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9841,
+        "all_qualities": [
+          0.882,
+          0.9749,
+          0.9841,
+          0.9171
+        ]
+      }
+    },
+    {
+      "round": 153,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.9827,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9813,
+        "all_qualities": [
+          0.9312,
+          0.9743,
+          0.9813,
+          0.9404
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9827,
+        "all_qualities": [
+          0.9273,
+          0.9743,
+          0.9827,
+          0.9518
+        ]
+      }
+    },
+    {
+      "round": 154,
+      "blockdfl_accuracy": 0.981,
+      "ours_accuracy": 0.9813,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.981,
+        "all_qualities": [
+          0.9593,
+          0.978,
+          0.981,
+          0.9388
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9813,
+        "all_qualities": [
+          0.8902,
+          0.9751,
+          0.9813,
+          0.9586
+        ]
+      }
+    },
+    {
+      "round": 155,
+      "blockdfl_accuracy": 0.9812,
+      "ours_accuracy": 0.9811,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9812,
+        "all_qualities": [
+          0.9575,
+          0.9783,
+          0.9812,
+          0.9315
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9811,
+        "all_qualities": [
+          0.9367,
+          0.9701,
+          0.9811,
+          0.9219
+        ]
+      }
+    },
+    {
+      "round": 156,
+      "blockdfl_accuracy": 0.9803,
+      "ours_accuracy": 0.9816,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9803,
+        "all_qualities": [
+          0.9383,
+          0.9728,
+          0.9803,
+          0.9445
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9816,
+        "all_qualities": [
+          0.9165,
+          0.9733,
+          0.9816,
+          0.9486
+        ]
+      }
+    },
+    {
+      "round": 157,
+      "blockdfl_accuracy": 0.9827,
+      "ours_accuracy": 0.9814,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9827,
+        "all_qualities": [
+          0.9483,
+          0.9827,
+          0.9816,
+          0.94
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9814,
+        "all_qualities": [
+          0.9217,
+          0.9736,
+          0.9814,
+          0.9258
+        ]
+      }
+    },
+    {
+      "round": 158,
+      "blockdfl_accuracy": 0.984,
+      "ours_accuracy": 0.9797,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.984,
+        "all_qualities": [
+          0.9134,
+          0.9803,
+          0.984,
+          0.9309
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9797,
+        "all_qualities": [
+          0.9032,
+          0.9673,
+          0.9797,
+          0.9367
+        ]
+      }
+    },
+    {
+      "round": 159,
+      "blockdfl_accuracy": 0.9818,
+      "ours_accuracy": 0.9804,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9818,
+        "all_qualities": [
+          0.9353,
+          0.9753,
+          0.9818,
+          0.9337
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9804,
+        "all_qualities": [
+          0.9084,
+          0.9794,
+          0.9804,
+          0.9252
+        ]
+      }
+    },
+    {
+      "round": 160,
+      "blockdfl_accuracy": 0.9828,
+      "ours_accuracy": 0.9795,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.9464,
+          0.9762,
+          0.9828,
+          0.9464
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.9454,
+          0.9741,
+          0.9795,
+          0.9493
+        ]
+      }
+    },
+    {
+      "round": 161,
+      "blockdfl_accuracy": 0.9823,
+      "ours_accuracy": 0.9771,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9823,
+        "all_qualities": [
+          0.9499,
+          0.9782,
+          0.9823,
+          0.9271
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9771,
+        "all_qualities": [
+          0.9193,
+          0.9753,
+          0.9771,
+          0.927
+        ]
+      }
+    },
+    {
+      "round": 162,
+      "blockdfl_accuracy": 0.9417,
+      "ours_accuracy": 0.9765,
+      "blockdfl_selection": {
+        "type": "WORST (ATTACK)",
+        "quality": 0.9417,
+        "all_qualities": [
+          0.9555,
+          0.9763,
+          0.9834,
+          0.9417
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9765,
+        "all_qualities": [
+          0.9135,
+          0.9765,
+          0.9734,
+          0.9413
+        ]
+      }
+    },
+    {
+      "round": 163,
+      "blockdfl_accuracy": 0.9818,
+      "ours_accuracy": 0.9782,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9818,
+        "all_qualities": [
+          0.9352,
+          0.9818,
+          0.9793,
+          0.9342
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9782,
+        "all_qualities": [
+          0.9023,
+          0.9693,
+          0.9782,
+          0.9226
+        ]
+      }
+    },
+    {
+      "round": 164,
+      "blockdfl_accuracy": 0.9811,
+      "ours_accuracy": 0.9793,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9811,
+        "all_qualities": [
+          0.9493,
+          0.9776,
+          0.9811,
+          0.9439
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9793,
+        "all_qualities": [
+          0.914,
+          0.9751,
+          0.9793,
+          0.9568
+        ]
+      }
+    },
+    {
+      "round": 165,
+      "blockdfl_accuracy": 0.9831,
+      "ours_accuracy": 0.9787,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9831,
+        "all_qualities": [
+          0.9414,
+          0.9831,
+          0.9815,
+          0.9233
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9787,
+        "all_qualities": [
+          0.9218,
+          0.9787,
+          0.9774,
+          0.9218
+        ]
+      }
+    },
+    {
+      "round": 166,
+      "blockdfl_accuracy": 0.9318,
+      "ours_accuracy": 0.9838,
+      "blockdfl_selection": {
+        "type": "WORST (ATTACK)",
+        "quality": 0.9318,
+        "all_qualities": [
+          0.9318,
+          0.9802,
+          0.9852,
+          0.9574
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9838,
+        "all_qualities": [
+          0.8967,
+          0.9731,
+          0.9838,
+          0.9366
+        ]
+      }
+    },
+    {
+      "round": 167,
+      "blockdfl_accuracy": 0.9831,
+      "ours_accuracy": 0.9801,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9831,
+        "all_qualities": [
+          0.9419,
+          0.9763,
+          0.9831,
+          0.9384
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9801,
+        "all_qualities": [
+          0.9193,
+          0.9723,
+          0.9801,
+          0.9324
+        ]
+      }
+    },
+    {
+      "round": 168,
+      "blockdfl_accuracy": 0.9816,
+      "ours_accuracy": 0.9793,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9816,
+        "all_qualities": [
+          0.9373,
+          0.9816,
+          0.9814,
+          0.9459
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9793,
+        "all_qualities": [
+          0.8691,
+          0.9736,
+          0.9793,
+          0.927
+        ]
+      }
+    },
+    {
+      "round": 169,
+      "blockdfl_accuracy": 0.9842,
+      "ours_accuracy": 0.9791,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9842,
+        "all_qualities": [
+          0.9566,
+          0.9799,
+          0.9842,
+          0.9392
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9791,
+        "all_qualities": [
+          0.9554,
+          0.9738,
+          0.9791,
+          0.9083
+        ]
+      }
+    },
+    {
+      "round": 170,
+      "blockdfl_accuracy": 0.9821,
+      "ours_accuracy": 0.9791,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9821,
+        "all_qualities": [
+          0.9583,
+          0.9804,
+          0.9821,
+          0.9521
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9791,
+        "all_qualities": [
+          0.923,
+          0.977,
+          0.9791,
+          0.9407
+        ]
+      }
+    },
+    {
+      "round": 171,
+      "blockdfl_accuracy": 0.9821,
+      "ours_accuracy": 0.9794,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9821,
+        "all_qualities": [
+          0.9587,
+          0.982,
+          0.9821,
+          0.9531
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9794,
+        "all_qualities": [
+          0.9331,
+          0.9794,
+          0.9781,
+          0.9477
+        ]
+      }
+    },
+    {
+      "round": 172,
+      "blockdfl_accuracy": 0.9838,
+      "ours_accuracy": 0.9833,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9838,
+        "all_qualities": [
+          0.951,
+          0.9791,
+          0.9838,
+          0.941
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9833,
+        "all_qualities": [
+          0.8896,
+          0.9754,
+          0.9833,
+          0.9442
+        ]
+      }
+    },
+    {
+      "round": 173,
+      "blockdfl_accuracy": 0.9846,
+      "ours_accuracy": 0.9817,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9846,
+        "all_qualities": [
+          0.936,
+          0.9809,
+          0.9846,
+          0.9617
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9817,
+        "all_qualities": [
+          0.9393,
+          0.9719,
+          0.9817,
+          0.9613
+        ]
+      }
+    },
+    {
+      "round": 174,
+      "blockdfl_accuracy": 0.9845,
+      "ours_accuracy": 0.9817,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9845,
+        "all_qualities": [
+          0.9622,
+          0.9845,
+          0.984,
+          0.9463
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9817,
+        "all_qualities": [
+          0.9146,
+          0.9729,
+          0.9817,
+          0.9195
+        ]
+      }
+    },
+    {
+      "round": 175,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.9799,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9837,
+        "all_qualities": [
+          0.9594,
+          0.979,
+          0.9837,
+          0.9578
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9799,
+        "all_qualities": [
+          0.9359,
+          0.9737,
+          0.9799,
+          0.9251
+        ]
+      }
+    },
+    {
+      "round": 176,
+      "blockdfl_accuracy": 0.9838,
+      "ours_accuracy": 0.9791,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9838,
+        "all_qualities": [
+          0.9567,
+          0.9811,
+          0.9838,
+          0.934
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9791,
+        "all_qualities": [
+          0.9174,
+          0.9791,
+          0.9786,
+          0.9418
+        ]
+      }
+    },
+    {
+      "round": 177,
+      "blockdfl_accuracy": 0.9841,
+      "ours_accuracy": 0.9786,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9841,
+        "all_qualities": [
+          0.9583,
+          0.9761,
+          0.9841,
+          0.9707
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9786,
+        "all_qualities": [
+          0.9324,
+          0.9769,
+          0.9786,
+          0.9514
+        ]
+      }
+    },
+    {
+      "round": 178,
+      "blockdfl_accuracy": 0.9848,
+      "ours_accuracy": 0.9809,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9848,
+        "all_qualities": [
+          0.9656,
+          0.9788,
+          0.9848,
+          0.9652
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9809,
+        "all_qualities": [
+          0.9288,
+          0.9728,
+          0.9809,
+          0.937
+        ]
+      }
+    },
+    {
+      "round": 179,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.9794,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9829,
+        "all_qualities": [
+          0.9275,
+          0.9796,
+          0.9829,
+          0.9694
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9794,
+        "all_qualities": [
+          0.9532,
+          0.9748,
+          0.9794,
+          0.9481
+        ]
+      }
+    },
+    {
+      "round": 180,
+      "blockdfl_accuracy": 0.985,
+      "ours_accuracy": 0.9809,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.985,
+        "all_qualities": [
+          0.9603,
+          0.9791,
+          0.985,
+          0.9473
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9809,
+        "all_qualities": [
+          0.9494,
+          0.9746,
+          0.9809,
+          0.9302
+        ]
+      }
+    },
+    {
+      "round": 181,
+      "blockdfl_accuracy": 0.9859,
+      "ours_accuracy": 0.9801,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9859,
+        "all_qualities": [
+          0.9663,
+          0.9766,
+          0.9859,
+          0.932
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9801,
+        "all_qualities": [
+          0.915,
+          0.9771,
+          0.9801,
+          0.9369
+        ]
+      }
+    },
+    {
+      "round": 182,
+      "blockdfl_accuracy": 0.9857,
+      "ours_accuracy": 0.9793,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9857,
+        "all_qualities": [
+          0.9555,
+          0.9785,
+          0.9857,
+          0.9473
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9793,
+        "all_qualities": [
+          0.9176,
+          0.9702,
+          0.9793,
+          0.9358
+        ]
+      }
+    },
+    {
+      "round": 183,
+      "blockdfl_accuracy": 0.9825,
+      "ours_accuracy": 0.9758,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9825,
+        "all_qualities": [
+          0.9473,
+          0.9764,
+          0.9825,
+          0.9386
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9758,
+        "all_qualities": [
+          0.9283,
+          0.9711,
+          0.9758,
+          0.9484
+        ]
+      }
+    },
+    {
+      "round": 184,
+      "blockdfl_accuracy": 0.9801,
+      "ours_accuracy": 0.9786,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9801,
+        "all_qualities": [
+          0.953,
+          0.9801,
+          0.976,
+          0.9418
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9786,
+        "all_qualities": [
+          0.9284,
+          0.9765,
+          0.9786,
+          0.9423
+        ]
+      }
+    },
+    {
+      "round": 185,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.9803,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9833,
+        "all_qualities": [
+          0.9524,
+          0.9829,
+          0.9833,
+          0.9512
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9803,
+        "all_qualities": [
+          0.9097,
+          0.974,
+          0.9803,
+          0.9374
+        ]
+      }
+    },
+    {
+      "round": 186,
+      "blockdfl_accuracy": 0.9851,
+      "ours_accuracy": 0.9793,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9851,
+        "all_qualities": [
+          0.9618,
+          0.9799,
+          0.9851,
+          0.9301
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9793,
+        "all_qualities": [
+          0.9145,
+          0.9761,
+          0.9793,
+          0.9293
+        ]
+      }
+    },
+    {
+      "round": 187,
+      "blockdfl_accuracy": 0.9816,
+      "ours_accuracy": 0.9749,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9816,
+        "all_qualities": [
+          0.9523,
+          0.9805,
+          0.9816,
+          0.9437
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9749,
+        "all_qualities": [
+          0.9378,
+          0.9646,
+          0.9749,
+          0.9537
+        ]
+      }
+    },
+    {
+      "round": 188,
+      "blockdfl_accuracy": 0.9821,
+      "ours_accuracy": 0.9767,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9821,
+        "all_qualities": [
+          0.931,
+          0.9821,
+          0.9813,
+          0.9506
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9767,
+        "all_qualities": [
+          0.9525,
+          0.9761,
+          0.9767,
+          0.9542
+        ]
+      }
+    },
+    {
+      "round": 189,
+      "blockdfl_accuracy": 0.982,
+      "ours_accuracy": 0.9781,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.982,
+        "all_qualities": [
+          0.9618,
+          0.9771,
+          0.982,
+          0.9519
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9781,
+        "all_qualities": [
+          0.9124,
+          0.9739,
+          0.9781,
+          0.9186
+        ]
+      }
+    },
+    {
+      "round": 190,
+      "blockdfl_accuracy": 0.9851,
+      "ours_accuracy": 0.9808,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9851,
+        "all_qualities": [
+          0.9334,
+          0.9783,
+          0.9851,
+          0.9606
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9808,
+        "all_qualities": [
+          0.9218,
+          0.9738,
+          0.9808,
+          0.9382
+        ]
+      }
+    },
+    {
+      "round": 191,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.9802,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9833,
+        "all_qualities": [
+          0.9617,
+          0.9787,
+          0.9833,
+          0.9555
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9802,
+        "all_qualities": [
+          0.9585,
+          0.9769,
+          0.9802,
+          0.9456
+        ]
+      }
+    },
+    {
+      "round": 192,
+      "blockdfl_accuracy": 0.9848,
+      "ours_accuracy": 0.9826,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9848,
+        "all_qualities": [
+          0.9515,
+          0.978,
+          0.9848,
+          0.9614
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9826,
+        "all_qualities": [
+          0.922,
+          0.9647,
+          0.9826,
+          0.9146
+        ]
+      }
+    },
+    {
+      "round": 193,
+      "blockdfl_accuracy": 0.985,
+      "ours_accuracy": 0.9819,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.985,
+        "all_qualities": [
+          0.9717,
+          0.9811,
+          0.985,
+          0.9386
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9819,
+        "all_qualities": [
+          0.9526,
+          0.9655,
+          0.9819,
+          0.9365
+        ]
+      }
+    },
+    {
+      "round": 194,
+      "blockdfl_accuracy": 0.9847,
+      "ours_accuracy": 0.9804,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9847,
+        "all_qualities": [
+          0.9238,
+          0.9781,
+          0.9847,
+          0.9278
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9804,
+        "all_qualities": [
+          0.9548,
+          0.9756,
+          0.9804,
+          0.9276
+        ]
+      }
+    },
+    {
+      "round": 195,
+      "blockdfl_accuracy": 0.981,
+      "ours_accuracy": 0.9798,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.981,
+        "all_qualities": [
+          0.9366,
+          0.9788,
+          0.981,
+          0.9525
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9798,
+        "all_qualities": [
+          0.9377,
+          0.9798,
+          0.9769,
+          0.9334
+        ]
+      }
+    },
+    {
+      "round": 196,
+      "blockdfl_accuracy": 0.9828,
+      "ours_accuracy": 0.9829,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.952,
+          0.9786,
+          0.9828,
+          0.9443
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9829,
+        "all_qualities": [
+          0.8833,
+          0.978,
+          0.9829,
+          0.9246
+        ]
+      }
+    },
+    {
+      "round": 197,
+      "blockdfl_accuracy": 0.9819,
+      "ours_accuracy": 0.9795,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9819,
+        "all_qualities": [
+          0.9319,
+          0.9775,
+          0.9819,
+          0.9522
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9795,
+        "all_qualities": [
+          0.8984,
+          0.9795,
+          0.976,
+          0.9523
+        ]
+      }
+    },
+    {
+      "round": 198,
+      "blockdfl_accuracy": 0.9255,
+      "ours_accuracy": 0.9828,
+      "blockdfl_selection": {
+        "type": "WORST (ATTACK)",
+        "quality": 0.9255,
+        "all_qualities": [
+          0.9527,
+          0.9794,
+          0.9827,
+          0.9255
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.9299,
+          0.9772,
+          0.9828,
+          0.9145
+        ]
+      }
+    },
+    {
+      "round": 199,
+      "blockdfl_accuracy": 0.9828,
+      "ours_accuracy": 0.9842,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.9075,
+          0.9828,
+          0.9817,
+          0.9333
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9842,
+        "all_qualities": [
+          0.9325,
+          0.9798,
+          0.9842,
+          0.9319
+        ]
+      }
+    },
+    {
+      "round": 200,
+      "blockdfl_accuracy": 0.986,
+      "ours_accuracy": 0.9828,
+      "blockdfl_selection": {
+        "type": "BEST (ATTACK FAILED)",
+        "quality": 0.986,
+        "all_qualities": [
+          0.9597,
+          0.9836,
+          0.986,
+          0.9625
+        ]
+      },
+      "ours_selection": {
+        "type": "BEST",
+        "quality": 0.9828,
+        "all_qualities": [
+          0.9184,
+          0.9758,
+          0.9828,
+          0.935
+        ]
+      }
+    }
+  ]
+}
