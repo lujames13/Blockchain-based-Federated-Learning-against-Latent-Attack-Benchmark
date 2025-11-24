@@ -53,6 +53,21 @@ class Simulator:
             "attack_start_round": self.config['attack_start_round'],
             "results": []
         }
+        
+        # Initialize verifier pool
+        self.verifier_pool_size = self.config.get('verifier_pool_size', 100)
+        self.initial_attacker_ratio = self.config.get('initial_attacker_ratio', 0.1)
+        self.committee_size = self.config.get('committee_size', 7)
+        
+        num_attackers = int(self.verifier_pool_size * self.initial_attacker_ratio)
+        self.verifiers = []
+        for i in range(self.verifier_pool_size):
+            is_attacker = i < num_attackers
+            self.verifiers.append({
+                'id': i,
+                'is_attacker': is_attacker,
+                'stack': 1.0
+            })
 
     def train_candidate(self, base_model, train_loader):
         """
@@ -184,23 +199,52 @@ class Simulator:
             # --- Selection Logic ---
             attack_active = round_num >= self.config['attack_start_round']
             
+            # --- Committee Selection ---
+            # Calculate selection probabilities based on stack
+            if len(self.verifiers) < self.committee_size:
+                print(f"  [WARNING] Pool size ({len(self.verifiers)}) < Committee size ({self.committee_size}). Selecting all.")
+                committee_indices = list(range(len(self.verifiers)))
+            else:
+                total_stack = sum(v['stack'] for v in self.verifiers)
+                probs = [v['stack'] / total_stack for v in self.verifiers]
+                
+                # Select committee indices
+                committee_indices = np.random.choice(
+                    len(self.verifiers), 
+                    size=self.committee_size, 
+                    replace=False, 
+                    p=probs
+                )
+            
+            committee = [self.verifiers[i] for i in committee_indices]
+            
+            num_attackers_in_committee = sum(1 for v in committee if v['is_attacker'])
+            num_honest_in_committee = len(committee) - num_attackers_in_committee
+            
+            # --- Decision Logic ---
+            attack_successful = False
+            if attack_active and num_attackers_in_committee > num_honest_in_committee:
+                attack_successful = True
+                
             # BlockDFL Selection
-            if attack_active:
-                # Attack: Select WORST update with probability defined in config
-                if np.random.random() < self.config.get('attack_probability', 0.05):
-                    blockdfl_idx = np.argmin(blockdfl_qualities)
-                    blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-                    blockdfl_selection_type = "WORST (ATTACK)"
-                else:
-                    # Even if attack is active, 95% chance to behave normally
-                    blockdfl_idx = np.argmax(blockdfl_qualities)
-                    blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-                    blockdfl_selection_type = "BEST (ATTACK FAILED)"
+            if attack_successful:
+                # Attack: Select WORST update
+                blockdfl_idx = np.argmin(blockdfl_qualities)
+                blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
+                blockdfl_selection_type = "WORST (ATTACK SUCCESS)"
+                
+                # Penalty: Remove honest committee members from pool
+                honest_ids_to_remove = [v['id'] for v in committee if not v['is_attacker']]
+                self.verifiers = [v for v in self.verifiers if v['id'] not in honest_ids_to_remove]
+                print(f"  [PENALTY] Removed {len(honest_ids_to_remove)} honest verifiers from pool.")
             else:
                 # Normal: Select BEST update
                 blockdfl_idx = np.argmax(blockdfl_qualities)
                 blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-                blockdfl_selection_type = "BEST"
+                if attack_active:
+                    blockdfl_selection_type = "BEST (ATTACK FAILED)"
+                else:
+                    blockdfl_selection_type = "BEST"
                 
             # Ours Selection
             # Always select BEST update (Audit mechanism)
@@ -220,6 +264,13 @@ class Simulator:
             print(f"Round {round_num}/{self.config['total_rounds']}")
             if attack_active:
                 print(f"  [ATTACK ACTIVE] BlockDFL selected {blockdfl_selection_type} (score={blockdfl_qualities[blockdfl_idx]:.4f})")
+                print(f"  Committee: {num_attackers_in_committee} Attackers, {num_honest_in_committee} Honest. Pool Size: {len(self.verifiers)}")
+                
+                # Calculate current attacker stack share
+                current_total_stack = sum(v['stack'] for v in self.verifiers)
+                attacker_stack = sum(v['stack'] for v in self.verifiers if v['is_attacker'])
+                attacker_share = attacker_stack / current_total_stack if current_total_stack > 0 else 0
+                print(f"  Attacker Stack Share: {attacker_share:.4f}")
             else:
                 print(f"  [Normal] BlockDFL selected {blockdfl_selection_type} (score={blockdfl_qualities[blockdfl_idx]:.4f})")
             print(f"  Ours selected {ours_selection_type} (score={ours_qualities[ours_idx]:.4f})")

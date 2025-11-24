@@ -10,6 +10,9 @@ mnist:
   num_candidates: 4
   alpha: 0.5
   attack_probability: 0.0962
+  verifier_pool_size: 50
+  initial_attacker_ratio: 0.2
+  committee_size: 7
 
 cifar10:
   dataset: CIFAR10
