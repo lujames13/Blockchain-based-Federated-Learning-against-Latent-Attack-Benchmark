@@ -1,0 +1,23 @@
+mnist:
+  dataset: MNIST
+  total_rounds: 300
+  attack_start_round: 150
+  local_training_epochs: 1
+  batch_size: 32
+  learning_rate: 0.01
+  momentum: 0.9
+  lr_decay: 0.99
+  num_candidates: 4
+  alpha: 0.5
+
+cifar10:
+  dataset: CIFAR10
+  total_rounds: 300
+  attack_start_round: 150
+  local_training_epochs: 1
+  batch_size: 32
+  learning_rate: 0.01
+  momentum: 0.9
+  lr_decay: 0.99
+  num_candidates: 4
+  alpha: 0.5
