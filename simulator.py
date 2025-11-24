@@ -60,14 +60,21 @@ class Simulator:
         self.committee_size = self.config.get('committee_size', 7)
         
         num_attackers = int(self.verifier_pool_size * self.initial_attacker_ratio)
-        self.verifiers = []
+        
+        # Initialize verifiers for BlockDFL
+        self.verifiers_blockdfl = []
         for i in range(self.verifier_pool_size):
             is_attacker = i < num_attackers
-            self.verifiers.append({
+            self.verifiers_blockdfl.append({
                 'id': i,
                 'is_attacker': is_attacker,
                 'stack': 1.0
             })
+            
+        # Initialize verifiers for Ours (identical start)
+        self.verifiers_ours = copy.deepcopy(self.verifiers_blockdfl)
+        
+        self.stack_reward = self.config.get('stack_reward', 0.1)
 
     def train_candidate(self, base_model, train_loader):
         """
@@ -196,61 +203,91 @@ class Simulator:
                 ours_updates.append(update)
                 ours_qualities.append(quality)
 
-            # --- Selection Logic ---
+            # --- Selection & Stack Update Logic ---
             attack_active = round_num >= self.config['attack_start_round']
             
-            # --- Committee Selection ---
-            # Calculate selection probabilities based on stack
-            if len(self.verifiers) < self.committee_size:
-                print(f"  [WARNING] Pool size ({len(self.verifiers)}) < Committee size ({self.committee_size}). Selecting all.")
-                committee_indices = list(range(len(self.verifiers)))
-            else:
-                total_stack = sum(v['stack'] for v in self.verifiers)
-                probs = [v['stack'] / total_stack for v in self.verifiers]
+            # Helper to select committee based on stack
+            def select_committee(pool, size):
+                if len(pool) < size:
+                    return list(range(len(pool)))
+                total_stack = sum(v['stack'] for v in pool)
+                if total_stack == 0: # Should not happen ideally
+                    probs = [1.0/len(pool)] * len(pool)
+                else:
+                    probs = [v['stack'] / total_stack for v in pool]
                 
-                # Select committee indices
-                committee_indices = np.random.choice(
-                    len(self.verifiers), 
-                    size=self.committee_size, 
+                indices = np.random.choice(
+                    len(pool), 
+                    size=size, 
                     replace=False, 
                     p=probs
                 )
+                return indices
+
+            # --- BlockDFL Logic ---
+            committee_indices_blockdfl = select_committee(self.verifiers_blockdfl, self.committee_size)
+            committee_blockdfl = [self.verifiers_blockdfl[i] for i in committee_indices_blockdfl]
             
-            committee = [self.verifiers[i] for i in committee_indices]
+            num_attackers_blockdfl = sum(1 for v in committee_blockdfl if v['is_attacker'])
+            num_honest_blockdfl = len(committee_blockdfl) - num_attackers_blockdfl
             
-            num_attackers_in_committee = sum(1 for v in committee if v['is_attacker'])
-            num_honest_in_committee = len(committee) - num_attackers_in_committee
-            
-            # --- Decision Logic ---
-            attack_successful = False
-            if attack_active and num_attackers_in_committee > num_honest_in_committee:
-                attack_successful = True
+            # Determine BlockDFL Outcome
+            blockdfl_attack_successful = False
+            if attack_active and num_attackers_blockdfl > num_honest_blockdfl:
+                blockdfl_attack_successful = True
                 
-            # BlockDFL Selection
-            if attack_successful:
-                # Attack: Select WORST update
+            # Calculate Total Pot
+            total_pot = self.committee_size * self.stack_reward
+            
+            if blockdfl_attack_successful:
+                # Attack Success: Select WORST
                 blockdfl_idx = np.argmin(blockdfl_qualities)
-                blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
                 blockdfl_selection_type = "WORST (ATTACK SUCCESS)"
                 
-                # Penalty: Remove honest committee members from pool
-                honest_ids_to_remove = [v['id'] for v in committee if not v['is_attacker']]
-                self.verifiers = [v for v in self.verifiers if v['id'] not in honest_ids_to_remove]
-                print(f"  [PENALTY] Removed {len(honest_ids_to_remove)} honest verifiers from pool.")
-            else:
-                # Normal: Select BEST update
-                blockdfl_idx = np.argmax(blockdfl_qualities)
-                blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-                if attack_active:
-                    blockdfl_selection_type = "BEST (ATTACK FAILED)"
-                else:
-                    blockdfl_selection_type = "BEST"
+                # Stack Update: Attackers split the ENTIRE pot
+                # Honest get nothing
+                reward_per_attacker = total_pot / num_attackers_blockdfl
                 
-            # Ours Selection
-            # Always select BEST update (Audit mechanism)
+                for v in committee_blockdfl:
+                    if v['is_attacker']:
+                        v['stack'] += reward_per_attacker
+            else:
+                # Attack Failed (or not active): Select BEST
+                # Even if attack is active, if attackers are minority, they cooperate to get reward
+                blockdfl_idx = np.argmax(blockdfl_qualities)
+                blockdfl_selection_type = "BEST"
+                if attack_active:
+                    blockdfl_selection_type += " (ATTACK FAILED)"
+                
+                # Stack Update: Everyone splits the pot (Normal reward)
+                # reward_per_member = total_pot / len(committee_blockdfl) = stack_reward
+                for v in committee_blockdfl:
+                    v['stack'] += self.stack_reward
+
+            blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
+
+            # --- Ours Logic ---
+            committee_indices_ours = select_committee(self.verifiers_ours, self.committee_size)
+            committee_ours = [self.verifiers_ours[i] for i in committee_indices_ours]
+            
+            # Ours always selects BEST (Audit)
             ours_idx = np.argmax(ours_qualities)
             ours_selected_update = ours_updates[ours_idx]
             ours_selection_type = "BEST"
+            
+            # Stack Update for Ours
+            if attack_active:
+                # Attackers in committee are slashed to 0
+                for v in committee_ours:
+                    if v['is_attacker']:
+                        v['stack'] = 0.0
+                    else:
+                        v['stack'] += self.stack_reward
+            else:
+                # Normal operation: Everyone gets reward
+                for v in committee_ours:
+                    v['stack'] += self.stack_reward
+
             
             # --- Apply Updates ---
             self.apply_update(self.model_blockdfl, blockdfl_selected_update)
@@ -260,20 +297,21 @@ class Simulator:
             blockdfl_acc = self.evaluate_model(self.model_blockdfl)
             ours_acc = self.evaluate_model(self.model_ours)
             
+            # --- Calculate Stack Stats ---
+            def get_avg_stack(pool):
+                honest_stacks = [v['stack'] for v in pool if not v['is_attacker']]
+                attacker_stacks = [v['stack'] for v in pool if v['is_attacker']]
+                avg_honest = sum(honest_stacks) / len(honest_stacks) if honest_stacks else 0
+                avg_attacker = sum(attacker_stacks) / len(attacker_stacks) if attacker_stacks else 0
+                return avg_honest, avg_attacker
+
+            bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.verifiers_blockdfl)
+            ours_avg_honest, ours_avg_attacker = get_avg_stack(self.verifiers_ours)
+
             # --- Log ---
             print(f"Round {round_num}/{self.config['total_rounds']}")
-            if attack_active:
-                print(f"  [ATTACK ACTIVE] BlockDFL selected {blockdfl_selection_type} (score={blockdfl_qualities[blockdfl_idx]:.4f})")
-                print(f"  Committee: {num_attackers_in_committee} Attackers, {num_honest_in_committee} Honest. Pool Size: {len(self.verifiers)}")
-                
-                # Calculate current attacker stack share
-                current_total_stack = sum(v['stack'] for v in self.verifiers)
-                attacker_stack = sum(v['stack'] for v in self.verifiers if v['is_attacker'])
-                attacker_share = attacker_stack / current_total_stack if current_total_stack > 0 else 0
-                print(f"  Attacker Stack Share: {attacker_share:.4f}")
-            else:
-                print(f"  [Normal] BlockDFL selected {blockdfl_selection_type} (score={blockdfl_qualities[blockdfl_idx]:.4f})")
-            print(f"  Ours selected {ours_selection_type} (score={ours_qualities[ours_idx]:.4f})")
+            print(f"  BlockDFL: {blockdfl_selection_type} (Attacker Stack: {bdfl_avg_attacker:.2f}, Honest Stack: {bdfl_avg_honest:.2f})")
+            print(f"  Ours:     {ours_selection_type} (Attacker Stack: {ours_avg_attacker:.2f}, Honest Stack: {ours_avg_honest:.2f})")
             print(f"  -> BlockDFL Acc: {blockdfl_acc:.4f}")
             print(f"  -> Ours Acc:     {ours_acc:.4f}")
             
@@ -291,6 +329,16 @@ class Simulator:
                     "type": ours_selection_type,
                     "quality": ours_qualities[ours_idx],
                     "all_qualities": ours_qualities
+                },
+                "stack_stats": {
+                    "blockdfl": {
+                        "avg_honest": bdfl_avg_honest,
+                        "avg_attacker": bdfl_avg_attacker
+                    },
+                    "ours": {
+                        "avg_honest": ours_avg_honest,
+                        "avg_attacker": ours_avg_attacker
+                    }
                 }
             }
             self.results["results"].append(round_data)

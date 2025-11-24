@@ -80,6 +80,51 @@ def plot_comparison(results_file, output_file):
     print(f"Saved comparison plot to {output_file}")
     plt.close()
 
+def plot_stack_evolution(results_file, output_file):
+    with open(results_file, 'r') as f:
+        data = json.load(f)
+        
+    results = data['results']
+    attack_start = data['attack_start_round']
+    
+    rounds = [r['round'] for r in results]
+    
+    # BlockDFL Data
+    bdfl_honest = [r['stack_stats']['blockdfl']['avg_honest'] for r in results]
+    bdfl_attacker = [r['stack_stats']['blockdfl']['avg_attacker'] for r in results]
+    
+    # Ours Data
+    ours_honest = [r['stack_stats']['ours']['avg_honest'] for r in results]
+    ours_attacker = [r['stack_stats']['ours']['avg_attacker'] for r in results]
+    
+    # Plot Combined
+    plt.figure(figsize=(12, 8), dpi=300)
+    
+    # BlockDFL Lines (Dashed)
+    plt.plot(rounds, bdfl_honest, 'g--', label='Avg Honest Stack (BlockDFL)', linewidth=2, alpha=0.7)
+    plt.plot(rounds, bdfl_attacker, 'r--', label='Avg Attacker Stack (BlockDFL)', linewidth=2, alpha=0.7)
+    
+    # Ours Lines (Solid)
+    plt.plot(rounds, ours_honest, 'g-', label='Avg Honest Stack (Ours)', linewidth=2)
+    plt.plot(rounds, ours_attacker, 'r-', label='Avg Attacker Stack (Ours)', linewidth=2)
+    
+    plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
+    
+    # Dynamic placement for "Attack Starts" text
+    max_val = max(max(bdfl_honest), max(bdfl_attacker), max(ours_honest), max(ours_attacker))
+    plt.text(attack_start + 2, max_val * 0.5, 'Attack Starts', rotation=90, color='gray')
+    
+    plt.title('Stack Evolution Comparison: BlockDFL vs Ours')
+    plt.xlabel('Round')
+    plt.ylabel('Average Stack')
+    plt.legend(loc='upper left')
+    plt.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig(output_file)
+    print(f"Saved stack comparison plot to {output_file}")
+    plt.close()
+
 def main():
     parser = argparse.ArgumentParser(description='Generate plots from results')
     parser.add_argument('--results', type=str, required=True, help='Path to results JSON file')
@@ -94,9 +139,11 @@ def main():
     
     convergence_file = os.path.join(dir_name, f"{base_name}_convergence.png")
     comparison_file = os.path.join(dir_name, f"{base_name}_comparison.png")
+    stack_comparison_file = os.path.join(dir_name, f"{base_name}_stack_comparison.png")
     
     plot_convergence(args.results, convergence_file)
     plot_comparison(args.results, comparison_file)
+    plot_stack_evolution(args.results, stack_comparison_file)
 
 if __name__ == "__main__":
     main()
