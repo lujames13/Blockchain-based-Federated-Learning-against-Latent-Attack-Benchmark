@@ -23,7 +23,7 @@ def plot_convergence(results_file, output_file):
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     plt.text(attack_start + 2, 0.5, 'Attack Starts', rotation=90, color='gray')
     
-    plt.title(f'{dataset}: Convergence Under Latent Collusion Attack')
+    plt.title(f'{dataset}: Convergence Under Progressive Committee Capture Attack')
     plt.xlabel('Number of Communication Rounds')
     plt.ylabel('Test Accuracy')
     plt.legend(loc='lower right')
@@ -143,7 +143,14 @@ def main():
     
     plot_convergence(args.results, convergence_file)
     plot_comparison(args.results, comparison_file)
-    plot_stack_evolution(args.results, stack_comparison_file)
+    
+    # Check if stack stats exist before plotting
+    with open(args.results, 'r') as f:
+        data = json.load(f)
+        if 'stack_stats' in data['results'][0]:
+            plot_stack_evolution(args.results, stack_comparison_file)
+        else:
+            print("Skipping stack evolution plot: 'stack_stats' not found in results.")
 
 if __name__ == "__main__":
     main()

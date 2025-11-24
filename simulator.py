@@ -275,8 +275,16 @@ class Simulator:
             ours_selected_update = ours_updates[ours_idx]
             ours_selection_type = "BEST"
             
+            num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
+            num_honest_ours = len(committee_ours) - num_attackers_ours
+            
             # Stack Update for Ours
-            if attack_active:
+            # User requirement: Attackers are slashed ONLY if they successfully attack (majority).
+            # If they don't have majority, they cooperate and get reward.
+            
+            ours_attack_successful = attack_active and (num_attackers_ours > num_honest_ours)
+            
+            if ours_attack_successful:
                 # Attackers in committee are slashed to 0
                 for v in committee_ours:
                     if v['is_attacker']:
@@ -284,7 +292,7 @@ class Simulator:
                     else:
                         v['stack'] += self.stack_reward
             else:
-                # Normal operation: Everyone gets reward
+                # Normal operation / Attack failed / Not active: Everyone gets reward
                 for v in committee_ours:
                     v['stack'] += self.stack_reward
 
