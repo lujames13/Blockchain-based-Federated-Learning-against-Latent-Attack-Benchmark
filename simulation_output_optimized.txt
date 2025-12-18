@@ -1,0 +1,55 @@
+====================================================================================================
+Testing Multiple Configurations
+====================================================================================================
+
+[Config 1] pool=20, attackers=30%, committee=3, reward=0.2, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 2.93
+  Attack Success Rate: 41.7%
+  Last 50 Rounds Committee Ratio: 52.7%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 2] pool=20, attackers=30%, committee=3, reward=0.1, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 1.40
+  Attack Success Rate: 22.7%
+  Last 50 Rounds Committee Ratio: 31.3%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 3] pool=30, attackers=30%, committee=3, reward=0.1, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 2.48
+  Attack Success Rate: 39.3%
+  Last 50 Rounds Committee Ratio: 50.7%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 4] pool=20, attackers=30%, committee=3, reward=0.5, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 1.67
+  Attack Success Rate: 26.5%
+  Last 50 Rounds Committee Ratio: 40.0%
+  Committee Dominated (>80%): ✗ NO
+
+====================================================================================================
+Summary: Best Configurations for Committee Domination
+====================================================================================================
+None of the tested configurations achieved committee domination.
+Try increasing initial_attacker_ratio or decreasing committee_size.
+
+====================================================================================================
+Detailed Simulation of Best Config
+====================================================================================================
+
+Running: pool=15, attackers=45%, committee=5, reward=0.2, attack_start=20
+
+Round  50: ATTACK SUCCESS  | Committee: 3/5 attackers | Avg Stack - Attacker: 6.60, Honest: 2.82
+Round 100: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 13.40, Honest: 3.84
+Round 150: ATTACK SUCCESS  | Committee: 5/5 attackers | Avg Stack - Attacker: 21.53, Honest: 3.98
+Round 200: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 29.37, Honest: 4.31
+Round 250: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 37.60, Honest: 4.38
+Round 300: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 45.93, Honest: 4.38
+
+====================================================================================================
+Final Results:
+  Stack Ratio: 10.49
+  Attack Success Rate: 88.3%
+  Last 50 Rounds Committee Ratio: 79.2%
+  Committee Dominated: ✗ NO
+====================================================================================================
+Plot saved to results/quick_stake_simulation.png

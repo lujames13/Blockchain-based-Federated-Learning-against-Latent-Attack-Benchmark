@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# 在 .gitignore 檔案中加入以下內容
+data/
+results/*.json
+*.txt
+*.tar.gz

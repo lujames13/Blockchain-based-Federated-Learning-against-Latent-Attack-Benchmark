@@ -1,0 +1,67 @@
+====================================================================================================
+Testing Multiple Configurations
+====================================================================================================
+
+[Config 1] pool=15, attackers=30%, committee=5, reward=0.2, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 1.58
+  Attack Success Rate: 13.8%
+  Last 50 Rounds Committee Ratio: 30.0%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 2] pool=15, attackers=30%, committee=3, reward=0.2, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 2.36
+  Attack Success Rate: 30.9%
+  Last 50 Rounds Committee Ratio: 42.7%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 3] pool=15, attackers=30%, committee=5, reward=1.0, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 0.86
+  Attack Success Rate: 3.8%
+  Last 50 Rounds Committee Ratio: 21.6%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 4] pool=15, attackers=30%, committee=3, reward=1.0, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 1.53
+  Attack Success Rate: 18.2%
+  Last 50 Rounds Committee Ratio: 32.7%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 5] pool=20, attackers=30%, committee=5, reward=0.5, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 3.24
+  Attack Success Rate: 38.8%
+  Last 50 Rounds Committee Ratio: 49.6%
+  Committee Dominated (>80%): ✗ NO
+
+[Config 6] pool=15, attackers=30%, committee=5, reward=2.0, attack_start=20
+  Final Stack Ratio (Attacker/Honest): 0.89
+  Attack Success Rate: 3.5%
+  Last 50 Rounds Committee Ratio: 24.8%
+  Committee Dominated (>80%): ✗ NO
+
+====================================================================================================
+Summary: Best Configurations for Committee Domination
+====================================================================================================
+None of the tested configurations achieved committee domination.
+Try increasing initial_attacker_ratio or decreasing committee_size.
+
+====================================================================================================
+Detailed Simulation of Best Config
+====================================================================================================
+
+Running: pool=15, attackers=45%, committee=5, reward=0.2, attack_start=20
+
+Round  50: ATTACK FAILED   | Committee: 2/5 attackers | Avg Stack - Attacker: 5.03, Honest: 3.87
+Round 100: ATTACK SUCCESS  | Committee: 3/5 attackers | Avg Stack - Attacker: 10.53, Honest: 5.76
+Round 150: ATTACK FAILED   | Committee: 2/5 attackers | Avg Stack - Attacker: 16.20, Honest: 7.53
+Round 200: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 23.00, Honest: 8.56
+Round 250: ATTACK SUCCESS  | Committee: 4/5 attackers | Avg Stack - Attacker: 29.97, Honest: 9.47
+Round 300: ATTACK SUCCESS  | Committee: 3/5 attackers | Avg Stack - Attacker: 37.47, Honest: 10.02
+
+====================================================================================================
+Final Results:
+  Stack Ratio: 3.74
+  Attack Success Rate: 62.6%
+  Last 50 Rounds Committee Ratio: 67.6%
+  Committee Dominated: ✗ NO
+====================================================================================================
+Plot saved to results/quick_stake_simulation.png
