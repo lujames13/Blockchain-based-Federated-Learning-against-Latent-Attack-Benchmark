@@ -7,7 +7,7 @@ def get_dataset(dataset_name, root='./data'):
     """
     Downloads and returns the training and test datasets.
     """
-    if dataset_name.lower() == 'mnist':
+    if dataset_name.lower() in ['mnist', 'mnist_noniid']:
         transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.1307,), (0.3081,))

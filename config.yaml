@@ -14,6 +14,21 @@ mnist:
   committee_size: 5
   stack_reward: 0.4
 
+mnist_noniid:
+  dataset: MNIST
+  total_rounds: 200
+  attack_start_round: 10
+  local_training_epochs: 1
+  batch_size: 32
+  learning_rate: 0.01
+  momentum: 0.9
+  lr_decay: 0.99
+  num_candidates: 4
+  alpha: 0.1
+  verifier_pool_size: 20
+  initial_attacker_ratio: 0.3
+  committee_size: 5
+  stack_reward: 0.4
 cifar10:
   dataset: CIFAR10
   total_rounds: 300

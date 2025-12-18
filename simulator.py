@@ -19,6 +19,9 @@ class Simulator:
         if dataset_name.lower() == 'mnist':
             self.config = full_config['mnist']
             self.ModelClass = MNISTNet
+        elif dataset_name.lower() == 'mnist_noniid':
+            self.config = full_config['mnist_noniid']
+            self.ModelClass = MNISTNet
         elif dataset_name.lower() == 'cifar10':
             self.config = full_config['cifar10']
             self.ModelClass = CIFAR10Net
@@ -187,7 +190,9 @@ class Simulator:
             blockdfl_updates = []
             blockdfl_qualities = []
             for i in range(self.config['num_candidates']):
+                print(f"    [BlockDFL] Training candidate {i}...")
                 update = self.train_candidate(self.model_blockdfl, self.train_loaders[i])
+                print(f"    [BlockDFL] Evaluating candidate {i}...")
                 quality = self.evaluate_update(self.model_blockdfl, update)
                 blockdfl_updates.append(update)
                 blockdfl_qualities.append(quality)
@@ -195,10 +200,13 @@ class Simulator:
             # --- Generate updates for Ours Model ---
             # Note: In the early epochs, these will be identical to BlockDFL updates
             # if we use the same seed/order, but let's compute them explicitly to be safe and correct.
+            # --- Generate updates for Ours Model ---
             ours_updates = []
             ours_qualities = []
             for i in range(self.config['num_candidates']):
+                print(f"    [Ours] Training candidate {i}...")
                 update = self.train_candidate(self.model_ours, self.train_loaders[i])
+                print(f"    [Ours] Evaluating candidate {i}...")
                 quality = self.evaluate_update(self.model_ours, update)
                 ours_updates.append(update)
                 ours_qualities.append(quality)

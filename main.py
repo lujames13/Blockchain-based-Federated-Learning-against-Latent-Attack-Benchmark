@@ -4,8 +4,8 @@ from simulator import Simulator
 
 def main():
     parser = argparse.ArgumentParser(description='Latent Attack Benchmark')
-    parser.add_argument('--dataset', type=str, default='MNIST', choices=['MNIST', 'CIFAR10', 'mnist', 'cifar10'],
-                        help='Dataset to use (MNIST or CIFAR10)')
+    parser.add_argument('--dataset', type=str, default='MNIST', choices=['MNIST', 'CIFAR10', 'mnist', 'cifar10', 'mnist_noniid'],
+                        help='Dataset to use (MNIST, CIFAR10, or mnist_noniid)')
     args = parser.parse_args()
     
     # Ensure results directory exists
