@@ -114,6 +114,44 @@ class Simulator:
             
         return update
 
+    def train_malicious_candidate(self, base_model, train_loader):
+        """
+        Trains a malicious candidate update with label flipping.
+        Target = 9 - Target (assuming 10 classes).
+        """
+        candidate_model = copy.deepcopy(base_model)
+        candidate_model.train()
+        
+        optimizer = optim.SGD(
+            candidate_model.parameters(), 
+            lr=self.config['learning_rate'],
+            momentum=self.config.get('momentum', 0.9)
+        )
+        
+        criterion = nn.CrossEntropyLoss()
+        
+        # Train for local_training_epochs
+        for _ in range(self.config['local_training_epochs']):
+            for data, target in train_loader:
+                data, target = data.to(self.device), target.to(self.device)
+                
+                # Label Flipping Attack
+                target = 9 - target
+                
+                optimizer.zero_grad()
+                output = candidate_model(data)
+                loss = criterion(output, target)
+                loss.backward()
+                optimizer.step()
+        
+        # Calculate update
+        update = {}
+        for name, param in candidate_model.named_parameters():
+            base_param = base_model.state_dict()[name]
+            update[name] = param.data - base_param
+            
+        return update
+
     def evaluate_update(self, base_model, update):
         """
         Evaluates the quality of an update by applying it to the base_model
@@ -171,6 +209,10 @@ class Simulator:
         print(f"Total Rounds: {self.config['total_rounds']}")
         print(f"Attack Starts at Round: {self.config['attack_start_round']}")
         
+        
+        # self.blockdfl_consecutive_attack_success = 0 # DEPRECATED: Logic is now based on Aggregator role
+
+        
         for round_num in range(1, self.config['total_rounds'] + 1):
             # Decay learning rate
             current_lr = self.config['learning_rate'] * (self.config['lr_decay'] ** (round_num - 1))
@@ -215,50 +257,74 @@ class Simulator:
             attack_active = round_num >= self.config['attack_start_round']
             
             # Helper to select committee based on stack
-            def select_committee(pool, size):
-                if len(pool) < size:
-                    return list(range(len(pool)))
+            # Helper to select committee and aggregator based on stack
+            def select_roles(pool, committee_size):
+                if len(pool) < committee_size + 1:
+                    raise ValueError("Pool too small for committee + aggregator")
+                
                 total_stack = sum(v['stack'] for v in pool)
-                if total_stack == 0: # Should not happen ideally
+                if total_stack == 0:
                     probs = [1.0/len(pool)] * len(pool)
                 else:
                     probs = [v['stack'] / total_stack for v in pool]
                 
+                # Select committee_size + 1 (Committee + Aggregator)
                 indices = np.random.choice(
                     len(pool), 
-                    size=size, 
+                    size=committee_size + 1, 
                     replace=False, 
                     p=probs
                 )
-                return indices
+                
+                committee_indices = indices[:committee_size]
+                aggregator_index = indices[committee_size]
+                
+                return committee_indices, aggregator_index
 
             # --- BlockDFL Logic ---
-            committee_indices_blockdfl = select_committee(self.verifiers_blockdfl, self.committee_size)
+            committee_indices_blockdfl, aggregator_idx_blockdfl = select_roles(self.verifiers_blockdfl, self.committee_size)
             committee_blockdfl = [self.verifiers_blockdfl[i] for i in committee_indices_blockdfl]
+            aggregator_blockdfl = self.verifiers_blockdfl[aggregator_idx_blockdfl]
             
             num_attackers_blockdfl = sum(1 for v in committee_blockdfl if v['is_attacker'])
             num_honest_blockdfl = len(committee_blockdfl) - num_attackers_blockdfl
             
             # Determine BlockDFL Outcome
-            blockdfl_attack_successful = False
-            if attack_active and num_attackers_blockdfl > num_honest_blockdfl:
-                blockdfl_attack_successful = True
-                
-            # Calculate Total Pot
-            total_pot = self.committee_size * self.stack_reward
+            # Condition 1: Committee Majority
+            committee_captured = attack_active and (num_attackers_blockdfl > num_honest_blockdfl)
             
-            if blockdfl_attack_successful:
-                # Attack Success: Select WORST
-                blockdfl_idx = np.argmin(blockdfl_qualities)
-                blockdfl_selection_type = "WORST (ATTACK SUCCESS)"
-                
+            # Calculate Total Pot (Committee + Aggregator)
+            total_pot = (self.committee_size + 1) * self.stack_reward
+            
+            if committee_captured:
                 # Stack Update: Attackers split the ENTIRE pot
                 # Honest get nothing
-                reward_per_attacker = total_pot / num_attackers_blockdfl
+                reward_per_attacker = total_pot / (num_attackers_blockdfl + (1 if aggregator_blockdfl['is_attacker'] else 0))
                 
                 for v in committee_blockdfl:
                     if v['is_attacker']:
                         v['stack'] += reward_per_attacker
+                
+                if aggregator_blockdfl['is_attacker']:
+                    aggregator_blockdfl['stack'] += reward_per_attacker
+
+                # Stage 3 Check: Committee Majority AND Malicious Aggregator
+                if aggregator_blockdfl['is_attacker']:
+                    print("    [BlockDFL] MALICIOUS AGGREGATOR + COMMITTEE (Stage 3 - Label Flip)...")
+                    # Generate malicious update
+                    malicious_update = self.train_malicious_candidate(self.model_blockdfl, self.train_loaders[0])
+                    malicious_quality = self.evaluate_update(self.model_blockdfl, malicious_update)
+                    
+                    # Inject and select
+                    blockdfl_updates.append(malicious_update)
+                    blockdfl_qualities.append(malicious_quality)
+                    
+                    blockdfl_idx = len(blockdfl_updates) - 1
+                    blockdfl_selection_type = "LABEL_FLIP (STAGE 3)"
+                else:
+                    # Stage 2: Committee Majority ONLY -> Select WORST legitimate
+                    blockdfl_idx = np.argmin(blockdfl_qualities)
+                    blockdfl_selection_type = "WORST (STAGE 2)"
             else:
                 # Attack Failed (or not active): Select BEST
                 # Even if attack is active, if attackers are minority, they cooperate to get reward
@@ -268,15 +334,16 @@ class Simulator:
                     blockdfl_selection_type += " (ATTACK FAILED)"
                 
                 # Stack Update: Everyone splits the pot (Normal reward)
-                # reward_per_member = total_pot / len(committee_blockdfl) = stack_reward
                 for v in committee_blockdfl:
                     v['stack'] += self.stack_reward
+                aggregator_blockdfl['stack'] += self.stack_reward
 
             blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
 
             # --- Ours Logic ---
-            committee_indices_ours = select_committee(self.verifiers_ours, self.committee_size)
+            committee_indices_ours, aggregator_idx_ours = select_roles(self.verifiers_ours, self.committee_size)
             committee_ours = [self.verifiers_ours[i] for i in committee_indices_ours]
+            aggregator_ours = self.verifiers_ours[aggregator_idx_ours]
             
             # Ours always selects BEST (Audit)
             ours_idx = np.argmax(ours_qualities)
@@ -293,16 +360,22 @@ class Simulator:
             ours_attack_successful = attack_active and (num_attackers_ours > num_honest_ours)
             
             if ours_attack_successful:
-                # Attackers in committee are slashed to 0
+                # Attackers in committee and aggregator are slashed to 0
                 for v in committee_ours:
                     if v['is_attacker']:
                         v['stack'] = 0.0
                     else:
                         v['stack'] += self.stack_reward
+                
+                if aggregator_ours['is_attacker']:
+                    aggregator_ours['stack'] = 0.0
+                else:
+                    aggregator_ours['stack'] += self.stack_reward
             else:
                 # Normal operation / Attack failed / Not active: Everyone gets reward
                 for v in committee_ours:
                     v['stack'] += self.stack_reward
+                aggregator_ours['stack'] += self.stack_reward
 
             
             # --- Apply Updates ---
