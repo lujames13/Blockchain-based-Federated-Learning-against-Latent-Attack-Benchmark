@@ -1,3 +1,5 @@
+import sys
+print("DEBUG: Simulator starting...", file=sys.stderr)
 import copy
 import torch
 import torch.nn as nn
@@ -61,7 +63,15 @@ class Simulator:
         self.verifier_pool_size = self.config.get('verifier_pool_size', 100)
         self.initial_attacker_ratio = self.config.get('initial_attacker_ratio', 0.1)
         self.committee_size = self.config.get('committee_size', 7)
+        self.num_candidates = self.config.get('num_candidates', 4)
+        self.providers_per_aggregator = 5  # Fixed number of providers per aggregator
         
+        # Check if pool is large enough
+        required_nodes = self.committee_size + self.num_candidates * (1 + self.providers_per_aggregator)
+        if self.verifier_pool_size < required_nodes:
+            print(f"WARNING: Verifier pool size ({self.verifier_pool_size}) is smaller than required ({required_nodes}). Resizing pool to {required_nodes}.")
+            self.verifier_pool_size = required_nodes
+            
         num_attackers = int(self.verifier_pool_size * self.initial_attacker_ratio)
         
         # Initialize verifiers for BlockDFL
@@ -209,174 +219,210 @@ class Simulator:
         print(f"Total Rounds: {self.config['total_rounds']}")
         print(f"Attack Starts at Round: {self.config['attack_start_round']}")
         
-        
-        # self.blockdfl_consecutive_attack_success = 0 # DEPRECATED: Logic is now based on Aggregator role
-
-        
         for round_num in range(1, self.config['total_rounds'] + 1):
             # Decay learning rate
             current_lr = self.config['learning_rate'] * (self.config['lr_decay'] ** (round_num - 1))
             
-            # Since both models start identical and we want to simulate the divergence point,
-            # we can optimize by generating updates from ONE model (e.g., BlockDFL) 
-            # as long as they are identical. Once they diverge, we strictly need to generate 
-            # updates for each model separately if we were doing a full FL simulation.
-            # However, the PRD simplifies this: "Maintain two independent models".
-            # So we should generate updates for EACH model separately?
-            # PRD Section 2.2 says: "Generate 4 candidate updates... based on different data subsets".
-            # And "Evaluate each update quality".
-            # If the models are different, the updates generated from them will be different.
-            # So we must generate updates for BlockDFL model AND for Ours model separately.
-            
-            # --- Generate updates for BlockDFL Model ---
-            blockdfl_updates = []
-            blockdfl_qualities = []
-            for i in range(self.config['num_candidates']):
-                print(f"    [BlockDFL] Training candidate {i}...")
-                update = self.train_candidate(self.model_blockdfl, self.train_loaders[i])
-                print(f"    [BlockDFL] Evaluating candidate {i}...")
-                quality = self.evaluate_update(self.model_blockdfl, update)
-                blockdfl_updates.append(update)
-                blockdfl_qualities.append(quality)
-            
-            # --- Generate updates for Ours Model ---
-            # Note: In the early epochs, these will be identical to BlockDFL updates
-            # if we use the same seed/order, but let's compute them explicitly to be safe and correct.
-            # --- Generate updates for Ours Model ---
-            ours_updates = []
-            ours_qualities = []
-            for i in range(self.config['num_candidates']):
-                print(f"    [Ours] Training candidate {i}...")
-                update = self.train_candidate(self.model_ours, self.train_loaders[i])
-                print(f"    [Ours] Evaluating candidate {i}...")
-                quality = self.evaluate_update(self.model_ours, update)
-                ours_updates.append(update)
-                ours_qualities.append(quality)
-
-            # --- Selection & Stack Update Logic ---
-            attack_active = round_num >= self.config['attack_start_round']
-            
-            # Helper to select committee based on stack
-            # Helper to select committee and aggregator based on stack
-            def select_roles(pool, committee_size):
-                if len(pool) < committee_size + 1:
-                    raise ValueError("Pool too small for committee + aggregator")
+            # Helper to assign roles
+            def assign_roles(pool):
+                committee_size = self.committee_size
+                num_aggregators = self.num_candidates
+                providers_per_agg = self.providers_per_aggregator
                 
+                # Weight by stack
                 total_stack = sum(v['stack'] for v in pool)
                 if total_stack == 0:
                     probs = [1.0/len(pool)] * len(pool)
                 else:
                     probs = [v['stack'] / total_stack for v in pool]
                 
-                # Select committee_size + 1 (Committee + Aggregator)
-                indices = np.random.choice(
-                    len(pool), 
-                    size=committee_size + 1, 
-                    replace=False, 
-                    p=probs
-                )
-                
-                committee_indices = indices[:committee_size]
-                aggregator_index = indices[committee_size]
-                
-                return committee_indices, aggregator_index
-
-            # --- BlockDFL Logic ---
-            committee_indices_blockdfl, aggregator_idx_blockdfl = select_roles(self.verifiers_blockdfl, self.committee_size)
-            committee_blockdfl = [self.verifiers_blockdfl[i] for i in committee_indices_blockdfl]
-            aggregator_blockdfl = self.verifiers_blockdfl[aggregator_idx_blockdfl]
-            
-            num_attackers_blockdfl = sum(1 for v in committee_blockdfl if v['is_attacker'])
-            num_honest_blockdfl = len(committee_blockdfl) - num_attackers_blockdfl
-            
-            # Determine BlockDFL Outcome
-            # Condition 1: Committee Majority
-            committee_captured = attack_active and (num_attackers_blockdfl > num_honest_blockdfl)
-            
-            # Calculate Total Pot (Committee + Aggregator)
-            total_pot = (self.committee_size + 1) * self.stack_reward
-            
-            if committee_captured:
-                # Stack Update: Attackers split the ENTIRE pot
-                # Honest get nothing
-                reward_per_attacker = total_pot / (num_attackers_blockdfl + (1 if aggregator_blockdfl['is_attacker'] else 0))
-                
-                for v in committee_blockdfl:
-                    if v['is_attacker']:
-                        v['stack'] += reward_per_attacker
-                
-                if aggregator_blockdfl['is_attacker']:
-                    aggregator_blockdfl['stack'] += reward_per_attacker
-
-                # Stage 3 Check: Committee Majority AND Malicious Aggregator
-                if aggregator_blockdfl['is_attacker']:
-                    print("    [BlockDFL] MALICIOUS AGGREGATOR + COMMITTEE (Stage 3 - Label Flip)...")
-                    # Generate malicious update
-                    malicious_update = self.train_malicious_candidate(self.model_blockdfl, self.train_loaders[0])
-                    malicious_quality = self.evaluate_update(self.model_blockdfl, malicious_update)
-                    
-                    # Inject and select
-                    blockdfl_updates.append(malicious_update)
-                    blockdfl_qualities.append(malicious_quality)
-                    
-                    blockdfl_idx = len(blockdfl_updates) - 1
-                    blockdfl_selection_type = "LABEL_FLIP (STAGE 3)"
+                # Sample all needed roles at once to ensure disjoint sets
+                total_needed = committee_size + num_aggregators * (1 + providers_per_agg)
+                if len(pool) < total_needed:
+                     # Fallback if pool shrunk or not enough
+                     # This should not happen given __init__ check, but for safety:
+                     indices = np.random.choice(len(pool), size=len(pool), replace=False, p=probs)
                 else:
-                    # Stage 2: Committee Majority ONLY -> Select WORST legitimate
-                    blockdfl_idx = np.argmin(blockdfl_qualities)
-                    blockdfl_selection_type = "WORST (STAGE 2)"
-            else:
-                # Attack Failed (or not active): Select BEST
-                # Even if attack is active, if attackers are minority, they cooperate to get reward
-                blockdfl_idx = np.argmax(blockdfl_qualities)
-                blockdfl_selection_type = "BEST"
-                if attack_active:
-                    blockdfl_selection_type += " (ATTACK FAILED)"
+                    indices = np.random.choice(len(pool), size=total_needed, replace=False, p=probs)
                 
-                # Stack Update: Everyone splits the pot (Normal reward)
-                for v in committee_blockdfl:
-                    v['stack'] += self.stack_reward
-                aggregator_blockdfl['stack'] += self.stack_reward
+                # Slice indices
+                committee_idxs = indices[:committee_size]
+                remaining = indices[committee_size:]
+                
+                aggregators_with_providers = []
+                cursor = 0
+                for _ in range(num_aggregators):
+                    agg_idx = remaining[cursor]
+                    cursor += 1
+                    prov_idxs = remaining[cursor : cursor + providers_per_agg]
+                    cursor += providers_per_agg
+                    
+                    aggregators_with_providers.append({
+                        'aggregator': pool[agg_idx],
+                        'providers': [pool[i] for i in prov_idxs]
+                    })
+                
+                committee = [pool[i] for i in committee_idxs]
+                
+                return committee, aggregators_with_providers
 
-            blockdfl_selected_update = blockdfl_updates[blockdfl_idx]
-
-            # --- Ours Logic ---
-            committee_indices_ours, aggregator_idx_ours = select_roles(self.verifiers_ours, self.committee_size)
-            committee_ours = [self.verifiers_ours[i] for i in committee_indices_ours]
-            aggregator_ours = self.verifiers_ours[aggregator_idx_ours]
+            # Generate Updates and Roles for BlockDFL
+            committee_bdfl, groups_bdfl = assign_roles(self.verifiers_blockdfl)
             
-            # Ours always selects BEST (Audit)
-            ours_idx = np.argmax(ours_qualities)
-            ours_selected_update = ours_updates[ours_idx]
-            ours_selection_type = "BEST"
+            # Generate Updates and Roles for Ours
+            committee_ours, groups_ours = assign_roles(self.verifiers_ours)
+            
+            # --- Logic to Generate Updates ---
+            # We generate updates based on the ASSIGNED roles. 
+            # Note: In a real simulation, providers send updates to aggregator, who aggregates.
+            # Here we simulate the *result* of that process. 
+            # If Aggregator is Malicious, he creates a Malicious Update (Poisoned).
+            # If Aggregator is Honest, he creates a Valid Update (from Training).
+            # For simplicity, we use the `train_candidate` or `train_malicious_candidate` directly for the Aggregator's "Output".
+            
+            def process_candidates(model, groups, is_attack_active):
+                updates = []
+                qualities = []
+                corruption_scores = [] # count of malicious nodes in the group (Agg + Providers)
+                is_malicious_update = []
+                
+                for group in groups:
+                    agg = group['aggregator']
+                    provs = group['providers']
+                    
+                    # Compute Corruption Score
+                    num_mal_prov = sum(1 for p in provs if p['is_attacker'])
+                    score = (1 if agg['is_attacker'] else 0) + num_mal_prov
+                    corruption_scores.append(score)
+                    
+                    # Generate Update
+                    # If Aggregator is Malicious AND Attack Active -> Generate Malicious Update
+                    # Warning: Aggregator might be honest but have malicious providers.
+                    # Standard assumption: Malicious Aggregator = Malicious Update.
+                    # Honest Aggregator with Malicious Providers = Slightly degraded but mostly Honest update (robust aggregation)?
+                    # For this high-level sim, we assume:
+                    # Malicious Aggregator -> Poisoned Update (Label Flip)
+                    # Honest Aggregator -> Legitimate Update (Normal Training)
+                    
+                    if is_attack_active and agg['is_attacker']:
+                        # Malicious Aggregator injects attack
+                        upd = self.train_malicious_candidate(model, self.train_loaders[0]) # Use loader 0 as dummy source
+                        is_malicious_update.append(True)
+                    else:
+                        # Honest Aggregator (even if some providers are malicious, we assume he filters/aggregates correctly for now, or just simply honest training)
+                        # To vary the updates, utilize different loaders if possible, or just one.
+                        # We have 4 loaders. Assign randomly.
+                        upd = self.train_candidate(model, self.train_loaders[np.random.randint(len(self.train_loaders))])
+                        is_malicious_update.append(False)
+                    
+                    # Evaluate
+                    qual = self.evaluate_update(model, upd)
+                    updates.append(upd)
+                    qualities.append(qual)
+                    
+                return updates, qualities, corruption_scores, is_malicious_update
+
+            attack_active = round_num >= self.config['attack_start_round']
+            
+            # --- BlockDFL Process ---
+            bdfl_updates, bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
+                self.model_blockdfl, groups_bdfl, attack_active
+            )
+            
+            num_attackers_bdfl = sum(1 for v in committee_bdfl if v['is_attacker'])
+            committee_captured_bdfl = attack_active and (num_attackers_bdfl > (2 / 3) * self.committee_size)
+            
+            if committee_captured_bdfl:
+                # Malicious Committee selects the update with MAX Corruption Score (Nepotism)
+                # To maximize stake accumulation for the malicious clan
+                bdfl_idx = np.argmax(bdfl_scores)
+                bdfl_selection_type = "NEPOTISM (CAPTURED)"
+            else:
+                # Honest Committee selects BEST Quality
+                bdfl_idx = np.argmax(bdfl_qualities)
+                bdfl_selection_type = "BEST"
+                
+            # BlockDFL Rewards: Everyone in Committee + Winning Group gets Reward
+            # No Slashing in BlockDFL
+            winning_group_bdfl = groups_bdfl[bdfl_idx]
+            
+            # Reward Committee
+            for v in committee_bdfl:
+                v['stack'] += self.stack_reward
+            
+            # Reward Winning Aggregator & Providers
+            winning_group_bdfl['aggregator']['stack'] += self.stack_reward
+            for p in winning_group_bdfl['providers']:
+                p['stack'] += self.stack_reward
+                
+            blockdfl_selected_update = bdfl_updates[bdfl_idx]
+            
+            # --- Ours Process ---
+            ours_updates, ours_qualities, ours_scores, ours_is_mal = process_candidates(
+                self.model_ours, groups_ours, attack_active
+            )
             
             num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
-            num_honest_ours = len(committee_ours) - num_attackers_ours
+            committee_captured_ours = attack_active and (num_attackers_ours > (2 / 3) * self.committee_size)
             
-            # Stack Update for Ours
-            # User requirement: Attackers are slashed ONLY if they successfully attack (majority).
-            # If they don't have majority, they cooperate and get reward.
-            
-            ours_attack_successful = attack_active and (num_attackers_ours > num_honest_ours)
-            
-            if ours_attack_successful:
-                # Attackers in committee and aggregator are slashed to 0
-                for v in committee_ours:
-                    if v['is_attacker']:
-                        v['stack'] = 0.0
-                    else:
-                        v['stack'] += self.stack_reward
+            if committee_captured_ours:
+                # Malicious Committee selects MAX Corruption Score (Nepotism)
+                ours_idx = np.argmax(ours_scores)
+                ours_selection_type = "NEPOTISM (CAPTURED)"
                 
-                if aggregator_ours['is_attacker']:
-                    aggregator_ours['stack'] = 0.0
-                else:
-                    aggregator_ours['stack'] += self.stack_reward
-            else:
-                # Normal operation / Attack failed / Not active: Everyone gets reward
+                # Reward Loop: Committee + Winning Group (bypass Slash)
+                # "Accumulate Stake"
+                winning_group_ours = groups_ours[ours_idx]
+                
                 for v in committee_ours:
                     v['stack'] += self.stack_reward
-                aggregator_ours['stack'] += self.stack_reward
+                
+                winning_group_ours['aggregator']['stack'] += self.stack_reward
+                for p in winning_group_ours['providers']:
+                    p['stack'] += self.stack_reward
+                    
+            else:
+                # Honest Committee selects BEST Quality
+                ours_idx = np.argmax(ours_qualities)
+                ours_selection_type = "BEST"
+                
+                winning_group_ours = groups_ours[ours_idx]
+                
+                # Check for Slashing Opportunity (Honest Defense)
+                # If the *Selected* update was Malicious (unlikely if Honest selects Best, but possible if Malicious was good quality or luck)
+                # OR, checking if any CANDIDATE was malicious? 
+                # BlockDFL doesn't slash. Ours does.
+                # Standard Logic: If an honest committee selects a Valid update, they reward it.
+                # If they detect a Malicious update during verification, they slash it.
+                # Here, we assume they selected the Best. If it's Honest, Reward.
+                # If it's Malicious (e.g. good Attack), they might be fooled -> Reward.
+                # BUT, if they *rejected* Malicious updates, do they Slash the losers?
+                # User says "Ours has slash mechanism to handle malicious attacks".
+                # To simulate "handling", we should slash the Malicious Aggregators who *tried* to attack but failed.
+                
+                # Apply Reward to Winner
+                for v in committee_ours:
+                    v['stack'] += self.stack_reward
+                winning_group_ours['aggregator']['stack'] += self.stack_reward
+                for p in winning_group_ours['providers']:
+                    p['stack'] += self.stack_reward
+                
+                # Apply Slashing to Malicious Candidates (Defense)
+                # Iterate all candidates: if they were Malicious (and Attack Active, implying they tried to poison), Slash them.
+                num_slashed = 0
+                if attack_active:
+                     for i, grp in enumerate(groups_ours):
+                         agg = grp['aggregator']
+                         if agg['is_attacker']:
+                             # Detected Malicious Aggregator -> Slash 
+                             agg['stack'] = 0.0
+                             num_slashed += 1
+                
+                if num_slashed > 0:
+                    ours_selection_type += f" (SLASHED {num_slashed})"
+                
 
+            ours_selected_update = ours_updates[ours_idx]
             
             # --- Apply Updates ---
             self.apply_update(self.model_blockdfl, blockdfl_selected_update)
@@ -386,7 +432,7 @@ class Simulator:
             blockdfl_acc = self.evaluate_model(self.model_blockdfl)
             ours_acc = self.evaluate_model(self.model_ours)
             
-            # --- Calculate Stack Stats ---
+            # --- Log ---
             def get_avg_stack(pool):
                 honest_stacks = [v['stack'] for v in pool if not v['is_attacker']]
                 attacker_stacks = [v['stack'] for v in pool if v['is_attacker']]
@@ -397,10 +443,9 @@ class Simulator:
             bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.verifiers_blockdfl)
             ours_avg_honest, ours_avg_attacker = get_avg_stack(self.verifiers_ours)
 
-            # --- Log ---
             print(f"Round {round_num}/{self.config['total_rounds']}")
-            print(f"  BlockDFL: {blockdfl_selection_type} (Attacker Stack: {bdfl_avg_attacker:.2f}, Honest Stack: {bdfl_avg_honest:.2f})")
-            print(f"  Ours:     {ours_selection_type} (Attacker Stack: {ours_avg_attacker:.2f}, Honest Stack: {ours_avg_honest:.2f})")
+            print(f"  BlockDFL: {bdfl_selection_type} | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
+            print(f"  Ours:     {ours_selection_type} | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
             print(f"  -> BlockDFL Acc: {blockdfl_acc:.4f}")
             print(f"  -> Ours Acc:     {ours_acc:.4f}")
             
@@ -409,39 +454,26 @@ class Simulator:
                 "round": round_num,
                 "blockdfl_accuracy": blockdfl_acc,
                 "ours_accuracy": ours_acc,
-                "blockdfl_selection": {
-                    "type": blockdfl_selection_type,
-                    "quality": blockdfl_qualities[blockdfl_idx],
-                    "all_qualities": blockdfl_qualities
-                },
-                "ours_selection": {
-                    "type": ours_selection_type,
-                    "quality": ours_qualities[ours_idx],
-                    "all_qualities": ours_qualities
-                },
+                "blockdfl_selection": bdfl_selection_type,
+                "ours_selection": ours_selection_type,
                 "stack_stats": {
-                    "blockdfl": {
-                        "avg_honest": bdfl_avg_honest,
-                        "avg_attacker": bdfl_avg_attacker
-                    },
-                    "ours": {
-                        "avg_honest": ours_avg_honest,
-                        "avg_attacker": ours_avg_attacker
-                    }
+                    "blockdfl": {"avg_honest": bdfl_avg_honest, "avg_attacker": bdfl_avg_attacker},
+                    "ours": {"avg_honest": ours_avg_honest, "avg_attacker": ours_avg_attacker}
                 }
             }
             self.results["results"].append(round_data)
             
-            # Save intermediate results every 10 rounds
             if round_num % 10 == 0:
                 self.save_results()
-
+                
         self.save_results()
         print("Simulation Complete.")
 
     def save_results(self):
         filename = f"{self.dataset_name.lower()}_results.json"
         filepath = os.path.join('results', filename)
+        os.makedirs('results', exist_ok=True)
         with open(filepath, 'w') as f:
             json.dump(self.results, f, indent=2)
         print(f"Results saved to {filepath}")
+

@@ -1,0 +1,15 @@
+mnist:
+  dataset: MNIST
+  total_rounds: 5
+  attack_start_round: 1
+  local_training_epochs: 1
+  batch_size: 128
+  learning_rate: 0.1
+  momentum: 0.9
+  lr_decay: 0.95
+  num_candidates: 2
+  alpha: 0.5
+  verifier_pool_size: 20
+  initial_attacker_ratio: 0.8
+  committee_size: 5
+  stack_reward: 0.1
