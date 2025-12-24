@@ -334,7 +334,7 @@ class Simulator:
                     
                     # Compute Corruption Score
                     num_mal_prov = sum(1 for p in provs if p['is_attacker'])
-                    score = (1 if agg['is_attacker'] else 0) + num_mal_prov
+                    score = (100 if agg['is_attacker'] else 0) + num_mal_prov
                     corruption_scores.append(score)
                     
                     # Generate Update
@@ -394,9 +394,17 @@ class Simulator:
             # No Slashing in BlockDFL
             winning_group_bdfl = groups_bdfl[bdfl_idx]
             
-            # Reward Committee
-            for v in committee_bdfl:
-                v['stack'] += self.rewards['verifier']
+            # Reward Committee (Conditional based on capture status)
+            if committee_captured_bdfl:
+                # Attack Success: Only malicious verifiers get rewards
+                for v in committee_bdfl:
+                    if v['is_attacker']:
+                        v['stack'] += self.rewards['verifier']
+                    # Honest verifiers get nothing when committee is captured
+            else:
+                # Normal operation: All committee members get rewards
+                for v in committee_bdfl:
+                    v['stack'] += self.rewards['verifier']
             
             # Reward Winning Aggregator & Providers
             winning_group_bdfl['aggregator']['stack'] += self.rewards['aggregator']

@@ -14,8 +14,8 @@ mnist:
   committee_size: 7
   stack_reward: 0.4
   rewards:
-    verifier: 0.1
-    aggregator: 0.2
+    verifier: 0.2
+    aggregator: 0.1
     provider: 0.05
   slash_penalty: "full"
 
