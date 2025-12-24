@@ -61,7 +61,10 @@ class Simulator:
         
         # Initialize verifier pool
         self.verifier_pool_size = self.config.get('verifier_pool_size', 100)
-        self.initial_attacker_ratio = self.config.get('initial_attacker_ratio', 0.1)
+        # Strict config reading - no default value
+        if 'initial_attacker_ratio' not in self.config:
+            raise ValueError(f"initial_attacker_ratio must be defined in config for {dataset_name}")
+        self.initial_attacker_ratio = self.config['initial_attacker_ratio']
         self.committee_size = self.config.get('committee_size', 7)
         self.num_candidates = self.config.get('num_candidates', 4)
         self.providers_per_aggregator = 5  # Fixed number of providers per aggregator
@@ -310,7 +313,16 @@ class Simulator:
             # If Aggregator is Honest, he creates a Valid Update (from Training).
             # For simplicity, we use the `train_candidate` or `train_malicious_candidate` directly for the Aggregator's "Output".
             
-            def process_candidates(model, groups, is_attack_active):
+            def process_candidates(model, groups, is_attack_active, is_committee_captured):
+                """
+                Generate candidate updates based on attack state.
+                
+                is_attack_active: True if round >= attack_start_round
+                is_committee_captured: True if malicious nodes > 2/3 of committee
+                
+                Latent Phase (not captured): All aggregators use honest training
+                Attack Phase (captured): Malicious aggregators use label flipping
+                """
                 updates = []
                 qualities = []
                 corruption_scores = [] # count of malicious nodes in the group (Agg + Providers)
@@ -326,22 +338,16 @@ class Simulator:
                     corruption_scores.append(score)
                     
                     # Generate Update
-                    # If Aggregator is Malicious AND Attack Active -> Generate Malicious Update
-                    # Warning: Aggregator might be honest but have malicious providers.
-                    # Standard assumption: Malicious Aggregator = Malicious Update.
-                    # Honest Aggregator with Malicious Providers = Slightly degraded but mostly Honest update (robust aggregation)?
-                    # For this high-level sim, we assume:
-                    # Malicious Aggregator -> Poisoned Update (Label Flip)
-                    # Honest Aggregator -> Legitimate Update (Normal Training)
+                    # LATENT PHASE: Even if attack is "active", malicious nodes act honestly until committee captured
+                    # ATTACK PHASE: Once committee captured, malicious aggregators launch label flipping attack
                     
-                    if is_attack_active and agg['is_attacker']:
-                        # Malicious Aggregator injects attack
-                        upd = self.train_malicious_candidate(model, self.train_loaders[0]) # Use loader 0 as dummy source
+                    if is_attack_active and is_committee_captured and agg['is_attacker']:
+                        # ATTACK PHASE: Malicious Aggregator launches Label Flipping attack
+                        upd = self.train_malicious_candidate(model, self.train_loaders[0])
                         is_malicious_update.append(True)
                     else:
-                        # Honest Aggregator (even if some providers are malicious, we assume he filters/aggregates correctly for now, or just simply honest training)
-                        # To vary the updates, utilize different loaders if possible, or just one.
-                        # We have 4 loaders. Assign randomly.
+                        # LATENT PHASE or Honest Aggregator: Normal training
+                        # Malicious nodes remain stealthy, accumulating stake
                         upd = self.train_candidate(model, self.train_loaders[np.random.randint(len(self.train_loaders))])
                         is_malicious_update.append(False)
                     
@@ -354,23 +360,35 @@ class Simulator:
 
             attack_active = round_num >= self.config['attack_start_round']
             
-            # --- BlockDFL Process ---
-            bdfl_updates, bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
-                self.model_blockdfl, groups_bdfl, attack_active
-            )
-            
+            # --- Calculate Committee Capture Status BEFORE generating updates ---
             num_attackers_bdfl = sum(1 for v in committee_bdfl if v['is_attacker'])
             committee_captured_bdfl = attack_active and (num_attackers_bdfl > (2 / 3) * self.committee_size)
             
+            num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
+            committee_captured_ours = attack_active and (num_attackers_ours > (2 / 3) * self.committee_size)
+            
+            # --- BlockDFL Process ---
+            bdfl_updates, bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
+                self.model_blockdfl, groups_bdfl, attack_active, committee_captured_bdfl
+            )
+            
+            # Determine attack status for BlockDFL
             if committee_captured_bdfl:
-                # Malicious Committee selects the update with MAX Corruption Score (Nepotism)
-                # To maximize stake accumulation for the malicious clan
+                # ATTACK PHASE: Committee captured, selecting based on corruption
                 bdfl_idx = np.argmax(bdfl_scores)
-                bdfl_selection_type = "NEPOTISM (CAPTURED)"
+                winning_agg_bdfl = groups_bdfl[bdfl_idx]['aggregator']
+                if winning_agg_bdfl['is_attacker']:
+                    bdfl_attack_status = "ATK:CAPTURED_MAL_FLIP"
+                else:
+                    bdfl_attack_status = "ATK:CAPTURED_HON_NEPO"
             else:
-                # Honest Committee selects BEST Quality
+                # LATENT PHASE: Honest selection
                 bdfl_idx = np.argmax(bdfl_qualities)
-                bdfl_selection_type = "BEST"
+                winning_agg_bdfl = groups_bdfl[bdfl_idx]['aggregator']
+                if winning_agg_bdfl['is_attacker']:
+                    bdfl_attack_status = "LATENT:MAL_STEALTH"
+                else:
+                    bdfl_attack_status = "LATENT:HON_STEALTH"
                 
             # BlockDFL Rewards: Everyone in Committee + Winning Group gets Reward
             # No Slashing in BlockDFL
@@ -389,55 +407,51 @@ class Simulator:
             
             # --- Ours Process ---
             ours_updates, ours_qualities, ours_scores, ours_is_mal = process_candidates(
-                self.model_ours, groups_ours, attack_active
+                self.model_ours, groups_ours, attack_active, committee_captured_ours
             )
             
-            num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
-            committee_captured_ours = attack_active and (num_attackers_ours > (2 / 3) * self.committee_size)
-            
+            # Determine attack status for Ours
             if committee_captured_ours:
-                # Malicious Committee selects MAX Corruption Score (Nepotism)
+                # ATTACK PHASE: Committee captured
                 ours_idx = np.argmax(ours_scores)
-                ours_selection_type = "NEPOTISM (CAPTURED)"
+                winning_agg_ours = groups_ours[ours_idx]['aggregator']
+                if winning_agg_ours['is_attacker']:
+                    ours_attack_status = "ATK:CAPTURED_MAL_FLIP"
+                else:
+                    ours_attack_status = "ATK:CAPTURED_HON_NEPO"
                 
-                # SLASHING MECHANISM
-                # Attackers in committee who forced this vote get slashed
+                # SLASHING MECHANISM (Ours only)
                 num_slashed = 0
                 for v in committee_ours:
                     if v['is_attacker']:
                         if self.slash_penalty == 'full':
                             v['stack'] = 0.0
                         else:
-                            # If float
                             v['stack'] = max(0, v['stack'] - float(self.slash_penalty))
                         num_slashed += 1
-                    else:
-                        # Honest nodes in minority: receive no reward (since they voted against?) 
-                        # or receive reward? Usually in BFT, you only get reward if you sign the block.
-                        # Assuming honest nodes voted for the 'Best' valid update, not this one.
-                        # So they get nothing.
-                        pass
                 
                 if num_slashed > 0:
-                    ours_selection_type += f" (SLASHED {num_slashed})"
+                    ours_attack_status += f" (SLASHED {num_slashed})"
 
-                # Winning Malicious Group gets Rewards (Attack Success from their perspective)
+                # Winning Group gets Rewards
                 winning_group_ours = groups_ours[ours_idx]
                 winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
                 for p in winning_group_ours['providers']:
                     p['stack'] += self.rewards['provider']
                     
             else:
-                # Honest Committee selects BEST Quality
+                # LATENT PHASE: Honest selection
                 ours_idx = np.argmax(ours_qualities)
-                ours_selection_type = "BEST"
+                winning_agg_ours = groups_ours[ours_idx]['aggregator']
+                if winning_agg_ours['is_attacker']:
+                    ours_attack_status = "LATENT:MAL_STEALTH"
+                else:
+                    ours_attack_status = "LATENT:HON_STEALTH"
                 
-                # Standard Reward for everyone
-                # Verifiers
+                # Standard Rewards
                 for v in committee_ours:
                     v['stack'] += self.rewards['verifier']
                 
-                # Winning Group
                 winning_group_ours = groups_ours[ours_idx]
                 winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
                 for p in winning_group_ours['providers']:
@@ -465,8 +479,8 @@ class Simulator:
             ours_avg_honest, ours_avg_attacker = get_avg_stack(self.participants_ours)
 
             print(f"Round {round_num}/{self.config['total_rounds']}")
-            print(f"  BlockDFL: {bdfl_selection_type} | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
-            print(f"  Ours:     {ours_selection_type} | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
+            print(f"  BlockDFL: [{bdfl_attack_status}] | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
+            print(f"  Ours:     [{ours_attack_status}] | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
             print(f"  -> BlockDFL Acc: {blockdfl_acc:.4f}")
             print(f"  -> Ours Acc:     {ours_acc:.4f}")
             
@@ -475,8 +489,8 @@ class Simulator:
                 "round": round_num,
                 "blockdfl_accuracy": blockdfl_acc,
                 "ours_accuracy": ours_acc,
-                "blockdfl_selection": bdfl_selection_type,
-                "ours_selection": ours_selection_type,
+                "blockdfl_attack_status_code": bdfl_attack_status,
+                "ours_attack_status_code": ours_attack_status,
                 "stack_stats": {
                     "blockdfl": {"avg_honest": bdfl_avg_honest, "avg_attacker": bdfl_avg_attacker},
                     "ours": {"avg_honest": ours_avg_honest, "avg_attacker": ours_avg_attacker}
