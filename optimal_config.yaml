@@ -1,0 +1,13 @@
+best_seed: 838164536
+mnist:
+  extra_params:
+    best_seed: 838164536
+    providers_per_aggregator: 5
+  num_candidates: 4
+  rewards: &id001
+    aggregator: 0.1
+    provider: 0.1
+    verifier: 2.0
+num_candidates: 4
+providers_per_aggregator: 5
+rewards: *id001
