@@ -13,6 +13,11 @@ mnist:
   initial_attacker_ratio: 0.3
   committee_size: 7
   stack_reward: 0.4
+  rewards:
+    verifier: 0.1
+    aggregator: 0.2
+    provider: 0.05
+  slash_penalty: "full"
 
 mnist_noniid:
   dataset: MNIST

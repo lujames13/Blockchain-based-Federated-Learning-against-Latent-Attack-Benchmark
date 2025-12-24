@@ -74,20 +74,27 @@ class Simulator:
             
         num_attackers = int(self.verifier_pool_size * self.initial_attacker_ratio)
         
-        # Initialize verifiers for BlockDFL
-        self.verifiers_blockdfl = []
-        for i in range(self.verifier_pool_size):
+        
+        # Initialize participants for BlockDFL (formerly verifiers_blockdfl)
+        self.participants_blockdfl = []
+        for i in range(self.verifier_pool_size): # kept variable name for config compatibility
             is_attacker = i < num_attackers
-            self.verifiers_blockdfl.append({
+            self.participants_blockdfl.append({
                 'id': i,
                 'is_attacker': is_attacker,
                 'stack': 1.0
             })
             
-        # Initialize verifiers for Ours (identical start)
-        self.verifiers_ours = copy.deepcopy(self.verifiers_blockdfl)
+        # Initialize participants for Ours (identical start)
+        self.participants_ours = copy.deepcopy(self.participants_blockdfl)
         
-        self.stack_reward = self.config.get('stack_reward', 0.1)
+        # Load detailed rewards
+        self.rewards = self.config.get('rewards', {
+            'verifier': 0.1,
+            'aggregator': 0.2,
+            'provider': 0.05
+        })
+        self.slash_penalty = self.config.get('slash_penalty', 'full')
 
     def train_candidate(self, base_model, train_loader):
         """
@@ -227,50 +234,73 @@ class Simulator:
             def assign_roles(pool):
                 committee_size = self.committee_size
                 num_aggregators = self.num_candidates
-                providers_per_agg = self.providers_per_aggregator
+                providers_per_agg = self.providers_per_aggregator # Should be (len(pool) - comm - agg) / agg
                 
+                # 1. Select Verifiers (Committee)
                 # Weight by stack
                 total_stack = sum(v['stack'] for v in pool)
                 if total_stack == 0:
-                    probs = [1.0/len(pool)] * len(pool)
+                    probs_v = [1.0/len(pool)] * len(pool)
                 else:
-                    probs = [v['stack'] / total_stack for v in pool]
+                    probs_v = [v['stack'] / total_stack for v in pool]
                 
-                # Sample all needed roles at once to ensure disjoint sets
-                total_needed = committee_size + num_aggregators * (1 + providers_per_agg)
-                if len(pool) < total_needed:
-                     # Fallback if pool shrunk or not enough
-                     # This should not happen given __init__ check, but for safety:
-                     indices = np.random.choice(len(pool), size=len(pool), replace=False, p=probs)
+                # Sample Committee indices without replacement
+                committee_idxs = np.random.choice(len(pool), size=committee_size, replace=False, p=probs_v)
+                committee = [pool[i] for i in committee_idxs]
+                
+                # Remaining pool for Aggregators
+                remaining_idxs = [i for i in range(len(pool)) if i not in committee_idxs]
+                remaining_pool_obj = [pool[i] for i in remaining_idxs]
+                
+                # 2. Select Aggregators from Remaining
+                total_stack_rem = sum(p['stack'] for p in remaining_pool_obj)
+                if total_stack_rem == 0:
+                    probs_a = [1.0/len(remaining_pool_obj)] * len(remaining_pool_obj)
                 else:
-                    indices = np.random.choice(len(pool), size=total_needed, replace=False, p=probs)
+                    probs_a = [p['stack'] / total_stack_rem for p in remaining_pool_obj]
                 
-                # Slice indices
-                committee_idxs = indices[:committee_size]
-                remaining = indices[committee_size:]
+                # Sample Aggregator indices (relative to remaining_pool_obj)
+                # We need M aggregators
+                agg_rel_idxs = np.random.choice(len(remaining_pool_obj), size=num_aggregators, replace=False, p=probs_a)
+                
+                aggregators = [remaining_pool_obj[i] for i in agg_rel_idxs]
+                
+                # Remaining for Providers
+                # Remove aggregators from remaining_pool_obj
+                final_remaining_obj = [p for i, p in enumerate(remaining_pool_obj) if i not in agg_rel_idxs]
+                
+                # 3. Assign Providers to Aggregators
+                # Shuffle final_remaining to distribute randomly
+                np.random.shuffle(final_remaining_obj)
+                
+                # Split evenly
+                # Note: We might have leftovers if not perfectly divisible, but we'll handle by splitting current chunks
+                # The user said: num=participents/aggregators. We assume it's roughly equal.
+                chunk_size = len(final_remaining_obj) // num_aggregators
                 
                 aggregators_with_providers = []
-                cursor = 0
-                for _ in range(num_aggregators):
-                    agg_idx = remaining[cursor]
-                    cursor += 1
-                    prov_idxs = remaining[cursor : cursor + providers_per_agg]
-                    cursor += providers_per_agg
+                for i in range(num_aggregators):
+                    start = i * chunk_size
+                    # For the last one, take all remaining to avoid orphans
+                    if i == num_aggregators - 1:
+                        end = len(final_remaining_obj)
+                    else:
+                        end = (i + 1) * chunk_size
+                        
+                    my_providers = final_remaining_obj[start:end]
                     
                     aggregators_with_providers.append({
-                        'aggregator': pool[agg_idx],
-                        'providers': [pool[i] for i in prov_idxs]
+                        'aggregator': aggregators[i],
+                        'providers': my_providers
                     })
-                
-                committee = [pool[i] for i in committee_idxs]
                 
                 return committee, aggregators_with_providers
 
             # Generate Updates and Roles for BlockDFL
-            committee_bdfl, groups_bdfl = assign_roles(self.verifiers_blockdfl)
+            committee_bdfl, groups_bdfl = assign_roles(self.participants_blockdfl)
             
             # Generate Updates and Roles for Ours
-            committee_ours, groups_ours = assign_roles(self.verifiers_ours)
+            committee_ours, groups_ours = assign_roles(self.participants_ours)
             
             # --- Logic to Generate Updates ---
             # We generate updates based on the ASSIGNED roles. 
@@ -348,12 +378,12 @@ class Simulator:
             
             # Reward Committee
             for v in committee_bdfl:
-                v['stack'] += self.stack_reward
+                v['stack'] += self.rewards['verifier']
             
             # Reward Winning Aggregator & Providers
-            winning_group_bdfl['aggregator']['stack'] += self.stack_reward
+            winning_group_bdfl['aggregator']['stack'] += self.rewards['aggregator']
             for p in winning_group_bdfl['providers']:
-                p['stack'] += self.stack_reward
+                p['stack'] += self.rewards['provider']
                 
             blockdfl_selected_update = bdfl_updates[bdfl_idx]
             
@@ -370,57 +400,48 @@ class Simulator:
                 ours_idx = np.argmax(ours_scores)
                 ours_selection_type = "NEPOTISM (CAPTURED)"
                 
-                # Reward Loop: Committee + Winning Group (bypass Slash)
-                # "Accumulate Stake"
-                winning_group_ours = groups_ours[ours_idx]
-                
+                # SLASHING MECHANISM
+                # Attackers in committee who forced this vote get slashed
+                num_slashed = 0
                 for v in committee_ours:
-                    v['stack'] += self.stack_reward
+                    if v['is_attacker']:
+                        if self.slash_penalty == 'full':
+                            v['stack'] = 0.0
+                        else:
+                            # If float
+                            v['stack'] = max(0, v['stack'] - float(self.slash_penalty))
+                        num_slashed += 1
+                    else:
+                        # Honest nodes in minority: receive no reward (since they voted against?) 
+                        # or receive reward? Usually in BFT, you only get reward if you sign the block.
+                        # Assuming honest nodes voted for the 'Best' valid update, not this one.
+                        # So they get nothing.
+                        pass
                 
-                winning_group_ours['aggregator']['stack'] += self.stack_reward
+                if num_slashed > 0:
+                    ours_selection_type += f" (SLASHED {num_slashed})"
+
+                # Winning Malicious Group gets Rewards (Attack Success from their perspective)
+                winning_group_ours = groups_ours[ours_idx]
+                winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
                 for p in winning_group_ours['providers']:
-                    p['stack'] += self.stack_reward
+                    p['stack'] += self.rewards['provider']
                     
             else:
                 # Honest Committee selects BEST Quality
                 ours_idx = np.argmax(ours_qualities)
                 ours_selection_type = "BEST"
                 
-                winning_group_ours = groups_ours[ours_idx]
-                
-                # Check for Slashing Opportunity (Honest Defense)
-                # If the *Selected* update was Malicious (unlikely if Honest selects Best, but possible if Malicious was good quality or luck)
-                # OR, checking if any CANDIDATE was malicious? 
-                # BlockDFL doesn't slash. Ours does.
-                # Standard Logic: If an honest committee selects a Valid update, they reward it.
-                # If they detect a Malicious update during verification, they slash it.
-                # Here, we assume they selected the Best. If it's Honest, Reward.
-                # If it's Malicious (e.g. good Attack), they might be fooled -> Reward.
-                # BUT, if they *rejected* Malicious updates, do they Slash the losers?
-                # User says "Ours has slash mechanism to handle malicious attacks".
-                # To simulate "handling", we should slash the Malicious Aggregators who *tried* to attack but failed.
-                
-                # Apply Reward to Winner
+                # Standard Reward for everyone
+                # Verifiers
                 for v in committee_ours:
-                    v['stack'] += self.stack_reward
-                winning_group_ours['aggregator']['stack'] += self.stack_reward
+                    v['stack'] += self.rewards['verifier']
+                
+                # Winning Group
+                winning_group_ours = groups_ours[ours_idx]
+                winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
                 for p in winning_group_ours['providers']:
-                    p['stack'] += self.stack_reward
-                
-                # Apply Slashing to Malicious Candidates (Defense)
-                # Iterate all candidates: if they were Malicious (and Attack Active, implying they tried to poison), Slash them.
-                num_slashed = 0
-                if attack_active:
-                     for i, grp in enumerate(groups_ours):
-                         agg = grp['aggregator']
-                         if agg['is_attacker']:
-                             # Detected Malicious Aggregator -> Slash 
-                             agg['stack'] = 0.0
-                             num_slashed += 1
-                
-                if num_slashed > 0:
-                    ours_selection_type += f" (SLASHED {num_slashed})"
-                
+                    p['stack'] += self.rewards['provider']
 
             ours_selected_update = ours_updates[ours_idx]
             
@@ -440,8 +461,8 @@ class Simulator:
                 avg_attacker = sum(attacker_stacks) / len(attacker_stacks) if attacker_stacks else 0
                 return avg_honest, avg_attacker
 
-            bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.verifiers_blockdfl)
-            ours_avg_honest, ours_avg_attacker = get_avg_stack(self.verifiers_ours)
+            bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.participants_blockdfl)
+            ours_avg_honest, ours_avg_attacker = get_avg_stack(self.participants_ours)
 
             print(f"Round {round_num}/{self.config['total_rounds']}")
             print(f"  BlockDFL: {bdfl_selection_type} | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
