@@ -97,28 +97,36 @@ def plot_stack_evolution(results_file, output_file):
     ours_honest = [r['stack_stats']['ours']['avg_honest'] for r in results]
     ours_attacker = [r['stack_stats']['ours']['avg_attacker'] for r in results]
     
-    # Plot Combined
+    # Calculate ratios
+    bdfl_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(bdfl_attacker, bdfl_honest)]
+    ours_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(ours_attacker, ours_honest)]
+    
+    # Create figure with 2 subplots (matching stake_sim.py format)
     plt.figure(figsize=(12, 8), dpi=300)
     
-    # BlockDFL Lines (Dashed)
-    plt.plot(rounds, bdfl_honest, 'g--', label='Avg Honest Stack (BlockDFL)', linewidth=2, alpha=0.7)
-    plt.plot(rounds, bdfl_attacker, 'r--', label='Avg Attacker Stack (BlockDFL)', linewidth=2, alpha=0.7)
-    
-    # Ours Lines (Solid)
-    plt.plot(rounds, ours_honest, 'g-', label='Avg Honest Stack (Ours)', linewidth=2)
-    plt.plot(rounds, ours_attacker, 'r-', label='Avg Attacker Stack (Ours)', linewidth=2)
+    # Top subplot: Stakes (4 lines)
+    plt.subplot(2, 1, 1)
+    plt.plot(rounds, bdfl_attacker, label='BlockDFL Attacker Stake', color='red', linewidth=2, linestyle='--')
+    plt.plot(rounds, bdfl_honest, label='BlockDFL Honest Stake', color='blue', linewidth=2, linestyle='--')
+    plt.plot(rounds, ours_attacker, label='Ours Attacker Stake', color='red', linewidth=2, linestyle='-')
+    plt.plot(rounds, ours_honest, label='Ours Honest Stake', color='blue', linewidth=2, linestyle='-')
     
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
+    plt.ylabel('Average Stake')
+    plt.title('Stake Growth Comparison')
+    plt.legend()
+    plt.grid(True)
     
-    # Dynamic placement for "Attack Starts" text
-    max_val = max(max(bdfl_honest), max(bdfl_attacker), max(ours_honest), max(ours_attacker))
-    plt.text(attack_start + 2, max_val * 0.5, 'Attack Starts', rotation=90, color='gray')
+    # Bottom subplot: Ratios (2 lines)
+    plt.subplot(2, 1, 2)
+    plt.plot(rounds, bdfl_ratios, label='BlockDFL Ratio (Attacker/Honest)', color='red', linewidth=2, linestyle='-')
+    plt.plot(rounds, ours_ratios, label='Ours Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
+    plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     
-    plt.title('Stack Evolution Comparison: BlockDFL vs Ours')
     plt.xlabel('Round')
-    plt.ylabel('Average Stack')
-    plt.legend(loc='upper left')
-    plt.grid(True, alpha=0.3)
+    plt.ylabel('Stake Ratio')
+    plt.legend()
+    plt.grid(True)
     
     plt.tight_layout()
     plt.savefig(output_file)

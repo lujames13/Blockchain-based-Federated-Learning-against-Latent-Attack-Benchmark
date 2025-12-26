@@ -111,18 +111,22 @@ class Simulator:
         })
         self.slash_penalty = self.config.get('slash_penalty', 'full')
 
-    def train_candidate(self, base_model, train_loader):
+    def train_candidate(self, base_model, train_loader, lr=None):
         """
         Trains a candidate update starting from base_model on train_loader.
         Returns the update (difference in weights).
         """
+        # Fallback to config if lr not provided
+        if lr is None:
+            lr = self.config['learning_rate']
+
         # Create a copy of the model for training
         candidate_model = copy.deepcopy(base_model)
         candidate_model.train()
         
         optimizer = optim.SGD(
             candidate_model.parameters(), 
-            lr=self.config['learning_rate'],
+            lr=lr,
             momentum=self.config.get('momentum', 0.9)
         )
         
@@ -146,17 +150,20 @@ class Simulator:
             
         return update
 
-    def train_malicious_candidate(self, base_model, train_loader):
+    def train_malicious_candidate(self, base_model, train_loader, lr=None):
         """
         Trains a malicious candidate update with label flipping.
         Target = 9 - Target (assuming 10 classes).
         """
+        if lr is None:
+            lr = self.config['learning_rate']
+
         candidate_model = copy.deepcopy(base_model)
         candidate_model.train()
         
         optimizer = optim.SGD(
             candidate_model.parameters(), 
-            lr=self.config['learning_rate'],
+            lr=lr,
             momentum=self.config.get('momentum', 0.9)
         )
         
@@ -325,7 +332,7 @@ class Simulator:
             # If Aggregator is Honest, he creates a Valid Update (from Training).
             # For simplicity, we use the `train_candidate` or `train_malicious_candidate` directly for the Aggregator's "Output".
             
-            def process_candidates(model, groups, is_attack_active, is_committee_captured):
+            def process_candidates(model, groups, is_attack_active, is_committee_captured, lr):
                 """
                 Generate candidate updates based on attack state.
                 
@@ -355,12 +362,12 @@ class Simulator:
                     
                     if is_attack_active and is_committee_captured and agg['is_attacker']:
                         # ATTACK PHASE: Malicious Aggregator launches Label Flipping attack
-                        upd = self.train_malicious_candidate(model, self.train_loaders[0])
+                        upd = self.train_malicious_candidate(model, self.train_loaders[0], lr=lr)
                         is_malicious_update.append(True)
                     else:
                         # LATENT PHASE or Honest Aggregator: Normal training
                         # Malicious nodes remain stealthy, accumulating stake
-                        upd = self.train_candidate(model, self.train_loaders[np.random.randint(len(self.train_loaders))])
+                        upd = self.train_candidate(model, self.train_loaders[np.random.randint(len(self.train_loaders))], lr=lr)
                         is_malicious_update.append(False)
                     
                     # Evaluate
@@ -381,7 +388,7 @@ class Simulator:
             
             # --- BlockDFL Process ---
             bdfl_updates, bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
-                self.model_blockdfl, groups_bdfl, attack_active, committee_captured_bdfl
+                self.model_blockdfl, groups_bdfl, attack_active, committee_captured_bdfl, current_lr
             )
             
             # Determine attack status for BlockDFL
@@ -427,7 +434,7 @@ class Simulator:
             
             # --- Ours Process ---
             ours_updates, ours_qualities, ours_scores, ours_is_mal = process_candidates(
-                self.model_ours, groups_ours, attack_active, committee_captured_ours
+                self.model_ours, groups_ours, attack_active, committee_captured_ours, current_lr
             )
             
             # Determine attack status for Ours
