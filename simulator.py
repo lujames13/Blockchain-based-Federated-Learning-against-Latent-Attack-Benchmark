@@ -1,6 +1,7 @@
 import sys
 print("DEBUG: Simulator starting...", file=sys.stderr)
 import copy
+import random
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -14,6 +15,17 @@ from models.cifar10_net import CIFAR10Net
 
 class Simulator:
     def __init__(self, config_path='config.yaml', dataset_name='MNIST'):
+        # Set fixed random seed for reproducibility
+        seed = 1042
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(seed)
+            torch.cuda.manual_seed_all(seed)
+            torch.backends.cudnn.deterministic = True
+            torch.backends.cudnn.benchmark = False
+        
         with open(config_path, 'r') as f:
             full_config = yaml.safe_load(f)
         
