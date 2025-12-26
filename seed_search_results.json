@@ -1,52 +1,52 @@
 [
   {
     "seed": 42,
-    "blockdfl_final_ratio": 1.0247477631829431,
-    "ours_final_ratio": 0.5754719430811975
+    "blockdfl_final_ratio": 1.0223862937195323,
+    "ours_final_ratio": 0.5475626516945931
   },
   {
     "seed": 1042,
-    "blockdfl_final_ratio": 1.0407370953630797,
-    "ours_final_ratio": 0.6450457317073168
+    "blockdfl_final_ratio": 1.3810546533961934,
+    "ours_final_ratio": 0.4560782473948337
   },
   {
     "seed": 2042,
-    "blockdfl_final_ratio": 1.0356598016781084,
-    "ours_final_ratio": 0.6957803574718998
+    "blockdfl_final_ratio": 0.8676738068395342,
+    "ours_final_ratio": 0.672646321431659
   },
   {
     "seed": 3042,
-    "blockdfl_final_ratio": 1.0037878787878787,
-    "ours_final_ratio": 0.6831740515493774
+    "blockdfl_final_ratio": 1.2039297756074874,
+    "ours_final_ratio": 0.7311770391850694
   },
   {
     "seed": 4042,
-    "blockdfl_final_ratio": 0.9875565610859726,
-    "ours_final_ratio": 0.6838546948539928
+    "blockdfl_final_ratio": 1.229018349543768,
+    "ours_final_ratio": 0.613017259305469
   },
   {
     "seed": 5042,
-    "blockdfl_final_ratio": 0.9610701698173661,
-    "ours_final_ratio": 0.5060745596919793
+    "blockdfl_final_ratio": 1.1160060162049388,
+    "ours_final_ratio": 0.7369575925842998
   },
   {
     "seed": 6042,
-    "blockdfl_final_ratio": 1.0441067761806981,
-    "ours_final_ratio": 0.7150806900389537
+    "blockdfl_final_ratio": 0.9519758337956971,
+    "ours_final_ratio": 0.6054466905530735
   },
   {
     "seed": 7042,
-    "blockdfl_final_ratio": 0.9973255531242399,
-    "ours_final_ratio": 0.5075799086757989
+    "blockdfl_final_ratio": 0.9149614709697109,
+    "ours_final_ratio": 0.6836215666327569
   },
   {
     "seed": 8042,
-    "blockdfl_final_ratio": 1.0057634548258787,
-    "ours_final_ratio": 0.47489403749642456
+    "blockdfl_final_ratio": 0.8513288046716723,
+    "ours_final_ratio": 0.6958465904205005
   },
   {
     "seed": 9042,
-    "blockdfl_final_ratio": 1.080930955951786,
-    "ours_final_ratio": 0.6659600083752094
+    "blockdfl_final_ratio": 1.1822484815384873,
+    "ours_final_ratio": 0.5081625564432094
   }
 ]

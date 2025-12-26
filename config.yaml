@@ -1,6 +1,6 @@
 mnist:
   dataset: MNIST
-  total_rounds: 300
+  total_rounds: 200
   attack_start_round: 10
   local_training_epochs: 1
   batch_size: 32
@@ -11,11 +11,11 @@ mnist:
   alpha: 0.5
   verifier_pool_size: 100
   initial_attacker_ratio: 0.3
-  committee_size: 7
+  committee_size: 5
   stack_reward: 0.4
   rewards:
-    verifier: 0.2
-    aggregator: 0.1
+    verifier: 1.0
+    aggregator: 1.0
     provider: 0.05
   slash_penalty: "full"
 
