@@ -1,0 +1,5107 @@
+{
+  "dataset": "MNIST_NONIID",
+  "total_rounds": 300,
+  "attack_start_round": 10,
+  "results": [
+    {
+      "round": 1,
+      "blockdfl_accuracy": 0.8661,
+      "ours_accuracy": 0.732,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.1114285714285714,
+          "avg_attacker": 1.0433333333333334
+        },
+        "ours": {
+          "avg_honest": 1.0828571428571427,
+          "avg_attacker": 1.1099999999999999
+        }
+      }
+    },
+    {
+      "round": 2,
+      "blockdfl_accuracy": 0.8796,
+      "ours_accuracy": 0.801,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.2057142857142857,
+          "avg_attacker": 1.1266666666666665
+        },
+        "ours": {
+          "avg_honest": 1.1664285714285716,
+          "avg_attacker": 1.22
+        }
+      }
+    },
+    {
+      "round": 3,
+      "blockdfl_accuracy": 0.9331,
+      "ours_accuracy": 0.8771,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.302857142857143,
+          "avg_attacker": 1.2033333333333334
+        },
+        "ours": {
+          "avg_honest": 1.265,
+          "avg_attacker": 1.2933333333333332
+        }
+      }
+    },
+    {
+      "round": 4,
+      "blockdfl_accuracy": 0.9448,
+      "ours_accuracy": 0.8825,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.385,
+          "avg_attacker": 1.3150000000000002
+        },
+        "ours": {
+          "avg_honest": 1.3885714285714286,
+          "avg_attacker": 1.3083333333333333
+        }
+      }
+    },
+    {
+      "round": 5,
+      "blockdfl_accuracy": 0.9278,
+      "ours_accuracy": 0.8849,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.4814285714285715,
+          "avg_attacker": 1.3933333333333333
+        },
+        "ours": {
+          "avg_honest": 1.5007142857142857,
+          "avg_attacker": 1.35
+        }
+      }
+    },
+    {
+      "round": 6,
+      "blockdfl_accuracy": 0.903,
+      "ours_accuracy": 0.8825,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.5492857142857144,
+          "avg_attacker": 1.5383333333333333
+        },
+        "ours": {
+          "avg_honest": 1.625,
+          "avg_attacker": 1.365
+        }
+      }
+    },
+    {
+      "round": 7,
+      "blockdfl_accuracy": 0.8869,
+      "ours_accuracy": 0.8838,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.6449999999999998,
+          "avg_attacker": 1.6183333333333332
+        },
+        "ours": {
+          "avg_honest": 1.7228571428571429,
+          "avg_attacker": 1.4400000000000002
+        }
+      }
+    },
+    {
+      "round": 8,
+      "blockdfl_accuracy": 0.9423,
+      "ours_accuracy": 0.8864,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.7257142857142858,
+          "avg_attacker": 1.7333333333333334
+        },
+        "ours": {
+          "avg_honest": 1.8335714285714284,
+          "avg_attacker": 1.4849999999999999
+        }
+      }
+    },
+    {
+      "round": 9,
+      "blockdfl_accuracy": 0.9547,
+      "ours_accuracy": 0.9583,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.7942857142857143,
+          "avg_attacker": 1.8783333333333334
+        },
+        "ours": {
+          "avg_honest": 1.917857142857143,
+          "avg_attacker": 1.5933333333333333
+        }
+      }
+    },
+    {
+      "round": 10,
+      "blockdfl_accuracy": 0.9543,
+      "ours_accuracy": 0.96,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.8914285714285715,
+          "avg_attacker": 1.9549999999999998
+        },
+        "ours": {
+          "avg_honest": 2.0135714285714283,
+          "avg_attacker": 1.6733333333333333
+        }
+      }
+    },
+    {
+      "round": 11,
+      "blockdfl_accuracy": 0.9482,
+      "ours_accuracy": 0.9598,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 1.9464285714285714,
+          "avg_attacker": 2.13
+        },
+        "ours": {
+          "avg_honest": 2.1228571428571428,
+          "avg_attacker": 1.7216666666666667
+        }
+      }
+    },
+    {
+      "round": 12,
+      "blockdfl_accuracy": 0.9415,
+      "ours_accuracy": 0.9557,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.042142857142857,
+          "avg_attacker": 2.21
+        },
+        "ours": {
+          "avg_honest": 2.2335714285714285,
+          "avg_attacker": 1.7666666666666666
+        }
+      }
+    },
+    {
+      "round": 13,
+      "blockdfl_accuracy": 0.9478,
+      "ours_accuracy": 0.9559,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.1535714285714285,
+          "avg_attacker": 2.253333333333333
+        },
+        "ours": {
+          "avg_honest": 2.315714285714286,
+          "avg_attacker": 1.8783333333333334
+        }
+      }
+    },
+    {
+      "round": 14,
+      "blockdfl_accuracy": 0.9452,
+      "ours_accuracy": 0.9373,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.25,
+          "avg_attacker": 2.3316666666666666
+        },
+        "ours": {
+          "avg_honest": 2.412142857142857,
+          "avg_attacker": 1.9566666666666666
+        }
+      }
+    },
+    {
+      "round": 15,
+      "blockdfl_accuracy": 0.9659,
+      "ours_accuracy": 0.969,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.361428571428571,
+          "avg_attacker": 2.3766666666666665
+        },
+        "ours": {
+          "avg_honest": 2.5064285714285712,
+          "avg_attacker": 2.04
+        }
+      }
+    },
+    {
+      "round": 16,
+      "blockdfl_accuracy": 0.9623,
+      "ours_accuracy": 0.9478,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.4714285714285715,
+          "avg_attacker": 2.4233333333333333
+        },
+        "ours": {
+          "avg_honest": 2.6007142857142855,
+          "avg_attacker": 2.125
+        }
+      }
+    },
+    {
+      "round": 17,
+      "blockdfl_accuracy": 0.9616,
+      "ours_accuracy": 0.9616,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.5399999999999996,
+          "avg_attacker": 2.566666666666667
+        },
+        "ours": {
+          "avg_honest": 2.682857142857143,
+          "avg_attacker": 2.2366666666666664
+        }
+      }
+    },
+    {
+      "round": 18,
+      "blockdfl_accuracy": 0.9622,
+      "ours_accuracy": 0.963,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.634285714285714,
+          "avg_attacker": 2.65
+        },
+        "ours": {
+          "avg_honest": 2.7385714285714284,
+          "avg_attacker": 2.4116666666666666
+        }
+      }
+    },
+    {
+      "round": 19,
+      "blockdfl_accuracy": 0.9599,
+      "ours_accuracy": 0.9663,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.715,
+          "avg_attacker": 2.765
+        },
+        "ours": {
+          "avg_honest": 2.8607142857142858,
+          "avg_attacker": 2.4299999999999997
+        }
+      }
+    },
+    {
+      "round": 20,
+      "blockdfl_accuracy": 0.9662,
+      "ours_accuracy": 0.962,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.7828571428571425,
+          "avg_attacker": 2.9116666666666666
+        },
+        "ours": {
+          "avg_honest": 2.9707142857142856,
+          "avg_attacker": 2.4766666666666666
+        }
+      }
+    },
+    {
+      "round": 21,
+      "blockdfl_accuracy": 0.9639,
+      "ours_accuracy": 0.9274,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.864285714285714,
+          "avg_attacker": 3.0266666666666664
+        },
+        "ours": {
+          "avg_honest": 3.0535714285714284,
+          "avg_attacker": 2.588333333333333
+        }
+      }
+    },
+    {
+      "round": 22,
+      "blockdfl_accuracy": 0.962,
+      "ours_accuracy": 0.961,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 2.919285714285714,
+          "avg_attacker": 3.2016666666666667
+        },
+        "ours": {
+          "avg_honest": 3.167142857142857,
+          "avg_attacker": 2.628333333333333
+        }
+      }
+    },
+    {
+      "round": 23,
+      "blockdfl_accuracy": 0.9576,
+      "ours_accuracy": 0.9748,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.017142857142857,
+          "avg_attacker": 3.2766666666666664
+        },
+        "ours": {
+          "avg_honest": 3.293571428571428,
+          "avg_attacker": 2.638333333333333
+        }
+      }
+    },
+    {
+      "round": 24,
+      "blockdfl_accuracy": 0.9168,
+      "ours_accuracy": 0.9753,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.099285714285714,
+          "avg_attacker": 3.388333333333333
+        },
+        "ours": {
+          "avg_honest": 3.3607142857142853,
+          "avg_attacker": 2.7849999999999997
+        }
+      }
+    },
+    {
+      "round": 25,
+      "blockdfl_accuracy": 0.9692,
+      "ours_accuracy": 0.9729,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.194285714285714,
+          "avg_attacker": 3.4716666666666662
+        },
+        "ours": {
+          "avg_honest": 3.4435714285714285,
+          "avg_attacker": 2.8966666666666665
+        }
+      }
+    },
+    {
+      "round": 26,
+      "blockdfl_accuracy": 0.9591,
+      "ours_accuracy": 0.9772,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.2757142857142854,
+          "avg_attacker": 3.585
+        },
+        "ours": {
+          "avg_honest": 3.541428571428571,
+          "avg_attacker": 2.973333333333333
+        }
+      }
+    },
+    {
+      "round": 27,
+      "blockdfl_accuracy": 0.9685,
+      "ours_accuracy": 0.9671,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.359285714285714,
+          "avg_attacker": 3.6933333333333334
+        },
+        "ours": {
+          "avg_honest": 3.6385714285714283,
+          "avg_attacker": 3.0499999999999994
+        }
+      }
+    },
+    {
+      "round": 28,
+      "blockdfl_accuracy": 0.9713,
+      "ours_accuracy": 0.9708,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.454285714285714,
+          "avg_attacker": 3.7766666666666664
+        },
+        "ours": {
+          "avg_honest": 3.7471428571428573,
+          "avg_attacker": 3.0999999999999996
+        }
+      }
+    },
+    {
+      "round": 29,
+      "blockdfl_accuracy": 0.9699,
+      "ours_accuracy": 0.9692,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.5349999999999993,
+          "avg_attacker": 3.891666666666666
+        },
+        "ours": {
+          "avg_honest": 3.859285714285714,
+          "avg_attacker": 3.141666666666666
+        }
+      }
+    },
+    {
+      "round": 30,
+      "blockdfl_accuracy": 0.9679,
+      "ours_accuracy": 0.9733,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.6057142857142854,
+          "avg_attacker": 4.031666666666666
+        },
+        "ours": {
+          "avg_honest": 3.969285714285714,
+          "avg_attacker": 3.188333333333333
+        }
+      }
+    },
+    {
+      "round": 31,
+      "blockdfl_accuracy": 0.9643,
+      "ours_accuracy": 0.9719,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.675,
+          "avg_attacker": 4.175
+        },
+        "ours": {
+          "avg_honest": 4.050714285714285,
+          "avg_attacker": 3.3016666666666663
+        }
+      }
+    },
+    {
+      "round": 32,
+      "blockdfl_accuracy": 0.9686,
+      "ours_accuracy": 0.98,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.7699999999999996,
+          "avg_attacker": 4.256666666666666
+        },
+        "ours": {
+          "avg_honest": 4.160714285714286,
+          "avg_attacker": 3.348333333333333
+        }
+      }
+    },
+    {
+      "round": 33,
+      "blockdfl_accuracy": 0.9788,
+      "ours_accuracy": 0.9382,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.8785714285714286,
+          "avg_attacker": 4.306666666666667
+        },
+        "ours": {
+          "avg_honest": 4.228571428571429,
+          "avg_attacker": 3.4933333333333327
+        }
+      }
+    },
+    {
+      "round": 34,
+      "blockdfl_accuracy": 0.9721,
+      "ours_accuracy": 0.9764,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 3.976428571428571,
+          "avg_attacker": 4.381666666666666
+        },
+        "ours": {
+          "avg_honest": 4.354285714285713,
+          "avg_attacker": 3.503333333333333
+        }
+      }
+    },
+    {
+      "round": 35,
+      "blockdfl_accuracy": 0.9415,
+      "ours_accuracy": 0.9765,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.087142857142856,
+          "avg_attacker": 4.426666666666666
+        },
+        "ours": {
+          "avg_honest": 4.451428571428571,
+          "avg_attacker": 3.5799999999999996
+        }
+      }
+    },
+    {
+      "round": 36,
+      "blockdfl_accuracy": 0.9743,
+      "ours_accuracy": 0.9794,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.184285714285714,
+          "avg_attacker": 4.503333333333333
+        },
+        "ours": {
+          "avg_honest": 4.55,
+          "avg_attacker": 3.653333333333333
+        }
+      }
+    },
+    {
+      "round": 37,
+      "blockdfl_accuracy": 0.9759,
+      "ours_accuracy": 0.9766,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.267857142857142,
+          "avg_attacker": 4.613333333333332
+        },
+        "ours": {
+          "avg_honest": 4.659285714285714,
+          "avg_attacker": 3.701666666666666
+        }
+      }
+    },
+    {
+      "round": 38,
+      "blockdfl_accuracy": 0.9786,
+      "ours_accuracy": 0.9801,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.352142857142857,
+          "avg_attacker": 4.721666666666666
+        },
+        "ours": {
+          "avg_honest": 4.7714285714285705,
+          "avg_attacker": 3.7433333333333327
+        }
+      }
+    },
+    {
+      "round": 39,
+      "blockdfl_accuracy": 0.9775,
+      "ours_accuracy": 0.9789,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.449285714285714,
+          "avg_attacker": 4.8
+        },
+        "ours": {
+          "avg_honest": 4.867857142857142,
+          "avg_attacker": 3.8216666666666663
+        }
+      }
+    },
+    {
+      "round": 40,
+      "blockdfl_accuracy": 0.9786,
+      "ours_accuracy": 0.9784,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.545,
+          "avg_attacker": 4.879999999999999
+        },
+        "ours": {
+          "avg_honest": 4.947142857142857,
+          "avg_attacker": 3.9399999999999995
+        }
+      }
+    },
+    {
+      "round": 41,
+      "blockdfl_accuracy": 0.9739,
+      "ours_accuracy": 0.9793,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.6414285714285715,
+          "avg_attacker": 4.959999999999999
+        },
+        "ours": {
+          "avg_honest": 5.041428571428571,
+          "avg_attacker": 4.0233333333333325
+        }
+      }
+    },
+    {
+      "round": 42,
+      "blockdfl_accuracy": 0.9781,
+      "ours_accuracy": 0.9552,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.740714285714286,
+          "avg_attacker": 5.031666666666666
+        },
+        "ours": {
+          "avg_honest": 5.138571428571429,
+          "avg_attacker": 4.1
+        }
+      }
+    },
+    {
+      "round": 43,
+      "blockdfl_accuracy": 0.9784,
+      "ours_accuracy": 0.9779,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.822857142857142,
+          "avg_attacker": 5.143333333333333
+        },
+        "ours": {
+          "avg_honest": 5.207857142857142,
+          "avg_attacker": 4.241666666666666
+        }
+      }
+    },
+    {
+      "round": 44,
+      "blockdfl_accuracy": 0.9749,
+      "ours_accuracy": 0.9813,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 4.905714285714286,
+          "avg_attacker": 5.253333333333333
+        },
+        "ours": {
+          "avg_honest": 5.303571428571428,
+          "avg_attacker": 4.321666666666666
+        }
+      }
+    },
+    {
+      "round": 45,
+      "blockdfl_accuracy": 0.9801,
+      "ours_accuracy": 0.9817,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.002857142857143,
+          "avg_attacker": 5.329999999999999
+        },
+        "ours": {
+          "avg_honest": 5.386428571428571,
+          "avg_attacker": 4.431666666666667
+        }
+      }
+    },
+    {
+      "round": 46,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.9796,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.130714285714285,
+          "avg_attacker": 5.336666666666667
+        },
+        "ours": {
+          "avg_honest": 5.510714285714285,
+          "avg_attacker": 4.444999999999999
+        }
+      }
+    },
+    {
+      "round": 47,
+      "blockdfl_accuracy": 0.9824,
+      "ours_accuracy": 0.9771,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.229285714285713,
+          "avg_attacker": 5.409999999999999
+        },
+        "ours": {
+          "avg_honest": 5.592142857142857,
+          "avg_attacker": 4.558333333333333
+        }
+      }
+    },
+    {
+      "round": 48,
+      "blockdfl_accuracy": 0.9775,
+      "ours_accuracy": 0.9805,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.297857142857143,
+          "avg_attacker": 5.554999999999999
+        },
+        "ours": {
+          "avg_honest": 5.700714285714285,
+          "avg_attacker": 4.6083333333333325
+        }
+      }
+    },
+    {
+      "round": 49,
+      "blockdfl_accuracy": 0.9794,
+      "ours_accuracy": 0.9806,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.364285714285714,
+          "avg_attacker": 5.703333333333333
+        },
+        "ours": {
+          "avg_honest": 5.812142857142857,
+          "avg_attacker": 4.653333333333333
+        }
+      }
+    },
+    {
+      "round": 50,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.9789,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.4607142857142845,
+          "avg_attacker": 5.781666666666666
+        },
+        "ours": {
+          "avg_honest": 5.895714285714285,
+          "avg_attacker": 4.761666666666666
+        }
+      }
+    },
+    {
+      "round": 51,
+      "blockdfl_accuracy": 0.9753,
+      "ours_accuracy": 0.9806,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.528571428571428,
+          "avg_attacker": 5.926666666666666
+        },
+        "ours": {
+          "avg_honest": 6.005714285714285,
+          "avg_attacker": 4.81
+        }
+      }
+    },
+    {
+      "round": 52,
+      "blockdfl_accuracy": 0.9796,
+      "ours_accuracy": 0.9632,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.597142857142856,
+          "avg_attacker": 6.069999999999999
+        },
+        "ours": {
+          "avg_honest": 6.073571428571428,
+          "avg_attacker": 4.954999999999999
+        }
+      }
+    },
+    {
+      "round": 53,
+      "blockdfl_accuracy": 0.9791,
+      "ours_accuracy": 0.9818,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.68,
+          "avg_attacker": 6.180000000000001
+        },
+        "ours": {
+          "avg_honest": 6.17,
+          "avg_attacker": 5.034999999999999
+        }
+      }
+    },
+    {
+      "round": 54,
+      "blockdfl_accuracy": 0.9806,
+      "ours_accuracy": 0.9831,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.776428571428571,
+          "avg_attacker": 6.258333333333334
+        },
+        "ours": {
+          "avg_honest": 6.2664285714285715,
+          "avg_attacker": 5.113333333333332
+        }
+      }
+    },
+    {
+      "round": 55,
+      "blockdfl_accuracy": 0.9789,
+      "ours_accuracy": 0.9785,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.884999999999999,
+          "avg_attacker": 6.308333333333334
+        },
+        "ours": {
+          "avg_honest": 6.348571428571428,
+          "avg_attacker": 5.224999999999999
+        }
+      }
+    },
+    {
+      "round": 56,
+      "blockdfl_accuracy": 0.9779,
+      "ours_accuracy": 0.9779,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 5.9521428571428565,
+          "avg_attacker": 6.455
+        },
+        "ours": {
+          "avg_honest": 6.4314285714285715,
+          "avg_attacker": 5.334999999999999
+        }
+      }
+    },
+    {
+      "round": 57,
+      "blockdfl_accuracy": 0.9815,
+      "ours_accuracy": 0.9816,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.047857142857143,
+          "avg_attacker": 6.534999999999999
+        },
+        "ours": {
+          "avg_honest": 6.497857142857143,
+          "avg_attacker": 5.4833333333333325
+        }
+      }
+    },
+    {
+      "round": 58,
+      "blockdfl_accuracy": 0.9793,
+      "ours_accuracy": 0.9816,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.159999999999999,
+          "avg_attacker": 6.578333333333333
+        },
+        "ours": {
+          "avg_honest": 6.608571428571428,
+          "avg_attacker": 5.528333333333332
+        }
+      }
+    },
+    {
+      "round": 59,
+      "blockdfl_accuracy": 0.9782,
+      "ours_accuracy": 0.9833,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.2714285714285705,
+          "avg_attacker": 6.623333333333333
+        },
+        "ours": {
+          "avg_honest": 6.690714285714285,
+          "avg_attacker": 5.64
+        }
+      }
+    },
+    {
+      "round": 60,
+      "blockdfl_accuracy": 0.9786,
+      "ours_accuracy": 0.9817,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.367857142857142,
+          "avg_attacker": 6.701666666666666
+        },
+        "ours": {
+          "avg_honest": 6.773571428571429,
+          "avg_attacker": 5.751666666666666
+        }
+      }
+    },
+    {
+      "round": 61,
+      "blockdfl_accuracy": 0.9816,
+      "ours_accuracy": 0.9793,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.463571428571427,
+          "avg_attacker": 6.781666666666666
+        },
+        "ours": {
+          "avg_honest": 6.872142857142856,
+          "avg_attacker": 5.826666666666666
+        }
+      }
+    },
+    {
+      "round": 62,
+      "blockdfl_accuracy": 0.9798,
+      "ours_accuracy": 0.9822,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.5457142857142845,
+          "avg_attacker": 6.8933333333333335
+        },
+        "ours": {
+          "avg_honest": 6.954999999999999,
+          "avg_attacker": 5.936666666666666
+        }
+      }
+    },
+    {
+      "round": 63,
+      "blockdfl_accuracy": 0.9839,
+      "ours_accuracy": 0.9809,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.627857142857142,
+          "avg_attacker": 7.005
+        },
+        "ours": {
+          "avg_honest": 7.065714285714285,
+          "avg_attacker": 5.9816666666666665
+        }
+      }
+    },
+    {
+      "round": 64,
+      "blockdfl_accuracy": 0.9819,
+      "ours_accuracy": 0.9791,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.708571428571428,
+          "avg_attacker": 7.12
+        },
+        "ours": {
+          "avg_honest": 7.191428571428571,
+          "avg_attacker": 5.991666666666665
+        }
+      }
+    },
+    {
+      "round": 65,
+      "blockdfl_accuracy": 0.9784,
+      "ours_accuracy": 0.9825,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.7907142857142855,
+          "avg_attacker": 7.231666666666667
+        },
+        "ours": {
+          "avg_honest": 7.2871428571428565,
+          "avg_attacker": 6.071666666666666
+        }
+      }
+    },
+    {
+      "round": 66,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.984,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.872142857142856,
+          "avg_attacker": 7.345
+        },
+        "ours": {
+          "avg_honest": 7.367857142857143,
+          "avg_attacker": 6.186666666666666
+        }
+      }
+    },
+    {
+      "round": 67,
+      "blockdfl_accuracy": 0.9804,
+      "ours_accuracy": 0.9833,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.9557142857142855,
+          "avg_attacker": 7.453333333333333
+        },
+        "ours": {
+          "avg_honest": 7.435714285714286,
+          "avg_attacker": 6.331666666666666
+        }
+      }
+    },
+    {
+      "round": 68,
+      "blockdfl_accuracy": 0.0955,
+      "ours_accuracy": 0.9839,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.967142857142857,
+          "avg_attacker": 7.663333333333333
+        },
+        "ours": {
+          "avg_honest": 7.5321428571428575,
+          "avg_attacker": 6.409999999999999
+        }
+      }
+    },
+    {
+      "round": 69,
+      "blockdfl_accuracy": 0.0522,
+      "ours_accuracy": 0.9844,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 6.978571428571428,
+          "avg_attacker": 7.873333333333334
+        },
+        "ours": {
+          "avg_honest": 7.6414285714285715,
+          "avg_attacker": 6.458333333333332
+        }
+      }
+    },
+    {
+      "round": 70,
+      "blockdfl_accuracy": 0.8794,
+      "ours_accuracy": 0.9828,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.06,
+          "avg_attacker": 7.986666666666667
+        },
+        "ours": {
+          "avg_honest": 7.723571428571428,
+          "avg_attacker": 6.5699999999999985
+        }
+      }
+    },
+    {
+      "round": 71,
+      "blockdfl_accuracy": 0.8846,
+      "ours_accuracy": 0.9822,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.1414285714285715,
+          "avg_attacker": 8.101666666666667
+        },
+        "ours": {
+          "avg_honest": 7.834285714285714,
+          "avg_attacker": 6.614999999999999
+        }
+      }
+    },
+    {
+      "round": 72,
+      "blockdfl_accuracy": 0.959,
+      "ours_accuracy": 0.9828,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.209285714285714,
+          "avg_attacker": 8.246666666666666
+        },
+        "ours": {
+          "avg_honest": 7.932142857142857,
+          "avg_attacker": 6.6899999999999995
+        }
+      }
+    },
+    {
+      "round": 73,
+      "blockdfl_accuracy": 0.9582,
+      "ours_accuracy": 0.9813,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.317142857142856,
+          "avg_attacker": 8.298333333333334
+        },
+        "ours": {
+          "avg_honest": 8.015714285714287,
+          "avg_attacker": 6.799999999999999
+        }
+      }
+    },
+    {
+      "round": 74,
+      "blockdfl_accuracy": 0.9514,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.426428571428572,
+          "avg_attacker": 8.346666666666668
+        },
+        "ours": {
+          "avg_honest": 8.11142857142857,
+          "avg_attacker": 6.881666666666666
+        }
+      }
+    },
+    {
+      "round": 75,
+      "blockdfl_accuracy": 0.9588,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.523571428571429,
+          "avg_attacker": 8.423333333333334
+        },
+        "ours": {
+          "avg_honest": 8.220714285714287,
+          "avg_attacker": 6.929999999999999
+        }
+      }
+    },
+    {
+      "round": 76,
+      "blockdfl_accuracy": 0.9359,
+      "ours_accuracy": 0.9847,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.633571428571429,
+          "avg_attacker": 8.471666666666668
+        },
+        "ours": {
+          "avg_honest": 8.287857142857142,
+          "avg_attacker": 7.076666666666666
+        }
+      }
+    },
+    {
+      "round": 77,
+      "blockdfl_accuracy": 0.9591,
+      "ours_accuracy": 0.9734,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.7021428571428565,
+          "avg_attacker": 8.615000000000002
+        },
+        "ours": {
+          "avg_honest": 8.384285714285713,
+          "avg_attacker": 7.154999999999999
+        }
+      }
+    },
+    {
+      "round": 78,
+      "blockdfl_accuracy": 0.91,
+      "ours_accuracy": 0.9841,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.771428571428571,
+          "avg_attacker": 8.758333333333333
+        },
+        "ours": {
+          "avg_honest": 8.497142857142858,
+          "avg_attacker": 7.194999999999999
+        }
+      }
+    },
+    {
+      "round": 79,
+      "blockdfl_accuracy": 0.9699,
+      "ours_accuracy": 0.9832,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.852857142857142,
+          "avg_attacker": 8.871666666666668
+        },
+        "ours": {
+          "avg_honest": 8.607142857142858,
+          "avg_attacker": 7.241666666666666
+        }
+      }
+    },
+    {
+      "round": 80,
+      "blockdfl_accuracy": 0.9723,
+      "ours_accuracy": 0.9846,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 7.934999999999999,
+          "avg_attacker": 8.985000000000001
+        },
+        "ours": {
+          "avg_honest": 8.675714285714287,
+          "avg_attacker": 7.385
+        }
+      }
+    },
+    {
+      "round": 81,
+      "blockdfl_accuracy": 0.9693,
+      "ours_accuracy": 0.9712,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.047857142857143,
+          "avg_attacker": 9.026666666666667
+        },
+        "ours": {
+          "avg_honest": 8.745,
+          "avg_attacker": 7.528333333333333
+        }
+      }
+    },
+    {
+      "round": 82,
+      "blockdfl_accuracy": 0.9679,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.145,
+          "avg_attacker": 9.105
+        },
+        "ours": {
+          "avg_honest": 8.825,
+          "avg_attacker": 7.646666666666666
+        }
+      }
+    },
+    {
+      "round": 83,
+      "blockdfl_accuracy": 0.9737,
+      "ours_accuracy": 0.9839,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.255714285714285,
+          "avg_attacker": 9.151666666666667
+        },
+        "ours": {
+          "avg_honest": 8.893571428571429,
+          "avg_attacker": 7.79
+        }
+      }
+    },
+    {
+      "round": 84,
+      "blockdfl_accuracy": 0.9743,
+      "ours_accuracy": 0.9858,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.333571428571428,
+          "avg_attacker": 9.273333333333335
+        },
+        "ours": {
+          "avg_honest": 8.962857142857144,
+          "avg_attacker": 7.931666666666667
+        }
+      }
+    },
+    {
+      "round": 85,
+      "blockdfl_accuracy": 0.1459,
+      "ours_accuracy": 0.9853,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.345714285714287,
+          "avg_attacker": 9.481666666666667
+        },
+        "ours": {
+          "avg_honest": 9.07357142857143,
+          "avg_attacker": 7.976666666666666
+        }
+      }
+    },
+    {
+      "round": 86,
+      "blockdfl_accuracy": 0.9117,
+      "ours_accuracy": 0.9746,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.431428571428572,
+          "avg_attacker": 9.585000000000003
+        },
+        "ours": {
+          "avg_honest": 9.170000000000002,
+          "avg_attacker": 8.055
+        }
+      }
+    },
+    {
+      "round": 87,
+      "blockdfl_accuracy": 0.906,
+      "ours_accuracy": 0.9827,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.501428571428571,
+          "avg_attacker": 9.726666666666668
+        },
+        "ours": {
+          "avg_honest": 9.266428571428573,
+          "avg_attacker": 8.133333333333333
+        }
+      }
+    },
+    {
+      "round": 88,
+      "blockdfl_accuracy": 0.9083,
+      "ours_accuracy": 0.9848,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.555,
+          "avg_attacker": 9.905000000000001
+        },
+        "ours": {
+          "avg_honest": 9.376428571428571,
+          "avg_attacker": 8.181666666666667
+        }
+      }
+    },
+    {
+      "round": 89,
+      "blockdfl_accuracy": 0.9598,
+      "ours_accuracy": 0.9854,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.665000000000001,
+          "avg_attacker": 9.95166666666667
+        },
+        "ours": {
+          "avg_honest": 9.474285714285715,
+          "avg_attacker": 8.256666666666666
+        }
+      }
+    },
+    {
+      "round": 90,
+      "blockdfl_accuracy": 0.9484,
+      "ours_accuracy": 0.1361,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "ATK:CAPTURED_MAL_FLIP (SLASHED 5)",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.762142857142857,
+          "avg_attacker": 10.030000000000001
+        },
+        "ours": {
+          "avg_honest": 9.484285714285715,
+          "avg_attacker": 6.111666666666666
+        }
+      }
+    },
+    {
+      "round": 91,
+      "blockdfl_accuracy": 0.9638,
+      "ours_accuracy": 0.9311,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.872857142857143,
+          "avg_attacker": 10.07666666666667
+        },
+        "ours": {
+          "avg_honest": 9.594285714285714,
+          "avg_attacker": 6.159999999999999
+        }
+      }
+    },
+    {
+      "round": 92,
+      "blockdfl_accuracy": 0.9667,
+      "ours_accuracy": 0.9598,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 8.969285714285714,
+          "avg_attacker": 10.156666666666668
+        },
+        "ours": {
+          "avg_honest": 9.705000000000002,
+          "avg_attacker": 6.204999999999999
+        }
+      }
+    },
+    {
+      "round": 93,
+      "blockdfl_accuracy": 0.9653,
+      "ours_accuracy": 0.9571,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.037857142857142,
+          "avg_attacker": 10.30166666666667
+        },
+        "ours": {
+          "avg_honest": 9.78857142857143,
+          "avg_attacker": 6.313333333333333
+        }
+      }
+    },
+    {
+      "round": 94,
+      "blockdfl_accuracy": 0.9669,
+      "ours_accuracy": 0.9665,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.119285714285715,
+          "avg_attacker": 10.415000000000001
+        },
+        "ours": {
+          "avg_honest": 9.885714285714288,
+          "avg_attacker": 6.39
+        }
+      }
+    },
+    {
+      "round": 95,
+      "blockdfl_accuracy": 0.9687,
+      "ours_accuracy": 0.9672,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.215000000000002,
+          "avg_attacker": 10.495000000000003
+        },
+        "ours": {
+          "avg_honest": 9.996428571428574,
+          "avg_attacker": 6.435
+        }
+      }
+    },
+    {
+      "round": 96,
+      "blockdfl_accuracy": 0.9678,
+      "ours_accuracy": 0.9686,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.269285714285715,
+          "avg_attacker": 10.67166666666667
+        },
+        "ours": {
+          "avg_honest": 10.094285714285716,
+          "avg_attacker": 6.51
+        }
+      }
+    },
+    {
+      "round": 97,
+      "blockdfl_accuracy": 0.9695,
+      "ours_accuracy": 0.9706,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.351428571428572,
+          "avg_attacker": 10.783333333333335
+        },
+        "ours": {
+          "avg_honest": 10.177142857142858,
+          "avg_attacker": 6.62
+        }
+      }
+    },
+    {
+      "round": 98,
+      "blockdfl_accuracy": 0.969,
+      "ours_accuracy": 0.9657,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.435,
+          "avg_attacker": 10.89166666666667
+        },
+        "ours": {
+          "avg_honest": 10.286428571428573,
+          "avg_attacker": 6.668333333333333
+        }
+      }
+    },
+    {
+      "round": 99,
+      "blockdfl_accuracy": 0.9717,
+      "ours_accuracy": 0.9702,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.53357142857143,
+          "avg_attacker": 10.966666666666669
+        },
+        "ours": {
+          "avg_honest": 10.397857142857145,
+          "avg_attacker": 6.711666666666667
+        }
+      }
+    },
+    {
+      "round": 100,
+      "blockdfl_accuracy": 0.9647,
+      "ours_accuracy": 0.973,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.615,
+          "avg_attacker": 11.080000000000004
+        },
+        "ours": {
+          "avg_honest": 10.52214285714286,
+          "avg_attacker": 6.725
+        }
+      }
+    },
+    {
+      "round": 101,
+      "blockdfl_accuracy": 0.973,
+      "ours_accuracy": 0.9738,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.699285714285715,
+          "avg_attacker": 11.18666666666667
+        },
+        "ours": {
+          "avg_honest": 10.616428571428573,
+          "avg_attacker": 6.81
+        }
+      }
+    },
+    {
+      "round": 102,
+      "blockdfl_accuracy": 0.9685,
+      "ours_accuracy": 0.9739,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.782142857142858,
+          "avg_attacker": 11.298333333333337
+        },
+        "ours": {
+          "avg_honest": 10.71357142857143,
+          "avg_attacker": 6.888333333333334
+        }
+      }
+    },
+    {
+      "round": 103,
+      "blockdfl_accuracy": 0.9695,
+      "ours_accuracy": 0.9707,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.864285714285716,
+          "avg_attacker": 11.410000000000002
+        },
+        "ours": {
+          "avg_honest": 10.809285714285716,
+          "avg_attacker": 6.97
+        }
+      }
+    },
+    {
+      "round": 104,
+      "blockdfl_accuracy": 0.9715,
+      "ours_accuracy": 0.958,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 9.950000000000001,
+          "avg_attacker": 11.515000000000004
+        },
+        "ours": {
+          "avg_honest": 10.907142857142858,
+          "avg_attacker": 7.046666666666667
+        }
+      }
+    },
+    {
+      "round": 105,
+      "blockdfl_accuracy": 0.9739,
+      "ours_accuracy": 0.9748,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.033571428571431,
+          "avg_attacker": 11.623333333333337
+        },
+        "ours": {
+          "avg_honest": 11.017857142857144,
+          "avg_attacker": 7.091666666666667
+        }
+      }
+    },
+    {
+      "round": 106,
+      "blockdfl_accuracy": 0.97,
+      "ours_accuracy": 0.9791,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.12857142857143,
+          "avg_attacker": 11.70666666666667
+        },
+        "ours": {
+          "avg_honest": 11.113571428571431,
+          "avg_attacker": 7.171666666666667
+        }
+      }
+    },
+    {
+      "round": 107,
+      "blockdfl_accuracy": 0.969,
+      "ours_accuracy": 0.978,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.240714285714288,
+          "avg_attacker": 11.750000000000004
+        },
+        "ours": {
+          "avg_honest": 11.193571428571431,
+          "avg_attacker": 7.288333333333333
+        }
+      }
+    },
+    {
+      "round": 108,
+      "blockdfl_accuracy": 0.9699,
+      "ours_accuracy": 0.9783,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.307142857142859,
+          "avg_attacker": 11.898333333333337
+        },
+        "ours": {
+          "avg_honest": 11.29214285714286,
+          "avg_attacker": 7.363333333333333
+        }
+      }
+    },
+    {
+      "round": 109,
+      "blockdfl_accuracy": 0.968,
+      "ours_accuracy": 0.9718,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.416428571428574,
+          "avg_attacker": 11.948333333333336
+        },
+        "ours": {
+          "avg_honest": 11.401428571428573,
+          "avg_attacker": 7.411666666666667
+        }
+      }
+    },
+    {
+      "round": 110,
+      "blockdfl_accuracy": 0.968,
+      "ours_accuracy": 0.9818,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.515,
+          "avg_attacker": 12.02166666666667
+        },
+        "ours": {
+          "avg_honest": 11.496428571428575,
+          "avg_attacker": 7.493333333333334
+        }
+      }
+    },
+    {
+      "round": 111,
+      "blockdfl_accuracy": 0.973,
+      "ours_accuracy": 0.9769,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.609285714285715,
+          "avg_attacker": 12.105000000000002
+        },
+        "ours": {
+          "avg_honest": 11.580000000000002,
+          "avg_attacker": 7.6016666666666675
+        }
+      }
+    },
+    {
+      "round": 112,
+      "blockdfl_accuracy": 0.9742,
+      "ours_accuracy": 0.9787,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.720714285714289,
+          "avg_attacker": 12.150000000000004
+        },
+        "ours": {
+          "avg_honest": 11.692857142857147,
+          "avg_attacker": 7.641666666666667
+        }
+      }
+    },
+    {
+      "round": 113,
+      "blockdfl_accuracy": 0.9759,
+      "ours_accuracy": 0.9782,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.80357142857143,
+          "avg_attacker": 12.260000000000003
+        },
+        "ours": {
+          "avg_honest": 11.80214285714286,
+          "avg_attacker": 7.69
+        }
+      }
+    },
+    {
+      "round": 114,
+      "blockdfl_accuracy": 0.9724,
+      "ours_accuracy": 0.9825,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 10.91214285714286,
+          "avg_attacker": 12.310000000000004
+        },
+        "ours": {
+          "avg_honest": 11.89714285714286,
+          "avg_attacker": 7.7716666666666665
+        }
+      }
+    },
+    {
+      "round": 115,
+      "blockdfl_accuracy": 0.9744,
+      "ours_accuracy": 0.9803,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.022857142857145,
+          "avg_attacker": 12.355000000000002
+        },
+        "ours": {
+          "avg_honest": 11.994285714285718,
+          "avg_attacker": 7.848333333333334
+        }
+      }
+    },
+    {
+      "round": 116,
+      "blockdfl_accuracy": 0.9759,
+      "ours_accuracy": 0.978,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.105714285714289,
+          "avg_attacker": 12.465000000000003
+        },
+        "ours": {
+          "avg_honest": 12.077857142857145,
+          "avg_attacker": 7.956666666666667
+        }
+      }
+    },
+    {
+      "round": 117,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.9793,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.215000000000003,
+          "avg_attacker": 12.513333333333339
+        },
+        "ours": {
+          "avg_honest": 12.159285714285717,
+          "avg_attacker": 8.07
+        }
+      }
+    },
+    {
+      "round": 118,
+      "blockdfl_accuracy": 0.1255,
+      "ours_accuracy": 0.9774,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.22857142857143,
+          "avg_attacker": 12.718333333333337
+        },
+        "ours": {
+          "avg_honest": 12.26714285714286,
+          "avg_attacker": 8.121666666666666
+        }
+      }
+    },
+    {
+      "round": 119,
+      "blockdfl_accuracy": 0.7885,
+      "ours_accuracy": 0.9757,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.310714285714289,
+          "avg_attacker": 12.830000000000005
+        },
+        "ours": {
+          "avg_honest": 12.347857142857146,
+          "avg_attacker": 8.236666666666668
+        }
+      }
+    },
+    {
+      "round": 120,
+      "blockdfl_accuracy": 0.9473,
+      "ours_accuracy": 0.9798,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.407857142857145,
+          "avg_attacker": 12.90666666666667
+        },
+        "ours": {
+          "avg_honest": 12.445000000000002,
+          "avg_attacker": 8.315000000000001
+        }
+      }
+    },
+    {
+      "round": 121,
+      "blockdfl_accuracy": 0.944,
+      "ours_accuracy": 0.9759,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.491428571428575,
+          "avg_attacker": 13.016666666666671
+        },
+        "ours": {
+          "avg_honest": 12.542857142857146,
+          "avg_attacker": 8.39
+        }
+      }
+    },
+    {
+      "round": 122,
+      "blockdfl_accuracy": 0.9588,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.559285714285718,
+          "avg_attacker": 13.16166666666667
+        },
+        "ours": {
+          "avg_honest": 12.654285714285718,
+          "avg_attacker": 8.433333333333334
+        }
+      }
+    },
+    {
+      "round": 123,
+      "blockdfl_accuracy": 0.9701,
+      "ours_accuracy": 0.9782,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.65571428571429,
+          "avg_attacker": 13.240000000000006
+        },
+        "ours": {
+          "avg_honest": 12.767142857142861,
+          "avg_attacker": 8.475000000000001
+        }
+      }
+    },
+    {
+      "round": 124,
+      "blockdfl_accuracy": 0.9635,
+      "ours_accuracy": 0.9799,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.722857142857146,
+          "avg_attacker": 13.386666666666672
+        },
+        "ours": {
+          "avg_honest": 12.877857142857147,
+          "avg_attacker": 8.520000000000001
+        }
+      }
+    },
+    {
+      "round": 125,
+      "blockdfl_accuracy": 0.9742,
+      "ours_accuracy": 0.9811,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.791428571428574,
+          "avg_attacker": 13.530000000000005
+        },
+        "ours": {
+          "avg_honest": 12.961428571428575,
+          "avg_attacker": 8.628333333333334
+        }
+      }
+    },
+    {
+      "round": 126,
+      "blockdfl_accuracy": 0.969,
+      "ours_accuracy": 0.9804,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.888571428571431,
+          "avg_attacker": 13.60833333333334
+        },
+        "ours": {
+          "avg_honest": 13.07071428571429,
+          "avg_attacker": 8.676666666666668
+        }
+      }
+    },
+    {
+      "round": 127,
+      "blockdfl_accuracy": 0.9705,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 11.98571428571429,
+          "avg_attacker": 13.685000000000004
+        },
+        "ours": {
+          "avg_honest": 13.151428571428575,
+          "avg_attacker": 8.791666666666666
+        }
+      }
+    },
+    {
+      "round": 128,
+      "blockdfl_accuracy": 0.9314,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.07071428571429,
+          "avg_attacker": 13.790000000000004
+        },
+        "ours": {
+          "avg_honest": 13.262857142857147,
+          "avg_attacker": 8.835
+        }
+      }
+    },
+    {
+      "round": 129,
+      "blockdfl_accuracy": 0.9761,
+      "ours_accuracy": 0.9812,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.139285714285718,
+          "avg_attacker": 13.933333333333339
+        },
+        "ours": {
+          "avg_honest": 13.374285714285719,
+          "avg_attacker": 8.88
+        }
+      }
+    },
+    {
+      "round": 130,
+      "blockdfl_accuracy": 0.973,
+      "ours_accuracy": 0.9807,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.207857142857147,
+          "avg_attacker": 14.076666666666673
+        },
+        "ours": {
+          "avg_honest": 13.485000000000005,
+          "avg_attacker": 8.925000000000002
+        }
+      }
+    },
+    {
+      "round": 131,
+      "blockdfl_accuracy": 0.975,
+      "ours_accuracy": 0.9797,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.290714285714289,
+          "avg_attacker": 14.186666666666671
+        },
+        "ours": {
+          "avg_honest": 13.582142857142863,
+          "avg_attacker": 9.001666666666667
+        }
+      }
+    },
+    {
+      "round": 132,
+      "blockdfl_accuracy": 0.976,
+      "ours_accuracy": 0.9809,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.389285714285718,
+          "avg_attacker": 14.261666666666672
+        },
+        "ours": {
+          "avg_honest": 13.665000000000004,
+          "avg_attacker": 9.111666666666668
+        }
+      }
+    },
+    {
+      "round": 133,
+      "blockdfl_accuracy": 0.975,
+      "ours_accuracy": 0.9812,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.472142857142861,
+          "avg_attacker": 14.371666666666671
+        },
+        "ours": {
+          "avg_honest": 13.76428571428572,
+          "avg_attacker": 9.185
+        }
+      }
+    },
+    {
+      "round": 134,
+      "blockdfl_accuracy": 0.9734,
+      "ours_accuracy": 0.9819,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.552857142857146,
+          "avg_attacker": 14.486666666666672
+        },
+        "ours": {
+          "avg_honest": 13.860714285714291,
+          "avg_attacker": 9.263333333333334
+        }
+      }
+    },
+    {
+      "round": 135,
+      "blockdfl_accuracy": 0.9794,
+      "ours_accuracy": 0.9802,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.620714285714289,
+          "avg_attacker": 14.633333333333338
+        },
+        "ours": {
+          "avg_honest": 13.985714285714291,
+          "avg_attacker": 9.275000000000002
+        }
+      }
+    },
+    {
+      "round": 136,
+      "blockdfl_accuracy": 0.9754,
+      "ours_accuracy": 0.9789,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.701428571428576,
+          "avg_attacker": 14.748333333333338
+        },
+        "ours": {
+          "avg_honest": 14.082142857142863,
+          "avg_attacker": 9.353333333333333
+        }
+      }
+    },
+    {
+      "round": 137,
+      "blockdfl_accuracy": 0.9768,
+      "ours_accuracy": 0.9766,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.797857142857147,
+          "avg_attacker": 14.826666666666673
+        },
+        "ours": {
+          "avg_honest": 14.179285714285719,
+          "avg_attacker": 9.430000000000001
+        }
+      }
+    },
+    {
+      "round": 138,
+      "blockdfl_accuracy": 0.9795,
+      "ours_accuracy": 0.9766,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.881428571428575,
+          "avg_attacker": 14.935000000000006
+        },
+        "ours": {
+          "avg_honest": 14.306428571428578,
+          "avg_attacker": 9.436666666666667
+        }
+      }
+    },
+    {
+      "round": 139,
+      "blockdfl_accuracy": 0.9792,
+      "ours_accuracy": 0.9795,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 12.992857142857147,
+          "avg_attacker": 14.978333333333337
+        },
+        "ours": {
+          "avg_honest": 14.374285714285719,
+          "avg_attacker": 9.581666666666669
+        }
+      }
+    },
+    {
+      "round": 140,
+      "blockdfl_accuracy": 0.9793,
+      "ours_accuracy": 0.9819,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.090000000000003,
+          "avg_attacker": 15.055000000000005
+        },
+        "ours": {
+          "avg_honest": 14.457142857142863,
+          "avg_attacker": 9.691666666666668
+        }
+      }
+    },
+    {
+      "round": 141,
+      "blockdfl_accuracy": 0.9784,
+      "ours_accuracy": 0.9811,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.188571428571432,
+          "avg_attacker": 15.128333333333337
+        },
+        "ours": {
+          "avg_honest": 14.55428571428572,
+          "avg_attacker": 9.768333333333336
+        }
+      }
+    },
+    {
+      "round": 142,
+      "blockdfl_accuracy": 0.9768,
+      "ours_accuracy": 0.9834,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.271428571428576,
+          "avg_attacker": 15.238333333333339
+        },
+        "ours": {
+          "avg_honest": 14.665000000000006,
+          "avg_attacker": 9.813333333333334
+        }
+      }
+    },
+    {
+      "round": 143,
+      "blockdfl_accuracy": 0.9797,
+      "ours_accuracy": 0.9805,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.355000000000006,
+          "avg_attacker": 15.346666666666671
+        },
+        "ours": {
+          "avg_honest": 14.760714285714291,
+          "avg_attacker": 9.893333333333336
+        }
+      }
+    },
+    {
+      "round": 144,
+      "blockdfl_accuracy": 0.9768,
+      "ours_accuracy": 0.9813,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.452142857142862,
+          "avg_attacker": 15.425000000000006
+        },
+        "ours": {
+          "avg_honest": 14.856428571428578,
+          "avg_attacker": 9.973333333333334
+        }
+      }
+    },
+    {
+      "round": 145,
+      "blockdfl_accuracy": 0.1585,
+      "ours_accuracy": 0.9838,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.464285714285719,
+          "avg_attacker": 15.66833333333334
+        },
+        "ours": {
+          "avg_honest": 14.953571428571435,
+          "avg_attacker": 10.05166666666667
+        }
+      }
+    },
+    {
+      "round": 146,
+      "blockdfl_accuracy": 0.9421,
+      "ours_accuracy": 0.9814,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.545000000000005,
+          "avg_attacker": 15.783333333333339
+        },
+        "ours": {
+          "avg_honest": 15.050000000000006,
+          "avg_attacker": 10.13
+        }
+      }
+    },
+    {
+      "round": 147,
+      "blockdfl_accuracy": 0.9676,
+      "ours_accuracy": 0.9818,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.629285714285718,
+          "avg_attacker": 15.890000000000006
+        },
+        "ours": {
+          "avg_honest": 15.147142857142862,
+          "avg_attacker": 10.208333333333336
+        }
+      }
+    },
+    {
+      "round": 148,
+      "blockdfl_accuracy": 0.9726,
+      "ours_accuracy": 0.9815,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.710000000000006,
+          "avg_attacker": 16.005000000000006
+        },
+        "ours": {
+          "avg_honest": 15.228571428571435,
+          "avg_attacker": 10.323333333333334
+        }
+      }
+    },
+    {
+      "round": 149,
+      "blockdfl_accuracy": 0.9749,
+      "ours_accuracy": 0.9833,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.792857142857148,
+          "avg_attacker": 16.115000000000006
+        },
+        "ours": {
+          "avg_honest": 15.338571428571436,
+          "avg_attacker": 10.371666666666668
+        }
+      }
+    },
+    {
+      "round": 150,
+      "blockdfl_accuracy": 0.9733,
+      "ours_accuracy": 0.9835,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.892142857142863,
+          "avg_attacker": 16.186666666666675
+        },
+        "ours": {
+          "avg_honest": 15.450000000000006,
+          "avg_attacker": 10.415000000000001
+        }
+      }
+    },
+    {
+      "round": 151,
+      "blockdfl_accuracy": 0.9509,
+      "ours_accuracy": 0.9816,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 13.976428571428576,
+          "avg_attacker": 16.295000000000005
+        },
+        "ours": {
+          "avg_honest": 15.561428571428577,
+          "avg_attacker": 10.458333333333336
+        }
+      }
+    },
+    {
+      "round": 152,
+      "blockdfl_accuracy": 0.9382,
+      "ours_accuracy": 0.9823,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.045714285714292,
+          "avg_attacker": 16.436666666666675
+        },
+        "ours": {
+          "avg_honest": 15.685000000000008,
+          "avg_attacker": 10.473333333333334
+        }
+      }
+    },
+    {
+      "round": 153,
+      "blockdfl_accuracy": 0.98,
+      "ours_accuracy": 0.9816,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.13928571428572,
+          "avg_attacker": 16.521666666666672
+        },
+        "ours": {
+          "avg_honest": 15.78142857142858,
+          "avg_attacker": 10.55166666666667
+        }
+      }
+    },
+    {
+      "round": 154,
+      "blockdfl_accuracy": 0.9755,
+      "ours_accuracy": 0.982,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.22071428571429,
+          "avg_attacker": 16.636666666666674
+        },
+        "ours": {
+          "avg_honest": 15.862142857142862,
+          "avg_attacker": 10.666666666666668
+        }
+      }
+    },
+    {
+      "round": 155,
+      "blockdfl_accuracy": 0.9801,
+      "ours_accuracy": 0.9832,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.315714285714291,
+          "avg_attacker": 16.720000000000006
+        },
+        "ours": {
+          "avg_honest": 15.958571428571434,
+          "avg_attacker": 10.746666666666668
+        }
+      }
+    },
+    {
+      "round": 156,
+      "blockdfl_accuracy": 0.978,
+      "ours_accuracy": 0.9798,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.413571428571434,
+          "avg_attacker": 16.795000000000005
+        },
+        "ours": {
+          "avg_honest": 16.02642857142858,
+          "avg_attacker": 10.89166666666667
+        }
+      }
+    },
+    {
+      "round": 157,
+      "blockdfl_accuracy": 0.9613,
+      "ours_accuracy": 0.9711,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.497142857142864,
+          "avg_attacker": 16.90500000000001
+        },
+        "ours": {
+          "avg_honest": 16.11071428571429,
+          "avg_attacker": 10.998333333333335
+        }
+      }
+    },
+    {
+      "round": 158,
+      "blockdfl_accuracy": 0.9778,
+      "ours_accuracy": 0.9849,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.57928571428572,
+          "avg_attacker": 17.016666666666673
+        },
+        "ours": {
+          "avg_honest": 16.207857142857147,
+          "avg_attacker": 11.075000000000001
+        }
+      }
+    },
+    {
+      "round": 159,
+      "blockdfl_accuracy": 0.174,
+      "ours_accuracy": 0.9739,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.590714285714292,
+          "avg_attacker": 17.228333333333342
+        },
+        "ours": {
+          "avg_honest": 16.30642857142858,
+          "avg_attacker": 11.150000000000002
+        }
+      }
+    },
+    {
+      "round": 160,
+      "blockdfl_accuracy": 0.8721,
+      "ours_accuracy": 0.984,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.672857142857149,
+          "avg_attacker": 17.340000000000007
+        },
+        "ours": {
+          "avg_honest": 16.38928571428572,
+          "avg_attacker": 11.260000000000002
+        }
+      }
+    },
+    {
+      "round": 161,
+      "blockdfl_accuracy": 0.9718,
+      "ours_accuracy": 0.9844,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.74071428571429,
+          "avg_attacker": 17.485000000000007
+        },
+        "ours": {
+          "avg_honest": 16.50142857142858,
+          "avg_attacker": 11.30166666666667
+        }
+      }
+    },
+    {
+      "round": 162,
+      "blockdfl_accuracy": 0.9777,
+      "ours_accuracy": 0.9756,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.822857142857147,
+          "avg_attacker": 17.596666666666675
+        },
+        "ours": {
+          "avg_honest": 16.61428571428572,
+          "avg_attacker": 11.343333333333335
+        }
+      }
+    },
+    {
+      "round": 163,
+      "blockdfl_accuracy": 0.9741,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.91785714285715,
+          "avg_attacker": 17.67833333333334
+        },
+        "ours": {
+          "avg_honest": 16.725000000000005,
+          "avg_attacker": 11.388333333333337
+        }
+      }
+    },
+    {
+      "round": 164,
+      "blockdfl_accuracy": 0.9729,
+      "ours_accuracy": 0.9851,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 14.987142857142862,
+          "avg_attacker": 17.820000000000007
+        },
+        "ours": {
+          "avg_honest": 16.807142857142864,
+          "avg_attacker": 11.501666666666669
+        }
+      }
+    },
+    {
+      "round": 165,
+      "blockdfl_accuracy": 0.9814,
+      "ours_accuracy": 0.9848,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.085000000000008,
+          "avg_attacker": 17.895000000000007
+        },
+        "ours": {
+          "avg_honest": 16.87571428571429,
+          "avg_attacker": 11.645000000000003
+        }
+      }
+    },
+    {
+      "round": 166,
+      "blockdfl_accuracy": 0.9796,
+      "ours_accuracy": 0.9787,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.209285714285718,
+          "avg_attacker": 17.908333333333342
+        },
+        "ours": {
+          "avg_honest": 16.957142857142863,
+          "avg_attacker": 11.758333333333335
+        }
+      }
+    },
+    {
+      "round": 167,
+      "blockdfl_accuracy": 0.2008,
+      "ours_accuracy": 0.9862,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.218571428571435,
+          "avg_attacker": 18.156666666666677
+        },
+        "ours": {
+          "avg_honest": 17.06785714285715,
+          "avg_attacker": 11.805000000000003
+        }
+      }
+    },
+    {
+      "round": 168,
+      "blockdfl_accuracy": 0.8709,
+      "ours_accuracy": 0.9852,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.31428571428572,
+          "avg_attacker": 18.23833333333334
+        },
+        "ours": {
+          "avg_honest": 17.175714285714296,
+          "avg_attacker": 11.856666666666671
+        }
+      }
+    },
+    {
+      "round": 169,
+      "blockdfl_accuracy": 0.9711,
+      "ours_accuracy": 0.9845,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.408571428571435,
+          "avg_attacker": 18.321666666666673
+        },
+        "ours": {
+          "avg_honest": 17.28642857142858,
+          "avg_attacker": 11.903333333333336
+        }
+      }
+    },
+    {
+      "round": 170,
+      "blockdfl_accuracy": 0.974,
+      "ours_accuracy": 0.9855,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.534285714285723,
+          "avg_attacker": 18.33333333333334
+        },
+        "ours": {
+          "avg_honest": 17.38500000000001,
+          "avg_attacker": 11.978333333333335
+        }
+      }
+    },
+    {
+      "round": 171,
+      "blockdfl_accuracy": 0.9757,
+      "ours_accuracy": 0.9772,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.60285714285715,
+          "avg_attacker": 18.478333333333342
+        },
+        "ours": {
+          "avg_honest": 17.497142857142865,
+          "avg_attacker": 12.020000000000003
+        }
+      }
+    },
+    {
+      "round": 172,
+      "blockdfl_accuracy": 0.9652,
+      "ours_accuracy": 0.9868,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.671428571428578,
+          "avg_attacker": 18.621666666666673
+        },
+        "ours": {
+          "avg_honest": 17.624285714285723,
+          "avg_attacker": 12.028333333333336
+        }
+      }
+    },
+    {
+      "round": 173,
+      "blockdfl_accuracy": 0.9816,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.756428571428579,
+          "avg_attacker": 18.728333333333342
+        },
+        "ours": {
+          "avg_honest": 17.735000000000007,
+          "avg_attacker": 12.073333333333336
+        }
+      }
+    },
+    {
+      "round": 174,
+      "blockdfl_accuracy": 0.9809,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.824285714285722,
+          "avg_attacker": 18.873333333333342
+        },
+        "ours": {
+          "avg_honest": 17.817142857142866,
+          "avg_attacker": 12.185000000000002
+        }
+      }
+    },
+    {
+      "round": 175,
+      "blockdfl_accuracy": 0.9802,
+      "ours_accuracy": 0.985,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.907142857142864,
+          "avg_attacker": 18.98500000000001
+        },
+        "ours": {
+          "avg_honest": 17.89928571428572,
+          "avg_attacker": 12.29666666666667
+        }
+      }
+    },
+    {
+      "round": 176,
+      "blockdfl_accuracy": 0.9798,
+      "ours_accuracy": 0.9841,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 15.992857142857149,
+          "avg_attacker": 19.088333333333342
+        },
+        "ours": {
+          "avg_honest": 18.008571428571436,
+          "avg_attacker": 12.345000000000002
+        }
+      }
+    },
+    {
+      "round": 177,
+      "blockdfl_accuracy": 0.9804,
+      "ours_accuracy": 0.9831,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.088571428571434,
+          "avg_attacker": 19.168333333333344
+        },
+        "ours": {
+          "avg_honest": 18.077142857142864,
+          "avg_attacker": 12.490000000000004
+        }
+      }
+    },
+    {
+      "round": 178,
+      "blockdfl_accuracy": 0.9804,
+      "ours_accuracy": 0.9848,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.155714285714293,
+          "avg_attacker": 19.31500000000001
+        },
+        "ours": {
+          "avg_honest": 18.172142857142866,
+          "avg_attacker": 12.571666666666669
+        }
+      }
+    },
+    {
+      "round": 179,
+      "blockdfl_accuracy": 0.9819,
+      "ours_accuracy": 0.9841,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.223571428571436,
+          "avg_attacker": 19.46000000000001
+        },
+        "ours": {
+          "avg_honest": 18.295714285714293,
+          "avg_attacker": 12.58666666666667
+        }
+      }
+    },
+    {
+      "round": 180,
+      "blockdfl_accuracy": 0.9794,
+      "ours_accuracy": 0.9854,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.336428571428577,
+          "avg_attacker": 19.501666666666676
+        },
+        "ours": {
+          "avg_honest": 18.377142857142864,
+          "avg_attacker": 12.700000000000005
+        }
+      }
+    },
+    {
+      "round": 181,
+      "blockdfl_accuracy": 0.982,
+      "ours_accuracy": 0.9848,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.430714285714295,
+          "avg_attacker": 19.58500000000001
+        },
+        "ours": {
+          "avg_honest": 18.459285714285723,
+          "avg_attacker": 12.811666666666671
+        }
+      }
+    },
+    {
+      "round": 182,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.9848,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.555714285714295,
+          "avg_attacker": 19.598333333333343
+        },
+        "ours": {
+          "avg_honest": 18.555000000000007,
+          "avg_attacker": 12.891666666666671
+        }
+      }
+    },
+    {
+      "round": 183,
+      "blockdfl_accuracy": 0.9819,
+      "ours_accuracy": 0.9847,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.625000000000007,
+          "avg_attacker": 19.74000000000001
+        },
+        "ours": {
+          "avg_honest": 18.63785714285715,
+          "avg_attacker": 13.00166666666667
+        }
+      }
+    },
+    {
+      "round": 184,
+      "blockdfl_accuracy": 0.9804,
+      "ours_accuracy": 0.9839,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.736428571428576,
+          "avg_attacker": 19.783333333333342
+        },
+        "ours": {
+          "avg_honest": 18.722142857142867,
+          "avg_attacker": 13.108333333333338
+        }
+      }
+    },
+    {
+      "round": 185,
+      "blockdfl_accuracy": 0.982,
+      "ours_accuracy": 0.985,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.818571428571435,
+          "avg_attacker": 19.895000000000007
+        },
+        "ours": {
+          "avg_honest": 18.834285714285723,
+          "avg_attacker": 13.150000000000004
+        }
+      }
+    },
+    {
+      "round": 186,
+      "blockdfl_accuracy": 0.9805,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.928571428571434,
+          "avg_attacker": 19.941666666666674
+        },
+        "ours": {
+          "avg_honest": 18.956428571428578,
+          "avg_attacker": 13.168333333333338
+        }
+      }
+    },
+    {
+      "round": 187,
+      "blockdfl_accuracy": 0.9806,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 16.998571428571438,
+          "avg_attacker": 20.081666666666674
+        },
+        "ours": {
+          "avg_honest": 19.05285714285715,
+          "avg_attacker": 13.246666666666671
+        }
+      }
+    },
+    {
+      "round": 188,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.9847,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.095714285714294,
+          "avg_attacker": 20.158333333333342
+        },
+        "ours": {
+          "avg_honest": 19.137142857142866,
+          "avg_attacker": 13.353333333333337
+        }
+      }
+    },
+    {
+      "round": 189,
+      "blockdfl_accuracy": 0.9818,
+      "ours_accuracy": 0.9859,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.193571428571435,
+          "avg_attacker": 20.23333333333334
+        },
+        "ours": {
+          "avg_honest": 19.22000000000001,
+          "avg_attacker": 13.463333333333338
+        }
+      }
+    },
+    {
+      "round": 190,
+      "blockdfl_accuracy": 0.9816,
+      "ours_accuracy": 0.9854,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.288571428571437,
+          "avg_attacker": 20.31500000000001
+        },
+        "ours": {
+          "avg_honest": 19.30142857142858,
+          "avg_attacker": 13.576666666666672
+        }
+      }
+    },
+    {
+      "round": 191,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.9852,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.358571428571437,
+          "avg_attacker": 20.45500000000001
+        },
+        "ours": {
+          "avg_honest": 19.40000000000001,
+          "avg_attacker": 13.65166666666667
+        }
+      }
+    },
+    {
+      "round": 192,
+      "blockdfl_accuracy": 0.983,
+      "ours_accuracy": 0.985,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.42785714285715,
+          "avg_attacker": 20.59666666666668
+        },
+        "ours": {
+          "avg_honest": 19.480000000000008,
+          "avg_attacker": 13.768333333333338
+        }
+      }
+    },
+    {
+      "round": 193,
+      "blockdfl_accuracy": 0.223,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.43785714285715,
+          "avg_attacker": 20.81000000000001
+        },
+        "ours": {
+          "avg_honest": 19.579285714285724,
+          "avg_attacker": 13.841666666666672
+        }
+      }
+    },
+    {
+      "round": 194,
+      "blockdfl_accuracy": 0.9094,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.50500000000001,
+          "avg_attacker": 20.956666666666674
+        },
+        "ours": {
+          "avg_honest": 19.677142857142865,
+          "avg_attacker": 13.918333333333338
+        }
+      }
+    },
+    {
+      "round": 195,
+      "blockdfl_accuracy": 0.2219,
+      "ours_accuracy": 0.9852,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.51642857142858,
+          "avg_attacker": 21.20000000000001
+        },
+        "ours": {
+          "avg_honest": 19.77071428571429,
+          "avg_attacker": 14.005000000000004
+        }
+      }
+    },
+    {
+      "round": 196,
+      "blockdfl_accuracy": 0.9673,
+      "ours_accuracy": 0.9855,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.613571428571436,
+          "avg_attacker": 21.276666666666678
+        },
+        "ours": {
+          "avg_honest": 19.869285714285724,
+          "avg_attacker": 14.078333333333338
+        }
+      }
+    },
+    {
+      "round": 197,
+      "blockdfl_accuracy": 0.9732,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.725714285714293,
+          "avg_attacker": 21.320000000000007
+        },
+        "ours": {
+          "avg_honest": 19.99357142857144,
+          "avg_attacker": 14.091666666666672
+        }
+      }
+    },
+    {
+      "round": 198,
+      "blockdfl_accuracy": 0.9771,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.808571428571437,
+          "avg_attacker": 21.43000000000001
+        },
+        "ours": {
+          "avg_honest": 20.074285714285722,
+          "avg_attacker": 14.206666666666672
+        }
+      }
+    },
+    {
+      "round": 199,
+      "blockdfl_accuracy": 0.9778,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 17.919285714285724,
+          "avg_attacker": 21.476666666666677
+        },
+        "ours": {
+          "avg_honest": 20.172142857142866,
+          "avg_attacker": 14.281666666666672
+        }
+      }
+    },
+    {
+      "round": 200,
+      "blockdfl_accuracy": 0.9797,
+      "ours_accuracy": 0.9854,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.000714285714295,
+          "avg_attacker": 21.59166666666668
+        },
+        "ours": {
+          "avg_honest": 20.268571428571438,
+          "avg_attacker": 14.360000000000007
+        }
+      }
+    },
+    {
+      "round": 201,
+      "blockdfl_accuracy": 0.9708,
+      "ours_accuracy": 0.9862,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.097142857142867,
+          "avg_attacker": 21.671666666666678
+        },
+        "ours": {
+          "avg_honest": 20.33785714285715,
+          "avg_attacker": 14.501666666666672
+        }
+      }
+    },
+    {
+      "round": 202,
+      "blockdfl_accuracy": 0.9836,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.17785714285715,
+          "avg_attacker": 21.788333333333345
+        },
+        "ours": {
+          "avg_honest": 20.419285714285724,
+          "avg_attacker": 14.615000000000006
+        }
+      }
+    },
+    {
+      "round": 203,
+      "blockdfl_accuracy": 0.9831,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.245714285714293,
+          "avg_attacker": 21.933333333333344
+        },
+        "ours": {
+          "avg_honest": 20.50000000000001,
+          "avg_attacker": 14.730000000000008
+        }
+      }
+    },
+    {
+      "round": 204,
+      "blockdfl_accuracy": 0.9808,
+      "ours_accuracy": 0.981,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.32785714285715,
+          "avg_attacker": 22.046666666666678
+        },
+        "ours": {
+          "avg_honest": 20.59785714285715,
+          "avg_attacker": 14.805000000000007
+        }
+      }
+    },
+    {
+      "round": 205,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.398571428571437,
+          "avg_attacker": 22.18500000000001
+        },
+        "ours": {
+          "avg_honest": 20.65000000000001,
+          "avg_attacker": 14.986666666666673
+        }
+      }
+    },
+    {
+      "round": 206,
+      "blockdfl_accuracy": 0.983,
+      "ours_accuracy": 0.9876,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.51142857142858,
+          "avg_attacker": 22.226666666666677
+        },
+        "ours": {
+          "avg_honest": 20.74642857142858,
+          "avg_attacker": 15.066666666666672
+        }
+      }
+    },
+    {
+      "round": 207,
+      "blockdfl_accuracy": 0.9814,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.565714285714293,
+          "avg_attacker": 22.405000000000012
+        },
+        "ours": {
+          "avg_honest": 20.855714285714292,
+          "avg_attacker": 15.115000000000007
+        }
+      }
+    },
+    {
+      "round": 208,
+      "blockdfl_accuracy": 0.9813,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.632142857142863,
+          "avg_attacker": 22.55333333333334
+        },
+        "ours": {
+          "avg_honest": 20.93785714285715,
+          "avg_attacker": 15.226666666666672
+        }
+      }
+    },
+    {
+      "round": 209,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.700000000000006,
+          "avg_attacker": 22.69833333333334
+        },
+        "ours": {
+          "avg_honest": 21.050714285714296,
+          "avg_attacker": 15.26833333333334
+        }
+      }
+    },
+    {
+      "round": 210,
+      "blockdfl_accuracy": 0.9817,
+      "ours_accuracy": 0.9861,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.79642857142858,
+          "avg_attacker": 22.776666666666678
+        },
+        "ours": {
+          "avg_honest": 21.160714285714295,
+          "avg_attacker": 15.315000000000007
+        }
+      }
+    },
+    {
+      "round": 211,
+      "blockdfl_accuracy": 0.9824,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.863571428571436,
+          "avg_attacker": 22.923333333333343
+        },
+        "ours": {
+          "avg_honest": 21.287142857142864,
+          "avg_attacker": 15.325000000000008
+        }
+      }
+    },
+    {
+      "round": 212,
+      "blockdfl_accuracy": 0.9807,
+      "ours_accuracy": 0.9861,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 18.947142857142865,
+          "avg_attacker": 23.031666666666677
+        },
+        "ours": {
+          "avg_honest": 21.36857142857144,
+          "avg_attacker": 15.43833333333334
+        }
+      }
+    },
+    {
+      "round": 213,
+      "blockdfl_accuracy": 0.9818,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.018571428571438,
+          "avg_attacker": 23.17000000000001
+        },
+        "ours": {
+          "avg_honest": 21.495000000000008,
+          "avg_attacker": 15.446666666666674
+        }
+      }
+    },
+    {
+      "round": 214,
+      "blockdfl_accuracy": 0.9758,
+      "ours_accuracy": 0.9858,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.10142857142858,
+          "avg_attacker": 23.280000000000012
+        },
+        "ours": {
+          "avg_honest": 21.60714285714287,
+          "avg_attacker": 15.48833333333334
+        }
+      }
+    },
+    {
+      "round": 215,
+      "blockdfl_accuracy": 0.9854,
+      "ours_accuracy": 0.9855,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.18428571428572,
+          "avg_attacker": 23.390000000000008
+        },
+        "ours": {
+          "avg_honest": 21.702142857142864,
+          "avg_attacker": 15.570000000000006
+        }
+      }
+    },
+    {
+      "round": 216,
+      "blockdfl_accuracy": 0.9843,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "ATK:CAPTURED_HON_NEPO (SLASHED 5)",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.308571428571437,
+          "avg_attacker": 23.403333333333343
+        },
+        "ours": {
+          "avg_honest": 21.72642857142858,
+          "avg_attacker": 11.926666666666673
+        }
+      }
+    },
+    {
+      "round": 217,
+      "blockdfl_accuracy": 0.9832,
+      "ours_accuracy": 0.9869,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.40500000000001,
+          "avg_attacker": 23.483333333333345
+        },
+        "ours": {
+          "avg_honest": 21.81000000000001,
+          "avg_attacker": 12.035000000000005
+        }
+      }
+    },
+    {
+      "round": 218,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.986,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.460714285714296,
+          "avg_attacker": 23.658333333333346
+        },
+        "ours": {
+          "avg_honest": 21.93500000000001,
+          "avg_attacker": 12.046666666666674
+        }
+      }
+    },
+    {
+      "round": 219,
+      "blockdfl_accuracy": 0.9836,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.542142857142863,
+          "avg_attacker": 23.77166666666668
+        },
+        "ours": {
+          "avg_honest": 22.034285714285723,
+          "avg_attacker": 12.120000000000006
+        }
+      }
+    },
+    {
+      "round": 220,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.9858,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.625714285714295,
+          "avg_attacker": 23.881666666666675
+        },
+        "ours": {
+          "avg_honest": 22.131428571428582,
+          "avg_attacker": 12.196666666666674
+        }
+      }
+    },
+    {
+      "round": 221,
+      "blockdfl_accuracy": 0.9826,
+      "ours_accuracy": 0.9852,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.722142857142867,
+          "avg_attacker": 23.96000000000001
+        },
+        "ours": {
+          "avg_honest": 22.24357142857144,
+          "avg_attacker": 12.240000000000007
+        }
+      }
+    },
+    {
+      "round": 222,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.9861,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.790714285714294,
+          "avg_attacker": 24.10500000000001
+        },
+        "ours": {
+          "avg_honest": 22.325714285714295,
+          "avg_attacker": 12.351666666666675
+        }
+      }
+    },
+    {
+      "round": 223,
+      "blockdfl_accuracy": 0.9828,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.902857142857155,
+          "avg_attacker": 24.14666666666668
+        },
+        "ours": {
+          "avg_honest": 22.449285714285725,
+          "avg_attacker": 12.368333333333341
+        }
+      }
+    },
+    {
+      "round": 224,
+      "blockdfl_accuracy": 0.9835,
+      "ours_accuracy": 0.9862,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 19.999285714285726,
+          "avg_attacker": 24.225000000000012
+        },
+        "ours": {
+          "avg_honest": 22.560714285714294,
+          "avg_attacker": 12.411666666666672
+        }
+      }
+    },
+    {
+      "round": 225,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.055000000000007,
+          "avg_attacker": 24.398333333333344
+        },
+        "ours": {
+          "avg_honest": 22.658571428571438,
+          "avg_attacker": 12.486666666666675
+        }
+      }
+    },
+    {
+      "round": 226,
+      "blockdfl_accuracy": 0.9829,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.148571428571437,
+          "avg_attacker": 24.483333333333345
+        },
+        "ours": {
+          "avg_honest": 22.73857142857144,
+          "avg_attacker": 12.603333333333342
+        }
+      }
+    },
+    {
+      "round": 227,
+      "blockdfl_accuracy": 0.9836,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.258571428571436,
+          "avg_attacker": 24.530000000000012
+        },
+        "ours": {
+          "avg_honest": 22.792142857142867,
+          "avg_attacker": 12.781666666666673
+        }
+      }
+    },
+    {
+      "round": 228,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.355000000000008,
+          "avg_attacker": 24.60833333333334
+        },
+        "ours": {
+          "avg_honest": 22.889285714285723,
+          "avg_attacker": 12.858333333333341
+        }
+      }
+    },
+    {
+      "round": 229,
+      "blockdfl_accuracy": 0.9828,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.424285714285723,
+          "avg_attacker": 24.750000000000007
+        },
+        "ours": {
+          "avg_honest": 22.954285714285724,
+          "avg_attacker": 13.010000000000009
+        }
+      }
+    },
+    {
+      "round": 230,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.53642857142858,
+          "avg_attacker": 24.791666666666675
+        },
+        "ours": {
+          "avg_honest": 23.067857142857154,
+          "avg_attacker": 13.050000000000008
+        }
+      }
+    },
+    {
+      "round": 231,
+      "blockdfl_accuracy": 0.2789,
+      "ours_accuracy": 0.9862,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.54785714285715,
+          "avg_attacker": 25.03500000000001
+        },
+        "ours": {
+          "avg_honest": 23.15000000000001,
+          "avg_attacker": 13.161666666666674
+        }
+      }
+    },
+    {
+      "round": 232,
+      "blockdfl_accuracy": 0.8723,
+      "ours_accuracy": 0.9869,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.629285714285725,
+          "avg_attacker": 25.148333333333344
+        },
+        "ours": {
+          "avg_honest": 23.275714285714294,
+          "avg_attacker": 13.173333333333341
+        }
+      }
+    },
+    {
+      "round": 233,
+      "blockdfl_accuracy": 0.969,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.71285714285715,
+          "avg_attacker": 25.256666666666675
+        },
+        "ours": {
+          "avg_honest": 23.37142857142858,
+          "avg_attacker": 13.253333333333341
+        }
+      }
+    },
+    {
+      "round": 234,
+      "blockdfl_accuracy": 0.9702,
+      "ours_accuracy": 0.9858,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.81000000000001,
+          "avg_attacker": 25.33333333333334
+        },
+        "ours": {
+          "avg_honest": 23.480714285714292,
+          "avg_attacker": 13.301666666666675
+        }
+      }
+    },
+    {
+      "round": 235,
+      "blockdfl_accuracy": 0.985,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.878571428571437,
+          "avg_attacker": 25.476666666666677
+        },
+        "ours": {
+          "avg_honest": 23.592142857142868,
+          "avg_attacker": 13.345000000000008
+        }
+      }
+    },
+    {
+      "round": 236,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.9869,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 20.97285714285715,
+          "avg_attacker": 25.56000000000001
+        },
+        "ours": {
+          "avg_honest": 23.68785714285715,
+          "avg_attacker": 13.425000000000008
+        }
+      }
+    },
+    {
+      "round": 237,
+      "blockdfl_accuracy": 0.9831,
+      "ours_accuracy": 0.9866,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.040714285714294,
+          "avg_attacker": 25.70500000000001
+        },
+        "ours": {
+          "avg_honest": 23.782857142857154,
+          "avg_attacker": 13.506666666666677
+        }
+      }
+    },
+    {
+      "round": 238,
+      "blockdfl_accuracy": 0.9827,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.110714285714295,
+          "avg_attacker": 25.84500000000001
+        },
+        "ours": {
+          "avg_honest": 23.908571428571438,
+          "avg_attacker": 13.516666666666675
+        }
+      }
+    },
+    {
+      "round": 239,
+      "blockdfl_accuracy": 0.9831,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_HON_NEPO",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.13500000000001,
+          "avg_attacker": 26.026666666666678
+        },
+        "ours": {
+          "avg_honest": 24.005714285714294,
+          "avg_attacker": 13.595000000000008
+        }
+      }
+    },
+    {
+      "round": 240,
+      "blockdfl_accuracy": 0.9833,
+      "ours_accuracy": 0.9872,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.244285714285724,
+          "avg_attacker": 26.075000000000006
+        },
+        "ours": {
+          "avg_honest": 24.117142857142866,
+          "avg_attacker": 13.638333333333343
+        }
+      }
+    },
+    {
+      "round": 241,
+      "blockdfl_accuracy": 0.984,
+      "ours_accuracy": 0.9862,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.31285714285715,
+          "avg_attacker": 26.22000000000001
+        },
+        "ours": {
+          "avg_honest": 24.22642857142858,
+          "avg_attacker": 13.688333333333341
+        }
+      }
+    },
+    {
+      "round": 242,
+      "blockdfl_accuracy": 0.9838,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.41000000000001,
+          "avg_attacker": 26.296666666666674
+        },
+        "ours": {
+          "avg_honest": 24.322857142857153,
+          "avg_attacker": 13.766666666666676
+        }
+      }
+    },
+    {
+      "round": 243,
+      "blockdfl_accuracy": 0.9841,
+      "ours_accuracy": 0.9859,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.494285714285724,
+          "avg_attacker": 26.403333333333343
+        },
+        "ours": {
+          "avg_honest": 24.39142857142858,
+          "avg_attacker": 13.910000000000007
+        }
+      }
+    },
+    {
+      "round": 244,
+      "blockdfl_accuracy": 0.9834,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.562142857142867,
+          "avg_attacker": 26.548333333333343
+        },
+        "ours": {
+          "avg_honest": 24.504285714285725,
+          "avg_attacker": 13.95000000000001
+        }
+      }
+    },
+    {
+      "round": 245,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.986,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.644285714285722,
+          "avg_attacker": 26.660000000000007
+        },
+        "ours": {
+          "avg_honest": 24.572857142857153,
+          "avg_attacker": 14.09333333333334
+        }
+      }
+    },
+    {
+      "round": 246,
+      "blockdfl_accuracy": 0.984,
+      "ours_accuracy": 0.9854,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.714285714285722,
+          "avg_attacker": 26.801666666666673
+        },
+        "ours": {
+          "avg_honest": 24.697142857142865,
+          "avg_attacker": 14.106666666666676
+        }
+      }
+    },
+    {
+      "round": 247,
+      "blockdfl_accuracy": 0.9835,
+      "ours_accuracy": 0.9853,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.81000000000001,
+          "avg_attacker": 26.88333333333334
+        },
+        "ours": {
+          "avg_honest": 24.822142857142865,
+          "avg_attacker": 14.118333333333341
+        }
+      }
+    },
+    {
+      "round": 248,
+      "blockdfl_accuracy": 0.9842,
+      "ours_accuracy": 0.9859,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.877857142857152,
+          "avg_attacker": 27.028333333333343
+        },
+        "ours": {
+          "avg_honest": 24.905714285714293,
+          "avg_attacker": 14.226666666666675
+        }
+      }
+    },
+    {
+      "round": 249,
+      "blockdfl_accuracy": 0.9845,
+      "ours_accuracy": 0.9859,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 21.99000000000001,
+          "avg_attacker": 27.070000000000007
+        },
+        "ours": {
+          "avg_honest": 25.002142857142864,
+          "avg_attacker": 14.305000000000009
+        }
+      }
+    },
+    {
+      "round": 250,
+      "blockdfl_accuracy": 0.984,
+      "ours_accuracy": 0.9859,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.070714285714295,
+          "avg_attacker": 27.185000000000006
+        },
+        "ours": {
+          "avg_honest": 25.112857142857152,
+          "avg_attacker": 14.35000000000001
+        }
+      }
+    },
+    {
+      "round": 251,
+      "blockdfl_accuracy": 0.9844,
+      "ours_accuracy": 0.9861,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.152142857142866,
+          "avg_attacker": 27.298333333333343
+        },
+        "ours": {
+          "avg_honest": 25.22285714285715,
+          "avg_attacker": 14.396666666666675
+        }
+      }
+    },
+    {
+      "round": 252,
+      "blockdfl_accuracy": 0.9835,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.222142857142867,
+          "avg_attacker": 27.43833333333334
+        },
+        "ours": {
+          "avg_honest": 25.32142857142858,
+          "avg_attacker": 14.470000000000008
+        }
+      }
+    },
+    {
+      "round": 253,
+      "blockdfl_accuracy": 0.9834,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.31714285714287,
+          "avg_attacker": 27.520000000000007
+        },
+        "ours": {
+          "avg_honest": 25.405714285714293,
+          "avg_attacker": 14.576666666666677
+        }
+      }
+    },
+    {
+      "round": 254,
+      "blockdfl_accuracy": 0.9841,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.385714285714297,
+          "avg_attacker": 27.665000000000006
+        },
+        "ours": {
+          "avg_honest": 25.53000000000001,
+          "avg_attacker": 14.590000000000009
+        }
+      }
+    },
+    {
+      "round": 255,
+      "blockdfl_accuracy": 0.9845,
+      "ours_accuracy": 0.9856,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.482857142857153,
+          "avg_attacker": 27.741666666666674
+        },
+        "ours": {
+          "avg_honest": 25.628571428571437,
+          "avg_attacker": 14.66500000000001
+        }
+      }
+    },
+    {
+      "round": 256,
+      "blockdfl_accuracy": 0.9837,
+      "ours_accuracy": 0.9857,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.552857142857153,
+          "avg_attacker": 27.88333333333334
+        },
+        "ours": {
+          "avg_honest": 25.71142857142858,
+          "avg_attacker": 14.77500000000001
+        }
+      }
+    },
+    {
+      "round": 257,
+      "blockdfl_accuracy": 0.9784,
+      "ours_accuracy": 0.986,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.605714285714292,
+          "avg_attacker": 28.06333333333334
+        },
+        "ours": {
+          "avg_honest": 25.808571428571437,
+          "avg_attacker": 14.851666666666677
+        }
+      }
+    },
+    {
+      "round": 258,
+      "blockdfl_accuracy": 0.9768,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.70357142857144,
+          "avg_attacker": 28.13833333333334
+        },
+        "ours": {
+          "avg_honest": 25.93428571428572,
+          "avg_attacker": 14.863333333333342
+        }
+      }
+    },
+    {
+      "round": 259,
+      "blockdfl_accuracy": 0.9856,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.799285714285723,
+          "avg_attacker": 28.21833333333334
+        },
+        "ours": {
+          "avg_honest": 26.032142857142865,
+          "avg_attacker": 14.938333333333341
+        }
+      }
+    },
+    {
+      "round": 260,
+      "blockdfl_accuracy": 0.986,
+      "ours_accuracy": 0.9863,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.88285714285715,
+          "avg_attacker": 28.32666666666667
+        },
+        "ours": {
+          "avg_honest": 26.143571428571438,
+          "avg_attacker": 14.983333333333343
+        }
+      }
+    },
+    {
+      "round": 261,
+      "blockdfl_accuracy": 0.9855,
+      "ours_accuracy": 0.9661,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "ATK:CAPTURED_HON_NEPO (SLASHED 5)",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 22.979285714285723,
+          "avg_attacker": 28.40500000000001
+        },
+        "ours": {
+          "avg_honest": 26.165714285714294,
+          "avg_attacker": 11.591666666666674
+        }
+      }
+    },
+    {
+      "round": 262,
+      "blockdfl_accuracy": 0.9853,
+      "ours_accuracy": 0.986,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.04785714285715,
+          "avg_attacker": 28.54833333333334
+        },
+        "ours": {
+          "avg_honest": 26.263571428571435,
+          "avg_attacker": 11.666666666666675
+        }
+      }
+    },
+    {
+      "round": 263,
+      "blockdfl_accuracy": 0.9858,
+      "ours_accuracy": 0.9872,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.159285714285723,
+          "avg_attacker": 28.591666666666676
+        },
+        "ours": {
+          "avg_honest": 26.36142857142858,
+          "avg_attacker": 11.743333333333341
+        }
+      }
+    },
+    {
+      "round": 264,
+      "blockdfl_accuracy": 0.9851,
+      "ours_accuracy": 0.9883,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.227857142857154,
+          "avg_attacker": 28.73666666666667
+        },
+        "ours": {
+          "avg_honest": 26.458571428571435,
+          "avg_attacker": 11.82000000000001
+        }
+      }
+    },
+    {
+      "round": 265,
+      "blockdfl_accuracy": 0.9853,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.338571428571438,
+          "avg_attacker": 28.783333333333342
+        },
+        "ours": {
+          "avg_honest": 26.569285714285723,
+          "avg_attacker": 11.865000000000007
+        }
+      }
+    },
+    {
+      "round": 266,
+      "blockdfl_accuracy": 0.9863,
+      "ours_accuracy": 0.9877,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.42142857142858,
+          "avg_attacker": 28.893333333333338
+        },
+        "ours": {
+          "avg_honest": 26.667142857142863,
+          "avg_attacker": 11.940000000000007
+        }
+      }
+    },
+    {
+      "round": 267,
+      "blockdfl_accuracy": 0.9854,
+      "ours_accuracy": 0.9876,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.490714285714294,
+          "avg_attacker": 29.035000000000007
+        },
+        "ours": {
+          "avg_honest": 26.77428571428572,
+          "avg_attacker": 11.993333333333341
+        }
+      }
+    },
+    {
+      "round": 268,
+      "blockdfl_accuracy": 0.9858,
+      "ours_accuracy": 0.9873,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.572857142857153,
+          "avg_attacker": 29.146666666666672
+        },
+        "ours": {
+          "avg_honest": 26.88785714285715,
+          "avg_attacker": 12.031666666666673
+        }
+      }
+    },
+    {
+      "round": 269,
+      "blockdfl_accuracy": 0.9854,
+      "ours_accuracy": 0.9873,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.64214285714287,
+          "avg_attacker": 29.28833333333334
+        },
+        "ours": {
+          "avg_honest": 26.996428571428577,
+          "avg_attacker": 12.081666666666674
+        }
+      }
+    },
+    {
+      "round": 270,
+      "blockdfl_accuracy": 0.9855,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.722142857142867,
+          "avg_attacker": 29.40500000000001
+        },
+        "ours": {
+          "avg_honest": 27.107142857142865,
+          "avg_attacker": 12.126666666666674
+        }
+      }
+    },
+    {
+      "round": 271,
+      "blockdfl_accuracy": 0.9854,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.820000000000007,
+          "avg_attacker": 29.480000000000008
+        },
+        "ours": {
+          "avg_honest": 27.23142857142858,
+          "avg_attacker": 12.140000000000008
+        }
+      }
+    },
+    {
+      "round": 272,
+      "blockdfl_accuracy": 0.9849,
+      "ours_accuracy": 0.9875,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 23.917142857142867,
+          "avg_attacker": 29.556666666666672
+        },
+        "ours": {
+          "avg_honest": 27.355000000000008,
+          "avg_attacker": 12.155000000000008
+        }
+      }
+    },
+    {
+      "round": 273,
+      "blockdfl_accuracy": 0.9848,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.014285714285723,
+          "avg_attacker": 29.633333333333336
+        },
+        "ours": {
+          "avg_honest": 27.47785714285715,
+          "avg_attacker": 12.171666666666674
+        }
+      }
+    },
+    {
+      "round": 274,
+      "blockdfl_accuracy": 0.9812,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.098571428571436,
+          "avg_attacker": 29.740000000000006
+        },
+        "ours": {
+          "avg_honest": 27.587142857142865,
+          "avg_attacker": 12.220000000000008
+        }
+      }
+    },
+    {
+      "round": 275,
+      "blockdfl_accuracy": 0.9873,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.181428571428583,
+          "avg_attacker": 29.851666666666674
+        },
+        "ours": {
+          "avg_honest": 27.683571428571437,
+          "avg_attacker": 12.298333333333341
+        }
+      }
+    },
+    {
+      "round": 276,
+      "blockdfl_accuracy": 0.9874,
+      "ours_accuracy": 0.9868,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.27642857142858,
+          "avg_attacker": 29.933333333333337
+        },
+        "ours": {
+          "avg_honest": 27.80642857142858,
+          "avg_attacker": 12.315000000000007
+        }
+      }
+    },
+    {
+      "round": 277,
+      "blockdfl_accuracy": 0.9874,
+      "ours_accuracy": 0.9868,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.373571428571438,
+          "avg_attacker": 30.010000000000005
+        },
+        "ours": {
+          "avg_honest": 27.93142857142858,
+          "avg_attacker": 12.326666666666675
+        }
+      }
+    },
+    {
+      "round": 278,
+      "blockdfl_accuracy": 0.9818,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.455714285714294,
+          "avg_attacker": 30.12166666666667
+        },
+        "ours": {
+          "avg_honest": 28.042142857142863,
+          "avg_attacker": 12.371666666666675
+        }
+      }
+    },
+    {
+      "round": 279,
+      "blockdfl_accuracy": 0.9874,
+      "ours_accuracy": 0.9819,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.527142857142866,
+          "avg_attacker": 30.260000000000005
+        },
+        "ours": {
+          "avg_honest": 28.168571428571436,
+          "avg_attacker": 12.380000000000008
+        }
+      }
+    },
+    {
+      "round": 280,
+      "blockdfl_accuracy": 0.9868,
+      "ours_accuracy": 0.9887,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.637142857142866,
+          "avg_attacker": 30.306666666666672
+        },
+        "ours": {
+          "avg_honest": 28.263571428571435,
+          "avg_attacker": 12.461666666666675
+        }
+      }
+    },
+    {
+      "round": 281,
+      "blockdfl_accuracy": 0.987,
+      "ours_accuracy": 0.9884,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.74785714285715,
+          "avg_attacker": 30.35166666666667
+        },
+        "ours": {
+          "avg_honest": 28.34428571428572,
+          "avg_attacker": 12.576666666666675
+        }
+      }
+    },
+    {
+      "round": 282,
+      "blockdfl_accuracy": 0.2997,
+      "ours_accuracy": 0.9881,
+      "blockdfl_attack_status_code": "ATK:CAPTURED_MAL_FLIP",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.758571428571436,
+          "avg_attacker": 30.563333333333336
+        },
+        "ours": {
+          "avg_honest": 28.456428571428578,
+          "avg_attacker": 12.618333333333341
+        }
+      }
+    },
+    {
+      "round": 283,
+      "blockdfl_accuracy": 0.88,
+      "ours_accuracy": 0.9878,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.870000000000008,
+          "avg_attacker": 30.606666666666673
+        },
+        "ours": {
+          "avg_honest": 28.58000000000001,
+          "avg_attacker": 12.633333333333342
+        }
+      }
+    },
+    {
+      "round": 284,
+      "blockdfl_accuracy": 0.9794,
+      "ours_accuracy": 0.9874,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 24.980000000000008,
+          "avg_attacker": 30.65333333333334
+        },
+        "ours": {
+          "avg_honest": 28.702142857142864,
+          "avg_attacker": 12.651666666666674
+        }
+      }
+    },
+    {
+      "round": 285,
+      "blockdfl_accuracy": 0.983,
+      "ours_accuracy": 0.9879,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.06285714285715,
+          "avg_attacker": 30.765000000000004
+        },
+        "ours": {
+          "avg_honest": 28.80142857142858,
+          "avg_attacker": 12.723333333333342
+        }
+      }
+    },
+    {
+      "round": 286,
+      "blockdfl_accuracy": 0.9835,
+      "ours_accuracy": 0.9875,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.115714285714294,
+          "avg_attacker": 30.945000000000004
+        },
+        "ours": {
+          "avg_honest": 28.92785714285715,
+          "avg_attacker": 12.731666666666674
+        }
+      }
+    },
+    {
+      "round": 287,
+      "blockdfl_accuracy": 0.9806,
+      "ours_accuracy": 0.9873,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.197857142857153,
+          "avg_attacker": 31.056666666666672
+        },
+        "ours": {
+          "avg_honest": 28.996428571428577,
+          "avg_attacker": 12.876666666666674
+        }
+      }
+    },
+    {
+      "round": 288,
+      "blockdfl_accuracy": 0.9875,
+      "ours_accuracy": 0.9876,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.264285714285723,
+          "avg_attacker": 31.205000000000002
+        },
+        "ours": {
+          "avg_honest": 29.120714285714293,
+          "avg_attacker": 12.891666666666675
+        }
+      }
+    },
+    {
+      "round": 289,
+      "blockdfl_accuracy": 0.9875,
+      "ours_accuracy": 0.9877,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.37500000000001,
+          "avg_attacker": 31.250000000000004
+        },
+        "ours": {
+          "avg_honest": 29.24785714285715,
+          "avg_attacker": 12.898333333333342
+        }
+      }
+    },
+    {
+      "round": 290,
+      "blockdfl_accuracy": 0.9875,
+      "ours_accuracy": 0.9879,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.482857142857153,
+          "avg_attacker": 31.30166666666667
+        },
+        "ours": {
+          "avg_honest": 29.357857142857153,
+          "avg_attacker": 12.94500000000001
+        }
+      }
+    },
+    {
+      "round": 291,
+      "blockdfl_accuracy": 0.9866,
+      "ours_accuracy": 0.9869,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.579285714285724,
+          "avg_attacker": 31.381666666666668
+        },
+        "ours": {
+          "avg_honest": 29.46785714285715,
+          "avg_attacker": 12.991666666666674
+        }
+      }
+    },
+    {
+      "round": 292,
+      "blockdfl_accuracy": 0.9865,
+      "ours_accuracy": 0.9869,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:MAL_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.69000000000001,
+          "avg_attacker": 31.42666666666667
+        },
+        "ours": {
+          "avg_honest": 29.551428571428577,
+          "avg_attacker": 13.100000000000007
+        }
+      }
+    },
+    {
+      "round": 293,
+      "blockdfl_accuracy": 0.9865,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.773571428571437,
+          "avg_attacker": 31.535000000000004
+        },
+        "ours": {
+          "avg_honest": 29.663571428571434,
+          "avg_attacker": 13.141666666666675
+        }
+      }
+    },
+    {
+      "round": 294,
+      "blockdfl_accuracy": 0.9867,
+      "ours_accuracy": 0.9866,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.87285714285715,
+          "avg_attacker": 31.60666666666667
+        },
+        "ours": {
+          "avg_honest": 29.77642857142858,
+          "avg_attacker": 13.18333333333334
+        }
+      }
+    },
+    {
+      "round": 295,
+      "blockdfl_accuracy": 0.9867,
+      "ours_accuracy": 0.987,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 25.954285714285724,
+          "avg_attacker": 31.72166666666667
+        },
+        "ours": {
+          "avg_honest": 29.890000000000008,
+          "avg_attacker": 13.223333333333342
+        }
+      }
+    },
+    {
+      "round": 296,
+      "blockdfl_accuracy": 0.9863,
+      "ours_accuracy": 0.9868,
+      "blockdfl_attack_status_code": "LATENT:MAL_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 26.035714285714292,
+          "avg_attacker": 31.835
+        },
+        "ours": {
+          "avg_honest": 30.01642857142858,
+          "avg_attacker": 13.231666666666676
+        }
+      }
+    },
+    {
+      "round": 297,
+      "blockdfl_accuracy": 0.986,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 26.119285714285724,
+          "avg_attacker": 31.943333333333335
+        },
+        "ours": {
+          "avg_honest": 30.11428571428572,
+          "avg_attacker": 13.306666666666676
+        }
+      }
+    },
+    {
+      "round": 298,
+      "blockdfl_accuracy": 0.9857,
+      "ours_accuracy": 0.9864,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 26.24357142857144,
+          "avg_attacker": 31.956666666666667
+        },
+        "ours": {
+          "avg_honest": 30.242142857142863,
+          "avg_attacker": 13.311666666666675
+        }
+      }
+    },
+    {
+      "round": 299,
+      "blockdfl_accuracy": 0.9855,
+      "ours_accuracy": 0.9865,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 26.342142857142864,
+          "avg_attacker": 32.03
+        },
+        "ours": {
+          "avg_honest": 30.352857142857147,
+          "avg_attacker": 13.356666666666676
+        }
+      }
+    },
+    {
+      "round": 300,
+      "blockdfl_accuracy": 0.9857,
+      "ours_accuracy": 0.9867,
+      "blockdfl_attack_status_code": "LATENT:HON_STEALTH",
+      "ours_attack_status_code": "LATENT:HON_STEALTH",
+      "stack_stats": {
+        "blockdfl": {
+          "avg_honest": 26.440714285714293,
+          "avg_attacker": 32.10333333333333
+        },
+        "ours": {
+          "avg_honest": 30.480000000000004,
+          "avg_attacker": 13.363333333333342
+        }
+      }
+    }
+  ]
+}

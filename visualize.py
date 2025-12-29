@@ -20,8 +20,9 @@ def plot_convergence(results_file, output_file):
     plt.plot(rounds, blockdfl_acc, 'r-', label='BlockDFL', linewidth=2)
     plt.plot(rounds, ours_acc, 'b-', label='Ours', linewidth=2)
     
-    plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
-    plt.text(attack_start + 2, 0.5, 'Attack Starts', rotation=90, color='gray')
+    # Add vertical line at attack start
+    # plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
+    # plt.text(attack_start + 2, 0.5, 'Attack Starts', rotation=90, color='gray')
     
     plt.title(f'{dataset}: Convergence Under Progressive Committee Capture Attack')
     plt.xlabel('Number of Communication Rounds')
