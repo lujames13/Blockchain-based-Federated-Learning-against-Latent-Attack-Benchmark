@@ -16,7 +16,7 @@ from models.cifar10_net import CIFAR10Net
 class Simulator:
     def __init__(self, config_path='config.yaml', dataset_name='MNIST'):
         # Set fixed random seed for reproducibility
-        seed = 1042
+        seed = 6042
         random.seed(seed)
         np.random.seed(seed)
         torch.manual_seed(seed)

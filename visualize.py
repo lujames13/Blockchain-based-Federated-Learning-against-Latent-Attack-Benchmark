@@ -59,12 +59,14 @@ def plot_comparison(results_file, output_file):
     x = np.arange(len(labels))
     width = 0.35
     
+    dataset = data.get('dataset', 'Unknown')
+    
     plt.figure(figsize=(8, 6), dpi=300)
     plt.bar(x - width/2, blockdfl_vals, width, label='BlockDFL', color='red', alpha=0.7)
     plt.bar(x + width/2, ours_vals, width, label='Ours', color='blue', alpha=0.7)
     
     plt.ylabel('Test Accuracy')
-    plt.title('Accuracy Comparison: Before vs After Attack')
+    plt.title(f'{dataset}: Accuracy Comparison (Before vs After Attack)')
     plt.xticks(x, labels)
     plt.legend()
     plt.ylim(0, 1.05)
@@ -101,6 +103,8 @@ def plot_stack_evolution(results_file, output_file):
     bdfl_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(bdfl_attacker, bdfl_honest)]
     ours_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(ours_attacker, ours_honest)]
     
+    dataset = data.get('dataset', 'Unknown')
+    
     # Create figure with 2 subplots (matching stake_sim.py format)
     plt.figure(figsize=(12, 8), dpi=300)
     
@@ -113,7 +117,7 @@ def plot_stack_evolution(results_file, output_file):
     
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     plt.ylabel('Average Stake')
-    plt.title('Stake Growth Comparison')
+    plt.title(f'{dataset}: Stake Growth Comparison')
     plt.legend()
     plt.grid(True)
     
