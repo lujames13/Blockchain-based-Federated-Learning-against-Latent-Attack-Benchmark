@@ -1,5 +1,6 @@
 import sys
 import copy
+import random
 import numpy as np
 import yaml
 import json
@@ -9,8 +10,11 @@ import matplotlib.pyplot as plt
 # Mock class to replace Simulator
 class LightweightSimulator:
     def __init__(self, config_path='config.yaml', dataset_name='MNIST', seed=None):
-        if seed is not None:
-            np.random.seed(seed)
+        # Set fixed random seed for reproducibility
+        if seed is None:
+            seed = 6042
+        random.seed(seed)
+        np.random.seed(seed)
             
         with open(config_path, 'r') as f:
             full_config = yaml.safe_load(f)
@@ -63,16 +67,18 @@ class LightweightSimulator:
             'aggregator': 0.2,
             'provider': 0.05
         })
-        self.slash_penalty = self.config.get('slash_penalty', 'full')
+        self.slash_penalty = str(self.config.get('slash_penalty', 'full')).strip().lower()
         
         # Tracking for chart - BOTH BlockDFL and Ours
         self.round_history = []
         self.bdfl_avg_honest_history = []
         self.bdfl_avg_attacker_history = []
         self.bdfl_ratio_history = []
+        self.bdfl_status_history = []
         self.ours_avg_honest_history = []
         self.ours_avg_attacker_history = []
         self.ours_ratio_history = []
+        self.ours_status_history = []
 
     def mock_evaluate_update(self, is_malicious_update):
         """
@@ -183,21 +189,35 @@ class LightweightSimulator:
             groups_bdfl, attack_active, committee_captured_bdfl
         )
         
+        # Determine attack status and selection for BlockDFL
         if committee_captured_bdfl:
-            # ATTACK PHASE: Select by corruption score
+            # ATTACK PHASE: Committee captured, selecting based on corruption
             bdfl_idx = np.argmax(bdfl_scores)
+            winning_agg_bdfl = groups_bdfl[bdfl_idx]['aggregator']
+            if winning_agg_bdfl['is_attacker']:
+                bdfl_attack_status = "ATK:CAPTURED_MAL_FLIP"
+            else:
+                bdfl_attack_status = "ATK:CAPTURED_HON_NEPO"
         else:
-            # LATENT PHASE: Select by quality
+            # LATENT PHASE: Honest selection
             bdfl_idx = np.argmax(bdfl_qualities)
+            winning_agg_bdfl = groups_bdfl[bdfl_idx]['aggregator']
+            if winning_agg_bdfl['is_attacker']:
+                bdfl_attack_status = "LATENT:MAL_STEALTH"
+            else:
+                bdfl_attack_status = "LATENT:HON_STEALTH"
         
-        # BlockDFL Rewards (Conditional based on capture status)
+        # BlockDFL Rewards: Everyone in Committee + Winning Group gets Reward
+        # No Slashing in BlockDFL
         winning_group_bdfl = groups_bdfl[bdfl_idx]
         
+        # Reward Committee (Conditional based on capture status)
         if committee_captured_bdfl:
             # Attack Success: Only malicious verifiers get rewards
             for v in committee_bdfl:
                 if v['is_attacker']:
                     v['stack'] += self.rewards['verifier']
+                # Honest verifiers get nothing when committee is captured
         else:
             # Normal operation: All committee members get rewards
             for v in committee_bdfl:
@@ -213,17 +233,39 @@ class LightweightSimulator:
             groups_ours, attack_active, committee_captured_ours
         )
         
+        # Determine attack status for Ours
         if committee_captured_ours:
             # ATTACK PHASE: Committee captured
             ours_idx = np.argmax(ours_scores)
+            winning_agg_ours = groups_ours[ours_idx]['aggregator']
+            if winning_agg_ours['is_attacker']:
+                ours_attack_status = "ATK:CAPTURED_MAL_FLIP"
+            else:
+                ours_attack_status = "ATK:CAPTURED_HON_NEPO"
             
             # SLASHING MECHANISM (Ours only)
-            for v in committee_ours:
-                if v['is_attacker']:
-                    if self.slash_penalty == 'full':
-                        v['stack'] = 0.0
-                    else:
-                        v['stack'] = max(0, v['stack'] - float(self.slash_penalty))
+            num_slashed = 0
+            for v_comm in committee_ours:
+                if v_comm['is_attacker']:
+                    # FORCE find and modify in the main pool to ensure persistence
+                    for p in self.participants_ours:
+                        if p['id'] == v_comm['id']:
+                            old_val = p['stack']
+                            if self.slash_penalty == 'full':
+                                p['stack'] = 0.0
+                            else:
+                                p['stack'] = max(0, p['stack'] - float(self.slash_penalty))
+                            
+                            # Log the actual change (optional, can be silenced)
+                            # print(f"  [SLASHING] Node {p['id']} (Attacker): {old_val:.2f} -> 0.00")
+                            
+                            # Also update the local reference used in groups/committee
+                            v_comm['stack'] = p['stack']
+                            num_slashed += 1
+                            break
+            
+            if num_slashed > 0:
+                ours_attack_status += f" (SLASHED {num_slashed})"
             
             # Winning Group gets Rewards
             winning_group_ours = groups_ours[ours_idx]
@@ -234,6 +276,11 @@ class LightweightSimulator:
         else:
             # LATENT PHASE: Honest selection
             ours_idx = np.argmax(ours_qualities)
+            winning_agg_ours = groups_ours[ours_idx]['aggregator']
+            if winning_agg_ours['is_attacker']:
+                ours_attack_status = "LATENT:MAL_STEALTH"
+            else:
+                ours_attack_status = "LATENT:HON_STEALTH"
             
             # Standard Rewards
             for v in committee_ours:
@@ -258,20 +305,28 @@ class LightweightSimulator:
         bdfl_ratio = bdfl_avg_attacker / bdfl_avg_honest if bdfl_avg_honest > 0 else 0
         ours_ratio = ours_avg_attacker / ours_avg_honest if ours_avg_honest > 0 else 0
         
+        # Consistent logging with simulator.py
+        if round_num % 10 == 0 or "SLASHED" in ours_attack_status:
+             print(f"Round {round_num}:")
+             print(f"  BlockDFL: [{bdfl_attack_status}] | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
+             print(f"  Ours:     [{ours_attack_status}] | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
+
         self.round_history.append(round_num)
         self.bdfl_avg_honest_history.append(bdfl_avg_honest)
         self.bdfl_avg_attacker_history.append(bdfl_avg_attacker)
         self.bdfl_ratio_history.append(bdfl_ratio)
+        self.bdfl_status_history.append(bdfl_attack_status)
         self.ours_avg_honest_history.append(ours_avg_honest)
         self.ours_avg_attacker_history.append(ours_avg_attacker)
         self.ours_ratio_history.append(ours_ratio)
+        self.ours_status_history.append(ours_attack_status)
         
         return bdfl_ratio, ours_ratio
 
-def generate_chart(seed, history, output_file='best_seed_stake_growth.png'):
+def generate_chart(seed, history, dataset, attack_start, output_file='best_seed_stake_growth.png'):
     rounds = history['round']
     
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(12, 8), dpi=300)
     
     # Plot Stakes - 4 lines
     # Top chart: BlockDFL dashed, Ours solid
@@ -280,17 +335,19 @@ def generate_chart(seed, history, output_file='best_seed_stake_growth.png'):
     plt.plot(rounds, history['bdfl_hon_stakes'], label='BlockDFL Honest Stake', color='blue', linewidth=2, linestyle='--')
     plt.plot(rounds, history['ours_mal_stakes'], label='Ours Attacker Stake', color='red', linewidth=2, linestyle='-')
     plt.plot(rounds, history['ours_hon_stakes'], label='Ours Honest Stake', color='blue', linewidth=2, linestyle='-')
+    
+    plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     plt.ylabel('Average Stake')
-    plt.title(f"Stake Growth Comparison (Seed: {seed})")
+    plt.title(f"{dataset}: Stake Growth Comparison")
     plt.legend()
     plt.grid(True)
     
     # Plot Ratio - 2 lines
-    # Bottom chart: BlockDFL red solid, Ours blue solid
+    # Bottom chart: BlockDFL red solid, Ours blue solid (Matching visualize.py)
     plt.subplot(2, 1, 2)
     plt.plot(rounds, history['bdfl_ratios'], label='BlockDFL Ratio (Attacker/Honest)', color='red', linewidth=2, linestyle='-')
     plt.plot(rounds, history['ours_ratios'], label='Ours Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
-    plt.axhline(y=2.0, color='gray', linestyle=':', label='Ratio 2.0')
+    plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     
     plt.xlabel('Round')
     plt.ylabel('Stake Ratio')
@@ -299,17 +356,18 @@ def generate_chart(seed, history, output_file='best_seed_stake_growth.png'):
     
     plt.tight_layout()
     plt.savefig(output_file)
+    plt.close()
     print(f"Chart saved to {output_file}")
 
 def main():
-    seeds = [1000 * i + 42 for i in range(10)] # Generate 10 distinct seeds
+    seeds = [1042]  # Focus on specific seed as requested
     best_bdfl_ratio = -1.0
     best_seed = None
     best_history = None
     
     results = []
     
-    print("Starting simulation for 10 seeds...")
+    print(f"Starting simulation for seed {seeds[0]}...")
     
     for seed in seeds:
         sim = LightweightSimulator(seed=seed)
@@ -325,12 +383,27 @@ def main():
              
         print(f"Seed {seed}: BlockDFL Ratio = {final_bdfl_ratio:.4f}, Ours Ratio = {final_ours_ratio:.4f}")
         
-        results.append({
-            'seed': seed,
-            'blockdfl_final_ratio': final_bdfl_ratio,
-            'ours_final_ratio': final_ours_ratio,
-        })
-        
+        # Construct results list in mnist_results.json style
+        history_list = []
+        for i in range(len(sim.round_history)):
+            history_list.append({
+                "round": sim.round_history[i],
+                "blockdfl_attack_status_code": sim.bdfl_status_history[i],
+                "ours_attack_status_code": sim.ours_status_history[i],
+                "stack_stats": {
+                    "blockdfl": {
+                        "avg_honest": sim.bdfl_avg_honest_history[i],
+                        "avg_attacker": sim.bdfl_avg_attacker_history[i],
+                        "ratio": sim.bdfl_ratio_history[i]
+                    },
+                    "ours": {
+                        "avg_honest": sim.ours_avg_honest_history[i],
+                        "avg_attacker": sim.ours_avg_attacker_history[i],
+                        "ratio": sim.ours_ratio_history[i]
+                    }
+                }
+            })
+
         # Select best based on BlockDFL ratio
         if final_bdfl_ratio > best_bdfl_ratio:
             best_bdfl_ratio = final_bdfl_ratio
@@ -344,6 +417,16 @@ def main():
                 'ours_hon_stakes': sim.ours_avg_honest_history,
                 'ours_ratios': sim.ours_ratio_history
             }
+        
+        results.append({
+            'seed': seed,
+            'dataset': sim.dataset_name,
+            'total_rounds': max_rounds,
+            'attack_start_round': sim.config['attack_start_round'],
+            'blockdfl_final_ratio': final_bdfl_ratio,
+            'ours_final_ratio': final_ours_ratio,
+            'results': history_list
+        })
             
     print(f"\n--- Best Seed Found (Based on BlockDFL Ratio): {best_seed} ---")
     print(f"Best BlockDFL Final Ratio: {best_bdfl_ratio:.4f}")
@@ -355,7 +438,11 @@ def main():
     
     # Plot
     if best_seed is not None:
-        generate_chart(best_seed, best_history)
+        # Get dataset and attack_start from the last sim run (or config)
+        sim = LightweightSimulator(seed=best_seed)
+        dataset = sim.dataset_name
+        attack_start = sim.config['attack_start_round']
+        generate_chart(best_seed, best_history, dataset, attack_start)
 
 if __name__ == "__main__":
     main()
