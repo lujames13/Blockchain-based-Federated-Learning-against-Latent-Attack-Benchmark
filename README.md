@@ -8,4 +8,4 @@
 ![範例結果圖片](image.png)
 x軸為 Number of Communication Rounds
 y軸為 Test Accuracy
-數據有BlockDFL和Ours兩個
+數據有BlockDFL和CACA兩個

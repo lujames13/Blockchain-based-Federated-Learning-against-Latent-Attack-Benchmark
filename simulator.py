@@ -16,7 +16,7 @@ from models.cifar10_net import CIFAR10Net
 class Simulator:
     def __init__(self, config_path='config.yaml', dataset_name='MNIST'):
         # Set fixed random seed for reproducibility
-        seed = 6042
+        seed = 1042
         random.seed(seed)
         np.random.seed(seed)
         torch.manual_seed(seed)
@@ -55,13 +55,13 @@ class Simulator:
             alpha=self.config['alpha']
         )
         
-        # Initialize models (BlockDFL and Ours start with same weights)
+        # Initialize models (BlockDFL and CACA start with same weights)
         print("Initializing models...")
         self.model_blockdfl = self.ModelClass().to(self.device)
-        self.model_ours = self.ModelClass().to(self.device)
+        self.model_caca = self.ModelClass().to(self.device)
         
         # Ensure identical initialization
-        self.model_ours.load_state_dict(self.model_blockdfl.state_dict())
+        self.model_caca.load_state_dict(self.model_blockdfl.state_dict())
         
         # Results storage
         self.results = {
@@ -100,8 +100,8 @@ class Simulator:
                 'stack': 1.0
             })
             
-        # Initialize participants for Ours (identical start)
-        self.participants_ours = copy.deepcopy(self.participants_blockdfl)
+        # Initialize participants for CACA (identical start)
+        self.participants_caca = copy.deepcopy(self.participants_blockdfl)
         
         # Load detailed rewards
         self.rewards = self.config.get('rewards', {
@@ -321,8 +321,8 @@ class Simulator:
             # Generate Updates and Roles for BlockDFL
             committee_bdfl, groups_bdfl = assign_roles(self.participants_blockdfl)
             
-            # Generate Updates and Roles for Ours
-            committee_ours, groups_ours = assign_roles(self.participants_ours)
+            # Generate Updates and Roles for CACA
+            committee_caca, groups_caca = assign_roles(self.participants_caca)
             
             # --- Logic to Generate Updates ---
             # We generate updates based on the ASSIGNED roles. 
@@ -383,8 +383,8 @@ class Simulator:
             num_attackers_bdfl = sum(1 for v in committee_bdfl if v['is_attacker'])
             committee_captured_bdfl = attack_active and (num_attackers_bdfl > (2 / 3) * self.committee_size)
             
-            num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
-            committee_captured_ours = attack_active and (num_attackers_ours > (2 / 3) * self.committee_size)
+            num_attackers_caca = sum(1 for v in committee_caca if v['is_attacker'])
+            committee_captured_caca = attack_active and (num_attackers_caca > (2 / 3) * self.committee_size)
             
             # --- BlockDFL Process ---
             bdfl_updates, bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
@@ -432,24 +432,24 @@ class Simulator:
                 
             blockdfl_selected_update = bdfl_updates[bdfl_idx]
             
-            # --- Ours Process ---
-            ours_updates, ours_qualities, ours_scores, ours_is_mal = process_candidates(
-                self.model_ours, groups_ours, attack_active, committee_captured_ours, current_lr
+            # --- CACA Process ---
+            caca_updates, caca_qualities, caca_scores, caca_is_mal = process_candidates(
+                self.model_caca, groups_caca, attack_active, committee_captured_caca, current_lr
             )
             
             # Determine attack status for Ours
-            if committee_captured_ours:
+            if committee_captured_caca:
                 # ATTACK PHASE: Committee captured
-                ours_idx = np.argmax(ours_scores)
-                winning_agg_ours = groups_ours[ours_idx]['aggregator']
-                if winning_agg_ours['is_attacker']:
-                    ours_attack_status = "ATK:CAPTURED_MAL_FLIP"
+                caca_idx = np.argmax(caca_scores)
+                winning_agg_caca = groups_caca[caca_idx]['aggregator']
+                if winning_agg_caca['is_attacker']:
+                    caca_attack_status = "ATK:CAPTURED_MAL_FLIP"
                 else:
-                    ours_attack_status = "ATK:CAPTURED_HON_NEPO"
+                    caca_attack_status = "ATK:CAPTURED_HON_NEPO"
                 
-                # SLASHING MECHANISM (Ours only)
+                # SLASHING MECHANISM (CACA only)
                 num_slashed = 0
-                for v in committee_ours:
+                for v in committee_caca:
                     if v['is_attacker']:
                         if self.slash_penalty == 'full':
                             v['stack'] = 0.0
@@ -458,41 +458,41 @@ class Simulator:
                         num_slashed += 1
                 
                 if num_slashed > 0:
-                    ours_attack_status += f" (SLASHED {num_slashed})"
+                    caca_attack_status += f" (SLASHED {num_slashed})"
 
                 # Winning Group gets Rewards
-                winning_group_ours = groups_ours[ours_idx]
-                winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
-                for p in winning_group_ours['providers']:
+                winning_group_caca = groups_caca[caca_idx]
+                winning_group_caca['aggregator']['stack'] += self.rewards['aggregator']
+                for p in winning_group_caca['providers']:
                     p['stack'] += self.rewards['provider']
                     
             else:
                 # LATENT PHASE: Honest selection
-                ours_idx = np.argmax(ours_qualities)
-                winning_agg_ours = groups_ours[ours_idx]['aggregator']
-                if winning_agg_ours['is_attacker']:
-                    ours_attack_status = "LATENT:MAL_STEALTH"
+                caca_idx = np.argmax(caca_qualities)
+                winning_agg_caca = groups_caca[caca_idx]['aggregator']
+                if winning_agg_caca['is_attacker']:
+                    caca_attack_status = "LATENT:MAL_STEALTH"
                 else:
-                    ours_attack_status = "LATENT:HON_STEALTH"
+                    caca_attack_status = "LATENT:HON_STEALTH"
                 
                 # Standard Rewards
-                for v in committee_ours:
+                for v in committee_caca:
                     v['stack'] += self.rewards['verifier']
                 
-                winning_group_ours = groups_ours[ours_idx]
-                winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
-                for p in winning_group_ours['providers']:
+                winning_group_caca = groups_caca[caca_idx]
+                winning_group_caca['aggregator']['stack'] += self.rewards['aggregator']
+                for p in winning_group_caca['providers']:
                     p['stack'] += self.rewards['provider']
 
-            ours_selected_update = ours_updates[ours_idx]
+            caca_selected_update = caca_updates[caca_idx]
             
             # --- Apply Updates ---
             self.apply_update(self.model_blockdfl, blockdfl_selected_update)
-            self.apply_update(self.model_ours, ours_selected_update)
+            self.apply_update(self.model_caca, caca_selected_update)
             
             # --- Evaluate Global Models ---
             blockdfl_acc = self.evaluate_model(self.model_blockdfl)
-            ours_acc = self.evaluate_model(self.model_ours)
+            caca_acc = self.evaluate_model(self.model_caca)
             
             # --- Log ---
             def get_avg_stack(pool):
@@ -503,24 +503,24 @@ class Simulator:
                 return avg_honest, avg_attacker
 
             bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.participants_blockdfl)
-            ours_avg_honest, ours_avg_attacker = get_avg_stack(self.participants_ours)
+            caca_avg_honest, caca_avg_attacker = get_avg_stack(self.participants_caca)
 
             print(f"Round {round_num}/{self.config['total_rounds']}")
             print(f"  BlockDFL: [{bdfl_attack_status}] | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
-            print(f"  Ours:     [{ours_attack_status}] | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
+            print(f"  CACA:     [{caca_attack_status}] | Attacker Stack: {caca_avg_attacker:.2f} | Honest Stack: {caca_avg_honest:.2f}")
             print(f"  -> BlockDFL Acc: {blockdfl_acc:.4f}")
-            print(f"  -> Ours Acc:     {ours_acc:.4f}")
+            print(f"  -> CACA Acc:     {caca_acc:.4f}")
             
             # Save results
             round_data = {
                 "round": round_num,
                 "blockdfl_accuracy": blockdfl_acc,
-                "ours_accuracy": ours_acc,
+                "caca_accuracy": caca_acc,
                 "blockdfl_attack_status_code": bdfl_attack_status,
-                "ours_attack_status_code": ours_attack_status,
+                "caca_attack_status_code": caca_attack_status,
                 "stack_stats": {
                     "blockdfl": {"avg_honest": bdfl_avg_honest, "avg_attacker": bdfl_avg_attacker},
-                    "ours": {"avg_honest": ours_avg_honest, "avg_attacker": ours_avg_attacker}
+                    "caca": {"avg_honest": caca_avg_honest, "avg_attacker": caca_avg_attacker}
                 }
             }
             self.results["results"].append(round_data)

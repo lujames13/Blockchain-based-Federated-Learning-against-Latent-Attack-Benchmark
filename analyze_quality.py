@@ -12,7 +12,7 @@ def plot_quality_analysis(results_file):
     
     # Extract selected qualities
     bdfl_quality = [r['blockdfl_selection']['quality'] for r in results]
-    ours_quality = [r['ours_selection']['quality'] for r in results]
+    caca_quality = [r['caca_selection']['quality'] for r in results]
     
     # Extract min/max available qualities to see the range
     min_qualities = [min(r['blockdfl_selection']['all_qualities']) for r in results]
@@ -25,7 +25,7 @@ def plot_quality_analysis(results_file):
     
     # Plot Selected
     plt.plot(rounds, bdfl_quality, 'r-', label='BlockDFL Selected (Worst)', linewidth=1.5, alpha=0.8)
-    plt.plot(rounds, ours_quality, 'b-', label='Ours Selected (Best)', linewidth=1.5, alpha=0.8)
+    plt.plot(rounds, caca_quality, 'b-', label='CACA Selected (Best)', linewidth=1.5, alpha=0.8)
     
     plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
     

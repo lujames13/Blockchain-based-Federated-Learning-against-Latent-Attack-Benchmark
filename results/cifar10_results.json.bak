@@ -6,7 +6,7 @@
     {
       "round": 1,
       "blockdfl_accuracy": 0.1501,
-      "caca_accuracy": 0.1494,
+      "ours_accuracy": 0.1494,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.1501,
@@ -17,7 +17,7 @@
           0.1501
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.1494,
         "all_qualities": [
@@ -32,7 +32,7 @@
           "avg_honest": 1.0357142857142858,
           "avg_attacker": 1.0333333333333334
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.0357142857142858,
           "avg_attacker": 1.0333333333333334
         }
@@ -41,7 +41,7 @@
     {
       "round": 2,
       "blockdfl_accuracy": 0.1536,
-      "caca_accuracy": 0.162,
+      "ours_accuracy": 0.162,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.1536,
@@ -52,7 +52,7 @@
           0.1536
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.162,
         "all_qualities": [
@@ -67,7 +67,7 @@
           "avg_honest": 1.0714285714285714,
           "avg_attacker": 1.0666666666666667
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.0714285714285714,
           "avg_attacker": 1.0666666666666667
         }
@@ -76,7 +76,7 @@
     {
       "round": 3,
       "blockdfl_accuracy": 0.1745,
-      "caca_accuracy": 0.1849,
+      "ours_accuracy": 0.1849,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.1745,
@@ -87,7 +87,7 @@
           0.1745
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.1849,
         "all_qualities": [
@@ -102,7 +102,7 @@
           "avg_honest": 1.1142857142857143,
           "avg_attacker": 1.0833333333333333
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.1071428571428572,
           "avg_attacker": 1.1
         }
@@ -111,7 +111,7 @@
     {
       "round": 4,
       "blockdfl_accuracy": 0.2187,
-      "caca_accuracy": 0.2402,
+      "ours_accuracy": 0.2402,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2187,
@@ -122,7 +122,7 @@
           0.2187
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2402,
         "all_qualities": [
@@ -137,7 +137,7 @@
           "avg_honest": 1.1500000000000001,
           "avg_attacker": 1.116666666666667
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.1571428571428573,
           "avg_attacker": 1.1
         }
@@ -146,7 +146,7 @@
     {
       "round": 5,
       "blockdfl_accuracy": 0.2481,
-      "caca_accuracy": 0.2537,
+      "ours_accuracy": 0.2537,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2481,
@@ -157,7 +157,7 @@
           0.2481
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2537,
         "all_qualities": [
@@ -172,7 +172,7 @@
           "avg_honest": 1.1714285714285715,
           "avg_attacker": 1.1833333333333336
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.192857142857143,
           "avg_attacker": 1.1333333333333335
         }
@@ -181,7 +181,7 @@
     {
       "round": 6,
       "blockdfl_accuracy": 0.2625,
-      "caca_accuracy": 0.2583,
+      "ours_accuracy": 0.2583,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2625,
@@ -192,7 +192,7 @@
           0.2625
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2583,
         "all_qualities": [
@@ -207,7 +207,7 @@
           "avg_honest": 1.2071428571428573,
           "avg_attacker": 1.2166666666666668
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.2214285714285715,
           "avg_attacker": 1.1833333333333336
         }
@@ -216,7 +216,7 @@
     {
       "round": 7,
       "blockdfl_accuracy": 0.2695,
-      "caca_accuracy": 0.2708,
+      "ours_accuracy": 0.2708,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2695,
@@ -227,7 +227,7 @@
           0.2695
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2708,
         "all_qualities": [
@@ -242,7 +242,7 @@
           "avg_honest": 1.235714285714286,
           "avg_attacker": 1.2666666666666668
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.2500000000000002,
           "avg_attacker": 1.2333333333333336
         }
@@ -251,7 +251,7 @@
     {
       "round": 8,
       "blockdfl_accuracy": 0.2739,
-      "caca_accuracy": 0.2871,
+      "ours_accuracy": 0.2871,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2739,
@@ -262,7 +262,7 @@
           0.2739
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2871,
         "all_qualities": [
@@ -277,7 +277,7 @@
           "avg_honest": 1.2571428571428573,
           "avg_attacker": 1.3333333333333337
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.2714285714285718,
           "avg_attacker": 1.3000000000000003
         }
@@ -286,7 +286,7 @@
     {
       "round": 9,
       "blockdfl_accuracy": 0.2742,
-      "caca_accuracy": 0.2862,
+      "ours_accuracy": 0.2862,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2742,
@@ -297,7 +297,7 @@
           0.2742
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2862,
         "all_qualities": [
@@ -312,7 +312,7 @@
           "avg_honest": 1.285714285714286,
           "avg_attacker": 1.3833333333333337
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.3071428571428574,
           "avg_attacker": 1.3333333333333337
         }
@@ -321,7 +321,7 @@
     {
       "round": 10,
       "blockdfl_accuracy": 0.2774,
-      "caca_accuracy": 0.2881,
+      "ours_accuracy": 0.2881,
       "blockdfl_selection": {
         "type": "BEST",
         "quality": 0.2774,
@@ -332,7 +332,7 @@
           0.2774
         ]
       },
-      "caca_selection": {
+      "ours_selection": {
         "type": "BEST",
         "quality": 0.2881,
         "all_qualities": [
@@ -347,7 +347,7 @@
           "avg_honest": 1.3142857142857147,
           "avg_attacker": 1.4333333333333336
         },
-        "caca": {
+        "ours": {
           "avg_honest": 1.3500000000000003,
           "avg_attacker": 1.3500000000000003
         }

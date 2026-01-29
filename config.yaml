@@ -1,7 +1,7 @@
 mnist:
   dataset: MNIST
-  total_rounds: 2000
-  attack_start_round: 10
+  total_rounds: 300
+  attack_start_round: 1
   local_training_epochs: 1
   batch_size: 32
   learning_rate: 0.01
@@ -9,9 +9,9 @@ mnist:
   lr_decay: 0.99
   num_candidates: 4
   alpha: 0.5
-  verifier_pool_size: 1000
+  verifier_pool_size: 100
   initial_attacker_ratio: 0.3
-  committee_size: 10
+  committee_size: 7
   stack_reward: 0.4
   rewards:
     verifier: 1.0
@@ -21,8 +21,8 @@ mnist:
 
 mnist_noniid:
   dataset: MNIST
-  total_rounds: 800
-  attack_start_round: 10
+  total_rounds: 300
+  attack_start_round: 1
   local_training_epochs: 1
   batch_size: 32
   learning_rate: 0.01

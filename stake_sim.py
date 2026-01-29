@@ -12,7 +12,7 @@ class LightweightSimulator:
     def __init__(self, config_path='config.yaml', dataset_name='MNIST', seed=None):
         # Set fixed random seed for reproducibility
         if seed is None:
-            seed = 6042
+            seed = 1042
         random.seed(seed)
         np.random.seed(seed)
             
@@ -58,8 +58,8 @@ class LightweightSimulator:
                 'stack': 1.0
             })
             
-        # Initialize participants for Ours (identical start)
-        self.participants_ours = copy.deepcopy(self.participants_blockdfl)
+        # Initialize participants for CACA (identical start)
+        self.participants_caca = copy.deepcopy(self.participants_blockdfl)
         
         # Load detailed rewards
         self.rewards = self.config.get('rewards', {
@@ -75,10 +75,10 @@ class LightweightSimulator:
         self.bdfl_avg_attacker_history = []
         self.bdfl_ratio_history = []
         self.bdfl_status_history = []
-        self.ours_avg_honest_history = []
-        self.ours_avg_attacker_history = []
-        self.ours_ratio_history = []
-        self.ours_status_history = []
+        self.caca_avg_honest_history = []
+        self.caca_avg_attacker_history = []
+        self.caca_ratio_history = []
+        self.caca_status_history = []
 
     def mock_evaluate_update(self, is_malicious_update):
         """
@@ -144,9 +144,9 @@ class LightweightSimulator:
             
             return committee, aggregators_with_providers
 
-        # Generate Updates and Roles for BOTH BlockDFL and Ours
+        # Generate Updates and Roles for BOTH BlockDFL and CACA
         committee_bdfl, groups_bdfl = assign_roles(self.participants_blockdfl)
-        committee_ours, groups_ours = assign_roles(self.participants_ours)
+        committee_caca, groups_caca = assign_roles(self.participants_caca)
         
         def process_candidates(groups, is_attack_active, is_committee_captured):
             qualities = []
@@ -181,8 +181,8 @@ class LightweightSimulator:
         num_attackers_bdfl = sum(1 for v in committee_bdfl if v['is_attacker'])
         committee_captured_bdfl = attack_active and (num_attackers_bdfl > (2 / 3) * self.committee_size)
         
-        num_attackers_ours = sum(1 for v in committee_ours if v['is_attacker'])
-        committee_captured_ours = attack_active and (num_attackers_ours > (2 / 3) * self.committee_size)
+        num_attackers_caca = sum(1 for v in committee_caca if v['is_attacker'])
+        committee_captured_caca = attack_active and (num_attackers_caca > (2 / 3) * self.committee_size)
         
         # --- BlockDFL Process ---
         bdfl_qualities, bdfl_scores, bdfl_is_mal = process_candidates(
@@ -228,27 +228,27 @@ class LightweightSimulator:
         for p in winning_group_bdfl['providers']:
             p['stack'] += self.rewards['provider']
         
-        # --- Ours Process ---
-        ours_qualities, ours_scores, ours_is_mal = process_candidates(
-            groups_ours, attack_active, committee_captured_ours
+        # --- CACA Process ---
+        caca_qualities, caca_scores, caca_is_mal = process_candidates(
+            groups_caca, attack_active, committee_captured_caca
         )
         
-        # Determine attack status for Ours
-        if committee_captured_ours:
+        # Determine attack status for CACA
+        if committee_captured_caca:
             # ATTACK PHASE: Committee captured
-            ours_idx = np.argmax(ours_scores)
-            winning_agg_ours = groups_ours[ours_idx]['aggregator']
-            if winning_agg_ours['is_attacker']:
-                ours_attack_status = "ATK:CAPTURED_MAL_FLIP"
+            caca_idx = np.argmax(caca_scores)
+            winning_agg_caca = groups_caca[caca_idx]['aggregator']
+            if winning_agg_caca['is_attacker']:
+                caca_attack_status = "ATK:CAPTURED_MAL_FLIP"
             else:
-                ours_attack_status = "ATK:CAPTURED_HON_NEPO"
+                caca_attack_status = "ATK:CAPTURED_HON_NEPO"
             
-            # SLASHING MECHANISM (Ours only)
+            # SLASHING MECHANISM (CACA only)
             num_slashed = 0
-            for v_comm in committee_ours:
+            for v_comm in committee_caca:
                 if v_comm['is_attacker']:
                     # FORCE find and modify in the main pool to ensure persistence
-                    for p in self.participants_ours:
+                    for p in self.participants_caca:
                         if p['id'] == v_comm['id']:
                             old_val = p['stack']
                             if self.slash_penalty == 'full':
@@ -265,30 +265,30 @@ class LightweightSimulator:
                             break
             
             if num_slashed > 0:
-                ours_attack_status += f" (SLASHED {num_slashed})"
+                caca_attack_status += f" (SLASHED {num_slashed})"
             
             # Winning Group gets Rewards
-            winning_group_ours = groups_ours[ours_idx]
-            winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
-            for p in winning_group_ours['providers']:
+            winning_group_caca = groups_caca[caca_idx]
+            winning_group_caca['aggregator']['stack'] += self.rewards['aggregator']
+            for p in winning_group_caca['providers']:
                 p['stack'] += self.rewards['provider']
                 
         else:
             # LATENT PHASE: Honest selection
-            ours_idx = np.argmax(ours_qualities)
-            winning_agg_ours = groups_ours[ours_idx]['aggregator']
-            if winning_agg_ours['is_attacker']:
-                ours_attack_status = "LATENT:MAL_STEALTH"
+            caca_idx = np.argmax(caca_qualities)
+            winning_agg_caca = groups_caca[caca_idx]['aggregator']
+            if winning_agg_caca['is_attacker']:
+                caca_attack_status = "LATENT:MAL_STEALTH"
             else:
-                ours_attack_status = "LATENT:HON_STEALTH"
+                caca_attack_status = "LATENT:HON_STEALTH"
             
             # Standard Rewards
-            for v in committee_ours:
+            for v in committee_caca:
                 v['stack'] += self.rewards['verifier']
             
-            winning_group_ours = groups_ours[ours_idx]
-            winning_group_ours['aggregator']['stack'] += self.rewards['aggregator']
-            for p in winning_group_ours['providers']:
+            winning_group_caca = groups_caca[caca_idx]
+            winning_group_caca['aggregator']['stack'] += self.rewards['aggregator']
+            for p in winning_group_caca['providers']:
                 p['stack'] += self.rewards['provider']
 
         # --- Log Statistics for BOTH ---
@@ -300,28 +300,28 @@ class LightweightSimulator:
             return avg_honest, avg_attacker
 
         bdfl_avg_honest, bdfl_avg_attacker = get_avg_stack(self.participants_blockdfl)
-        ours_avg_honest, ours_avg_attacker = get_avg_stack(self.participants_ours)
+        caca_avg_honest, caca_avg_attacker = get_avg_stack(self.participants_caca)
         
         bdfl_ratio = bdfl_avg_attacker / bdfl_avg_honest if bdfl_avg_honest > 0 else 0
-        ours_ratio = ours_avg_attacker / ours_avg_honest if ours_avg_honest > 0 else 0
+        caca_ratio = caca_avg_attacker / caca_avg_honest if caca_avg_honest > 0 else 0
         
         # Consistent logging with simulator.py
-        if round_num % 10 == 0 or "SLASHED" in ours_attack_status:
+        if round_num % 10 == 0 or "SLASHED" in caca_attack_status:
              print(f"Round {round_num}:")
              print(f"  BlockDFL: [{bdfl_attack_status}] | Attacker Stack: {bdfl_avg_attacker:.2f} | Honest Stack: {bdfl_avg_honest:.2f}")
-             print(f"  Ours:     [{ours_attack_status}] | Attacker Stack: {ours_avg_attacker:.2f} | Honest Stack: {ours_avg_honest:.2f}")
+             print(f"  CACA:     [{caca_attack_status}] | Attacker Stack: {caca_avg_attacker:.2f} | Honest Stack: {caca_avg_honest:.2f}")
 
         self.round_history.append(round_num)
         self.bdfl_avg_honest_history.append(bdfl_avg_honest)
         self.bdfl_avg_attacker_history.append(bdfl_avg_attacker)
         self.bdfl_ratio_history.append(bdfl_ratio)
         self.bdfl_status_history.append(bdfl_attack_status)
-        self.ours_avg_honest_history.append(ours_avg_honest)
-        self.ours_avg_attacker_history.append(ours_avg_attacker)
-        self.ours_ratio_history.append(ours_ratio)
-        self.ours_status_history.append(ours_attack_status)
+        self.caca_avg_honest_history.append(caca_avg_honest)
+        self.caca_avg_attacker_history.append(caca_avg_attacker)
+        self.caca_ratio_history.append(caca_ratio)
+        self.caca_status_history.append(caca_attack_status)
         
-        return bdfl_ratio, ours_ratio
+        return bdfl_ratio, caca_ratio
 
 def generate_chart(seed, history, dataset, attack_start, output_file='best_seed_stake_growth.png'):
     rounds = history['round']
@@ -333,8 +333,8 @@ def generate_chart(seed, history, dataset, attack_start, output_file='best_seed_
     plt.subplot(2, 1, 1)
     plt.plot(rounds, history['bdfl_mal_stakes'], label='BlockDFL Attacker Stake', color='red', linewidth=2, linestyle='--')
     plt.plot(rounds, history['bdfl_hon_stakes'], label='BlockDFL Honest Stake', color='blue', linewidth=2, linestyle='--')
-    plt.plot(rounds, history['ours_mal_stakes'], label='Ours Attacker Stake', color='red', linewidth=2, linestyle='-')
-    plt.plot(rounds, history['ours_hon_stakes'], label='Ours Honest Stake', color='blue', linewidth=2, linestyle='-')
+    plt.plot(rounds, history['caca_mal_stakes'], label='CACA Attacker Stake', color='red', linewidth=2, linestyle='-')
+    plt.plot(rounds, history['caca_hon_stakes'], label='CACA Honest Stake', color='blue', linewidth=2, linestyle='-')
     
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     plt.ylabel('Average Stake')
@@ -346,7 +346,7 @@ def generate_chart(seed, history, dataset, attack_start, output_file='best_seed_
     # Bottom chart: BlockDFL red solid, Ours blue solid (Matching visualize.py)
     plt.subplot(2, 1, 2)
     plt.plot(rounds, history['bdfl_ratios'], label='BlockDFL Ratio (Attacker/Honest)', color='red', linewidth=2, linestyle='-')
-    plt.plot(rounds, history['ours_ratios'], label='Ours Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
+    plt.plot(rounds, history['caca_ratios'], label='CACA Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     
     plt.xlabel('Round')
@@ -377,11 +377,11 @@ def main():
         final_ours_ratio = 0
         
         for r in range(1, max_rounds + 1):
-             bdfl_ratio, ours_ratio = sim.step(r)
+             bdfl_ratio, caca_ratio = sim.step(r)
              final_bdfl_ratio = bdfl_ratio
-             final_ours_ratio = ours_ratio
+             final_caca_ratio = caca_ratio
              
-        print(f"Seed {seed}: BlockDFL Ratio = {final_bdfl_ratio:.4f}, Ours Ratio = {final_ours_ratio:.4f}")
+        print(f"Seed {seed}: BlockDFL Ratio = {final_bdfl_ratio:.4f}, CACA Ratio = {final_caca_ratio:.4f}")
         
         # Construct results list in mnist_results.json style
         history_list = []
@@ -389,17 +389,17 @@ def main():
             history_list.append({
                 "round": sim.round_history[i],
                 "blockdfl_attack_status_code": sim.bdfl_status_history[i],
-                "ours_attack_status_code": sim.ours_status_history[i],
+                "caca_attack_status_code": sim.caca_status_history[i],
                 "stack_stats": {
                     "blockdfl": {
                         "avg_honest": sim.bdfl_avg_honest_history[i],
                         "avg_attacker": sim.bdfl_avg_attacker_history[i],
                         "ratio": sim.bdfl_ratio_history[i]
                     },
-                    "ours": {
-                        "avg_honest": sim.ours_avg_honest_history[i],
-                        "avg_attacker": sim.ours_avg_attacker_history[i],
-                        "ratio": sim.ours_ratio_history[i]
+                    "caca": {
+                        "avg_honest": sim.caca_avg_honest_history[i],
+                        "avg_attacker": sim.caca_avg_attacker_history[i],
+                        "ratio": sim.caca_ratio_history[i]
                     }
                 }
             })
@@ -413,9 +413,9 @@ def main():
                 'bdfl_mal_stakes': sim.bdfl_avg_attacker_history,
                 'bdfl_hon_stakes': sim.bdfl_avg_honest_history,
                 'bdfl_ratios': sim.bdfl_ratio_history,
-                'ours_mal_stakes': sim.ours_avg_attacker_history,
-                'ours_hon_stakes': sim.ours_avg_honest_history,
-                'ours_ratios': sim.ours_ratio_history
+                'caca_mal_stakes': sim.caca_avg_attacker_history,
+                'caca_hon_stakes': sim.caca_avg_honest_history,
+                'caca_ratios': sim.caca_ratio_history
             }
         
         results.append({
@@ -424,7 +424,7 @@ def main():
             'total_rounds': max_rounds,
             'attack_start_round': sim.config['attack_start_round'],
             'blockdfl_final_ratio': final_bdfl_ratio,
-            'ours_final_ratio': final_ours_ratio,
+            'caca_final_ratio': final_caca_ratio,
             'results': history_list
         })
             

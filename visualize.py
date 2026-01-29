@@ -4,6 +4,17 @@ import os
 import argparse
 import numpy as np
 
+# Set global font sizes for better visibility
+plt.rcParams.update({
+    'font.size': 14,          # General font size
+    'axes.titlesize': 18,     # Title font size
+    'axes.labelsize': 16,     # X/Y label font size
+    'xtick.labelsize': 14,    # X tick label font size
+    'ytick.labelsize': 14,    # Y tick label font size
+    'legend.fontsize': 14,    # Legend font size
+    'figure.titlesize': 20    # Figure title font size
+})
+
 def plot_convergence(results_file, output_file):
     with open(results_file, 'r') as f:
         data = json.load(f)
@@ -14,11 +25,11 @@ def plot_convergence(results_file, output_file):
     
     rounds = [r['round'] for r in results]
     blockdfl_acc = [r['blockdfl_accuracy'] for r in results]
-    ours_acc = [r['ours_accuracy'] for r in results]
+    caca_acc = [r['caca_accuracy'] for r in results]
     
     plt.figure(figsize=(10, 6), dpi=300)
     plt.plot(rounds, blockdfl_acc, 'r-', label='BlockDFL', linewidth=2)
-    plt.plot(rounds, ours_acc, 'b-', label='Ours', linewidth=2)
+    plt.plot(rounds, caca_acc, 'b-', label='CACA', linewidth=2)
     
     # Add vertical line at attack start
     # plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
@@ -55,7 +66,7 @@ def plot_comparison(results_file, output_file):
     
     labels = ['Before Attack', 'After Attack']
     blockdfl_vals = [pre_attack_res['blockdfl_accuracy'], final_res['blockdfl_accuracy']]
-    ours_vals = [pre_attack_res['ours_accuracy'], final_res['ours_accuracy']]
+    caca_vals = [pre_attack_res['caca_accuracy'], final_res['caca_accuracy']]
     
     x = np.arange(len(labels))
     width = 0.35
@@ -64,7 +75,7 @@ def plot_comparison(results_file, output_file):
     
     plt.figure(figsize=(8, 6), dpi=300)
     plt.bar(x - width/2, blockdfl_vals, width, label='BlockDFL', color='red', alpha=0.7)
-    plt.bar(x + width/2, ours_vals, width, label='Ours', color='blue', alpha=0.7)
+    plt.bar(x + width/2, caca_vals, width, label='CACA', color='blue', alpha=0.7)
     
     plt.ylabel('Test Accuracy')
     plt.title(f'{dataset}: Accuracy Comparison (Before vs After Attack)')
@@ -75,7 +86,7 @@ def plot_comparison(results_file, output_file):
     # Add value labels
     for i, v in enumerate(blockdfl_vals):
         plt.text(i - width/2, v + 0.01, f'{v:.2%}', ha='center')
-    for i, v in enumerate(ours_vals):
+    for i, v in enumerate(caca_vals):
         plt.text(i + width/2, v + 0.01, f'{v:.2%}', ha='center')
         
     plt.tight_layout()
@@ -96,13 +107,13 @@ def plot_stack_evolution(results_file, output_file):
     bdfl_honest = [r['stack_stats']['blockdfl']['avg_honest'] for r in results]
     bdfl_attacker = [r['stack_stats']['blockdfl']['avg_attacker'] for r in results]
     
-    # Ours Data
-    ours_honest = [r['stack_stats']['ours']['avg_honest'] for r in results]
-    ours_attacker = [r['stack_stats']['ours']['avg_attacker'] for r in results]
+    # CACA Data
+    caca_honest = [r['stack_stats']['caca']['avg_honest'] for r in results]
+    caca_attacker = [r['stack_stats']['caca']['avg_attacker'] for r in results]
     
     # Calculate ratios
     bdfl_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(bdfl_attacker, bdfl_honest)]
-    ours_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(ours_attacker, ours_honest)]
+    caca_ratios = [att / hon if hon > 0 else 0 for att, hon in zip(caca_attacker, caca_honest)]
     
     dataset = data.get('dataset', 'Unknown')
     
@@ -113,8 +124,8 @@ def plot_stack_evolution(results_file, output_file):
     plt.subplot(2, 1, 1)
     plt.plot(rounds, bdfl_attacker, label='BlockDFL Attacker Stake', color='red', linewidth=2, linestyle='--')
     plt.plot(rounds, bdfl_honest, label='BlockDFL Honest Stake', color='blue', linewidth=2, linestyle='--')
-    plt.plot(rounds, ours_attacker, label='Ours Attacker Stake', color='red', linewidth=2, linestyle='-')
-    plt.plot(rounds, ours_honest, label='Ours Honest Stake', color='blue', linewidth=2, linestyle='-')
+    plt.plot(rounds, caca_attacker, label='CACA Attacker Stake', color='red', linewidth=2, linestyle='-')
+    plt.plot(rounds, caca_honest, label='CACA Honest Stake', color='blue', linewidth=2, linestyle='-')
     
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     plt.ylabel('Average Stake')
@@ -125,7 +136,7 @@ def plot_stack_evolution(results_file, output_file):
     # Bottom subplot: Ratios (2 lines)
     plt.subplot(2, 1, 2)
     plt.plot(rounds, bdfl_ratios, label='BlockDFL Ratio (Attacker/Honest)', color='red', linewidth=2, linestyle='-')
-    plt.plot(rounds, ours_ratios, label='Ours Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
+    plt.plot(rounds, caca_ratios, label='CACA Ratio (Attacker/Honest)', color='blue', linewidth=2, linestyle='-')
     plt.axvline(x=attack_start, color='gray', linestyle=':', alpha=0.8)
     
     plt.xlabel('Round')

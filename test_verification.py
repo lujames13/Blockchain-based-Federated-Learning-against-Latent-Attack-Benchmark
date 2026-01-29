@@ -35,7 +35,7 @@ try:
     for r in sim.results['results']:
         print(f"Round {r['round']}:")
         print(f"  BlockDFL: {r['blockdfl_attack_status_code']}")
-        print(f"  Ours:     {r['ours_attack_status_code']}")
+        print(f"  CACA:     {r['caca_attack_status_code']}")
         
     print()
     print("✓ All tests passed!")
